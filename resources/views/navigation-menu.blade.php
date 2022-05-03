@@ -16,12 +16,12 @@
                     <x-jet-nav-link href="{{ url('/') }}" :active="request()->is('/')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ url('trackingtime') }}" :active="request()->is('trackingtime')">
-                        {{ __('Tracking Time') }}
+                    <x-jet-nav-link href="{{ url('bookings') }}" :active="request()->is('bookings')">
+                        {{ __('Bookings') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ url('projects') }}" :active="request()->is('projects')">
+                    {{-- <x-jet-nav-link href="{{ url('projects') }}" :active="request()->is('projects')">
                         {{ __('Time Report') }}
-                    </x-jet-nav-link>
+                    </x-jet-nav-link> --}}
 
                     {{-- <x-jet-nav-link href="{{ url('users') }}" :active="request()->is('users')">
                         {{ __('Users') }}

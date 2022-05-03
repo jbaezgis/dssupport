@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\User;
-// use App\Http\Livewire\Projects;
-// use App\Http\Livewire\ShowProject;
+use App\Http\Livewire\Bookings;
+use App\Http\Livewire\Dashboard;
 // use App\Http\Livewire\ShowTask;
 // use App\Http\Livewire\Tasks;
 // use App\Http\Livewire\TrackingTime;
@@ -22,10 +22,11 @@ use App\Http\Controllers\User;
 |
 */
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/', [HomeController::class, 'home'])->name('home');
+// Route::middleware(['auth:sanctum', 'verified'])->get('/', [HomeController::class, 'home'])->name('home');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-    // Route::get('/projects', Projects::class);
+    Route::get('/', Dashboard::class);
+    Route::get('/bookings', Bookings::class);
     // Route::get('/trackingtime', TrackingTime::class);
     // Route::get('/project/{id}', ShowProject::class);
     // Route::get('/project-status', ProjectStatuses::class);

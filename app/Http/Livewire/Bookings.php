@@ -14,7 +14,13 @@ class Bookings extends Component
 
     protected $queryString = [
         'order' => ['except' => ''],
-        'name' => ['except' => '']
+        'name' => ['except' => ''],
+        'email' => ['except' => ''],
+        'from' => ['except' => ''],
+        'to' => ['except' => ''],
+        'arrivalDate' => ['except' => ''],
+        'fromDate' => ['except' => ''],
+        'toDate' => ['except' => '']
     ];
 
     // public $bookings;
@@ -23,12 +29,14 @@ class Bookings extends Component
     public $email = '';
     public $from = '';
     public $to = '';
-    public $bookingDate = '';
+    public $arrivalDate = '';
+    public $fromDate = '';
+    public $toDate = '';
 
     public function render()
     {
         return view('livewire.bookings', [
-            'bookings' => Booking::where('id', 'LIKE', "%{$this->order}%")->where('fullname', 'LIKE', "%{$this->name}%")->latest()->paginate(15),
+            'bookings' => Booking::where('id', 'LIKE', "%{$this->order}%")->where('fullname', 'LIKE', "%{$this->name}%")->where('arrival_date', 'LIKE', "%{$this->arrivalDate}%")->latest()->paginate(10),
         ]);
     }
 }

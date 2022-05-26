@@ -10,6 +10,7 @@ class ShowBooking extends Component
 {
     public $booking, $booking_name, $id_task, $tasks, $booking_id, $user_id, $name, $details, $status_id;
     public $modal = false;
+    public $priceCalculation = '';
 
     public function mount($id)
     {
@@ -18,7 +19,6 @@ class ShowBooking extends Component
 
     public function render()
     {
-        // $this->tasks = Comment::where('booking_id', $this->booking->id)->get();
         return view('livewire.show-booking');
     }
 

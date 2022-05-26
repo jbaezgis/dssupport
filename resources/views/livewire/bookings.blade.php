@@ -28,12 +28,35 @@
 
         {{-- Counts --}}
         
-        
+        {{-- @foreach ($locations as $item)
+            ['name' => '{{ $item->location_name }}',  'id' => '{{ $item->id }}'],
+        @endforeach --}}
+
         <div class="py-4 mb-2">
             <div class="flex gap-4">
                 <x-input label="Order ID" wire:model="order" placeholder="Order ID" />
                 <x-input label="Name" wire:model="name" placeholder="Name" />
                 <x-input label="Email" wire:model="email" placeholder="Email" />
+
+                {{-- <x-select
+                    label="From Location"
+                    placeholder="Select From"
+                    :options="[
+                       
+                            ['name' => 'Prueba',  'id' => 1],
+                            ['name' => 'Prueba',  'id' => 2],
+                            ['name' => 'Prueba',  'id' => 3],
+                            ['name' => 'Prueba',  'id' => 4],
+                            ['name' => 'Prueba',  'id' => 5],
+                            ['name' => 'Prueba',  'id' => 6],
+                            ['name' => 'Prueba',  'id' => 7],
+                            ['name' => 'Prueba',  'id' => 8],
+                        
+                    ]"
+                    option-label="name"
+                    option-value="id"
+                    wire:model.defer="model"
+                /> --}}
                 {{-- <x-datetime-picker
                     label="{{ __('Arrival Date') }}"
                     placeholder="{{ __('Arrival Date') }}"
@@ -48,24 +71,24 @@
             </div>
         </div>
 
-        <div class="flex gap-4 py-4">
-            <div class="text-center bg-white shadow-sm py-4 px-6 rounded">
+        <div class="flex gap-4 py-2">
+            <div class="text-center bg-white shadow-sm py-2 px-6 rounded">
                 <p>{{ __('All Bookings') }}</p>
                 <h2 class="text-xl font-bold">{{ $bookingsCount }}</h2>
             </div>
 
-            <div class="text-center bg-white shadow-sm py-4 px-6  rounded">
+            <div class="text-center bg-white shadow-sm py-2 px-6  rounded">
                 <p>{{ __('Peding') }}</p>
                 <h2 class="text-xl font-bold">{{ $pendingCount }}</h2>
             </div>
 
-            <div class="text-center bg-white shadow-sm py-4 px-6  rounded">
+            <div class="text-center bg-white shadow-sm py-2 px-6  rounded">
                 <p>{{ __('Paid') }}</p>
                 <h2 class="text-xl font-bold">{{ $paidCount }}</h2>
             </div>
         </div>
 
-        <div class="py-4 flex">
+        <div class="pt-4 pb-2 flex">
             <x-select
                 label="Per page"
                 {{-- placeholder="Select one status" --}}
@@ -75,9 +98,9 @@
             <div></div>
         </div>
 
-        <div class="py-4">
+        {{-- <div class="py-4">
             Showing {{ $bookings->firstItem() }} to {{ $bookings->lastItem() }} of {{ $bookings->total() }} results 
-        </div>
+        </div> --}}
 
         @foreach ($bookings as $booking)
             <div class="bg-white border-b border-gray-200 rounded shadow mb-4">
@@ -90,17 +113,17 @@
                             </div>
                         </div>
                         <div>
-                            <div class="text-xs text-gray-500">TYPE</div>
+                            <div class="text-xs text-gray-500">BOOKING TYPE</div>
                             <div>
                                 {{ $booking->bookingtype }}
                             </div>
                         </div>
-                        {{-- <div>
-                            <div class="text-xs text-gray-500">BOOKED</div>
+                        <div>
+                            <div class="text-xs text-gray-500">TYPE</div>
                             <div>
-                                5 monts ago
+                                {{ $booking->type }}
                             </div>
-                        </div> --}}
+                        </div>
 
                         <div>
                             <div class="text-xs text-gray-500">{{ __('FROM') }}</div>
@@ -116,7 +139,7 @@
                         </div>
                         
                     </div>
-                    <div class="flex gap-4 mb-2 border-b border-gray-100 py-2">
+                    {{-- <div class="flex gap-4 mb-2 border-b border-gray-100 py-2">
                         <div>
                             <div class="text-xs text-gray-500">{{ __('ARRIVAL DATE') }}</div>
                             <div>
@@ -135,7 +158,7 @@
                             2 
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
                     <div>
                         <h4 class="text-gray-500">{{ __('CLIENT DETAILS') }}</h4>

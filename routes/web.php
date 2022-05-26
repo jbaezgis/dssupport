@@ -6,7 +6,7 @@ use App\Http\Controllers\User;
 use App\Http\Livewire\Bookings;
 use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\ShowBooking;
-// use App\Http\Livewire\Tasks;
+use App\Http\Livewire\Home;
 // use App\Http\Livewire\TrackingTime;
 // use App\Http\Livewire\ProjectStatuses;
 // use App\Http\Livewire\TaskStatuses;
@@ -23,6 +23,7 @@ use App\Http\Livewire\ShowBooking;
 */
 
 // Route::middleware(['auth:sanctum', 'verified'])->get('/', [HomeController::class, 'home'])->name('home');
+// Route::get('/', Home::class);
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/', Dashboard::class);

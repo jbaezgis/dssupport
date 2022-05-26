@@ -6,6 +6,7 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use WireUi\Traits\Actions;
 use App\Models\Booking;
+use App\Models\Location;
 use Carbon\Carbon;
 
 class Bookings extends Component
@@ -40,11 +41,13 @@ class Bookings extends Component
     public $pending = '';
     public $paid = '';
     public $perPage = 15;
+    public $locations = '';
 
     public function render()
     {
         $today = Carbon::today();
-        
+        $this->locations = Location::get();
+
         if (!empty($this->fromDate and $this->toDate))
         {
             $this->bookingsCount = Booking::where('id', 'LIKE', "%{$this->order}%")->where('fullname', 'LIKE', "%{$this->name}%")->where('email', 'LIKE', "%{$this->email}%")->whereBetween('arrival_date', [$this->fromDate, $this->toDate])->count();
@@ -60,6 +63,14 @@ class Bookings extends Component
             $this->paidCount = Booking::where('id', 'LIKE', "%{$this->order}%")->where('fullname', 'LIKE', "%{$this->name}%")->where('email', 'LIKE', "%{$this->email}%")->whereBetween('arrival_date', [$this->fromDate, $today])->where('status', 'paid')->count();
             $this->fromDate2 = $this->fromDate;
             $this->toDate2 = $today;
+
+        }elseif(!empty($this->toDate))
+        {
+            $this->fromDate2 = date('Y-m-d', strtotime(Booking::min('arrival_date')));
+            $this->toDate2 = $this->toDate;
+            $this->bookingsCount = Booking::where('id', 'LIKE', "%{$this->order}%")->where('fullname', 'LIKE', "%{$this->name}%")->where('email', 'LIKE', "%{$this->email}%")->whereBetween('arrival_date', [$this->fromDate2, $this->toDate2])->count();
+            $this->pendingCount = Booking::where('id', 'LIKE', "%{$this->order}%")->where('fullname', 'LIKE', "%{$this->name}%")->where('email', 'LIKE', "%{$this->email}%")->whereBetween('arrival_date', [$this->fromDate2, $this->toDate2])->where('status', 'pending')->count();
+            $this->paidCount = Booking::where('id', 'LIKE', "%{$this->order}%")->where('fullname', 'LIKE', "%{$this->name}%")->where('email', 'LIKE', "%{$this->email}%")->whereBetween('arrival_date', [$this->fromDate2, $this->toDate2])->where('status', 'paid')->count();
 
         }else {
             $this->bookingsCount = Booking::where('id', 'LIKE', "%{$this->order}%")->where('fullname', 'LIKE', "%{$this->name}%")->where('email', 'LIKE', "%{$this->email}%")->count();

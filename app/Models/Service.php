@@ -47,15 +47,15 @@ class Service extends Model{
 		return $this->hasMany('App\Models\FerryShuttleHotel');
 	}
 	
-	public function getPriceFirstPersonAttribute($value){
-		$site = new SiteRepository();
-		$currentSite = $site->getCurrentSite();
-   		if ($currentSite->is_agent == 1){
-			$percent = $value * ($currentSite->percent / 100);
-			$value += 30;//$percent;
-			$value = round($value);
-		}
-    	return number_format($value, 2,'.',',');
-   }
+// 	public function getPriceFirstPersonAttribute($value){
+// 		$site = new SiteRepository();
+// 		$currentSite = $site->getCurrentSite();
+//    		if ($currentSite->is_agent == 1){
+// 			$percent = $value * ($currentSite->percent / 100);
+// 			$value += 30;//$percent;
+// 			$value = round($value);
+// 		}
+//     	return number_format($value, 2,'.',',');
+//    }
 
 }

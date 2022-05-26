@@ -13,19 +13,25 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ url('/') }}" :active="request()->is('/')">
-                        {{ __('Dashboard') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ url('bookings') }}" :active="request()->is('bookings')">
-                        {{ __('Bookings') }}
-                    </x-jet-nav-link>
-                    {{-- <x-jet-nav-link href="{{ url('projects') }}" :active="request()->is('projects')">
-                        {{ __('Time Report') }}
+                    {{-- <x-jet-nav-link href="{{ url('/') }}" :active="request()->is('/')">
+                        {{ __('Home') }}
                     </x-jet-nav-link> --}}
+                    
+                    @auth
+                        <x-jet-nav-link href="{{ url('/dashboard') }}" :active="request()->is('dashboard')">
+                            {{ __('Dashboard') }}
+                        </x-jet-nav-link>
+                        <x-jet-nav-link href="{{ url('bookings') }}" :active="request()->is('bookings')">
+                            {{ __('Bookings') }}
+                        </x-jet-nav-link>
+                        {{-- <x-jet-nav-link href="{{ url('projects') }}" :active="request()->is('projects')">
+                            {{ __('Time Report') }}
+                        </x-jet-nav-link> --}}
 
-                    {{-- <x-jet-nav-link href="{{ url('users') }}" :active="request()->is('users')">
-                        {{ __('Users') }}
-                    </x-jet-nav-link> --}}
+                        {{-- <x-jet-nav-link href="{{ url('users') }}" :active="request()->is('users')">
+                            {{ __('Users') }}
+                        </x-jet-nav-link> --}}
+                    @endauth
                 </div>
             </div>
 
@@ -52,7 +58,7 @@
                                     <div class="block px-4 py-2 text-xs text-gray-400">
                                         {{ __('Manage Team') }}
                                     </div>
-
+                                    
                                     <!-- Team Settings -->
                                     <x-jet-dropdown-link href="{{ route('teams.show', Auth::user()->currentTeam->id) }}">
                                         {{ __('Team Settings') }}

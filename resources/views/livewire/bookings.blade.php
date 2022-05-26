@@ -190,7 +190,7 @@
                 <div class="bg-gray-100 px-4 py-2"> 
                     <div class="flex gap-4">
                         <div>
-                            <a class="inline-flex items-center px-4 py-2 bg-gray-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-400 active:bg-gray-600 focus:outline-none focus:border-gray-600 focus:ring focus:ring-gray-300 disabled:opacity-25 transition" href="{{ url('booking/'.$booking->id) }}" target="_blank">Open</a>
+                            <a class="inline-flex items-center px-4 py-2 bg-gray-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-400 active:bg-gray-600 focus:outline-none focus:border-gray-600 focus:ring focus:ring-gray-300 disabled:opacity-25 transition" href="{{ url('booking/'.$booking->id) }}">Open</a>
                         </div>
                         
                         <div class="text-gray-500 align-middle py-2">

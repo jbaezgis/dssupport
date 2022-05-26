@@ -18,7 +18,7 @@
                     </x-jet-nav-link> --}}
                     
                     @auth
-                        <x-jet-nav-link href="{{ url('/dashboard') }}" :active="request()->is('dashboard')">
+                        <x-jet-nav-link href="{{ url('/') }}" :active="request()->is('/')">
                             {{ __('Dashboard') }}
                         </x-jet-nav-link>
                         <x-jet-nav-link href="{{ url('bookings') }}" :active="request()->is('bookings')">

@@ -24,9 +24,9 @@
                         <x-jet-nav-link href="{{ url('bookings') }}" :active="request()->is('bookings')">
                             {{ __('Bookings') }}
                         </x-jet-nav-link>
-                        {{-- <x-jet-nav-link href="{{ url('projects') }}" :active="request()->is('projects')">
-                            {{ __('Time Report') }}
-                        </x-jet-nav-link> --}}
+                        <x-jet-nav-link href="{{ url('home') }}" :active="request()->is('home')">
+                            {{ __('Mobile') }}
+                        </x-jet-nav-link>
 
                         {{-- <x-jet-nav-link href="{{ url('users') }}" :active="request()->is('users')">
                             {{ __('Users') }}

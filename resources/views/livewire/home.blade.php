@@ -1,16 +1,65 @@
 <div>
-    {{-- <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 ">
-        <div class="px-4 sm:px-6 md:px-8 mb-12 sm:mb-16 md:mb-20 border-t pt-6">
-            <h2 class="sm:text-lg sm:leading-snug font-semibold tracking-wide uppercase text-purple-600">HERRAMIENTAS</h2>
-            <p class="text-3xl sm:text-5xl lg:text-6xl leading-none font-extrabold text-gray-900 tracking-tight">
-                Carpinteria
-            </p>
-            <p class="max-w-4xl text-lg sm:text-2xl font-medium sm:leading-10 space-y-6 mb-6">
-                Aquí he colocado las herramientas más esenciales para iniciarte en la carpintería.
-            </p>
-            <a class="inline-flex text-lg sm:text-2xl font-medium transition-colors duration-200 focus:ring-2 focus:ring-offset-2 focus:ring-current focus:outline-none rounded-md text-purple-600 hover:text-purple-800"
-                href="/docs/utility-first">Ver todas las herramientas -&gt;
-            </a>
+    <div class="max-w-3xl mx-auto py-4">
+        <div class="mb-4 bg-white p-4 shadow rounded">
+            <div class="mb-4">
+                <x-select
+                    label="FROM - PICK UP LOCATION"
+                    placeholder="Select from location"
+                    wire:model="fromLocation"
+                >
+                    @foreach ($locAlias as $item)
+                        <x-select.option label="{{ $item->location_name }}" value="{{ $item->location_id }}" />
+                    @endforeach
+                   
+                </x-select>
+            </div>
+
+            <div class="">
+                <x-select
+                    label="TO - DROP OFF LOCATION"
+                    placeholder="Select to location"
+                    wire:model="toLocation"
+                >
+                    @foreach ($locAlias as $item)
+                        <x-select.option label="{{ $item->location_name }}" value="{{ $item->location_id }}" />
+                    @endforeach
+                   
+                </x-select>
+            </div>
+
         </div>
-    </div> --}}
+
+        <div class="bg-white p-4 shadow">
+            <div class="w-custom mx-auto pt-4 pb-6 flex justify-center items-end gap-4 px-4">
+                <label class="w-48 ">
+                    <div class="bg-white rounded-lg px-4 py-2 border border-gray-200 hover:bg-blue-50 focus:shadow-blue-400 hover:border-blue-600 peer-checked:bg-blue-200 mb-8">
+        
+                        <x-icon name="arrow-narrow-right" class="w-5 h-5" />
+                        <div class="flex justify-between items-center mb-3">
+                            <h1 class="uppercase text-base tracking-wide text-gray-600">{{ __('One Way') }}</h1>
+                            <input class="peer" type="radio" name="test" value="small" checked>
+                        </div>
+                    </div>
+                    {{-- <div class="text-2xl">$250</div> --}}
+                </label>
+        
+                <label class="w-48 bg-white shadow-lg px-4 py-2 border border-gray-200 hover:bg-blue-50 focus:shadow-blue-400 hover:border-blue-600 mb-8">
+                    <x-icon name="switch-horizontal" class="w-5 h-5" />
+                    <div class="flex justify-between items-center mb-3">
+                        <h1 class="uppercase text-base tracking-wide text-gray-600">{{ __('Round Trip') }}</h1>
+                        <input class="peer" type="radio" name="test" value="small">
+                    </div>
+                    {{-- <div class="text-2xl">$500</div> --}}
+                </label>
+            </div>
+            
+            @foreach ($services as $item)
+                <div>
+                    {{ $item->fromlocation->location_name }}
+                </div>
+            @endforeach
+        </div>
+    </div>
+
+    {{-- <h1>Testing</h1> --}}
 </div>

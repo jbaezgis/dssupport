@@ -29,7 +29,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/', Dashboard::class);
     Route::get('/bookings', Bookings::class);
     Route::get('/booking/{id}', ShowBooking::class);
-    // Route::get('/trackingtime', TrackingTime::class);
+    Route::get('/home', Home::class);
     // Route::get('/project/{id}', ShowProject::class);
     // Route::get('/project-status', ProjectStatuses::class);
     // Route::get('/tasks', Tasks::class);

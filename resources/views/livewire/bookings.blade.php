@@ -38,32 +38,35 @@
                 <x-input label="Name" wire:model="name" placeholder="Name" />
                 <x-input label="Email" wire:model="email" placeholder="Email" />
 
-                {{-- <x-select
-                    label="From Location"
-                    placeholder="Select From"
-                    :options="[
+                <div class="flex-1 w-64">
+                    <x-select
+                        label="From Location"
+                        placeholder="Select from location"
+                        wire:model="fromLocation"
+                    >
+                        @foreach ($locations as $item)
+                            <x-select.option label="{{ $item->location_name }}" value="{{ $item->location_name }}" />
+                        @endforeach
                        
-                            ['name' => 'Prueba',  'id' => 1],
-                            ['name' => 'Prueba',  'id' => 2],
-                            ['name' => 'Prueba',  'id' => 3],
-                            ['name' => 'Prueba',  'id' => 4],
-                            ['name' => 'Prueba',  'id' => 5],
-                            ['name' => 'Prueba',  'id' => 6],
-                            ['name' => 'Prueba',  'id' => 7],
-                            ['name' => 'Prueba',  'id' => 8],
-                        
-                    ]"
-                    option-label="name"
-                    option-value="id"
-                    wire:model.defer="model"
-                /> --}}
-                {{-- <x-datetime-picker
-                    label="{{ __('Arrival Date') }}"
-                    placeholder="{{ __('Arrival Date') }}"
-                    wire:model="arrivalDate"
-                    without-time="true"
-                    parse-format="YYYY-MM-DD"
-                /> --}}
+                    </x-select>
+                </div>
+
+                <div class="flex-1 w-64">
+                    <x-select
+                        label="To Location"
+                        placeholder="Select to location"
+                        wire:model="toLocation"
+                    >
+                        @foreach ($locations as $item)
+                            <x-select.option label="{{ $item->location_name }}" value="{{ $item->location_name }}" />
+                        @endforeach
+                       
+                    </x-select>
+                </div>
+
+                <div class="pt-7">
+                    <x-button secondary wire:click="cleanFields" icon="x" />
+                </div>
 {{-- 
                 <input wire:model="order" class="focus:rwing-2 focus:ring-blue-500 focus:outline-none appearance-none w-full text-sm leading-6 text-slate-900 placeholder-slate-400 rounded-md py-2 pl-10 ring-1 ring-slate-200 shadow-sm mb-2" type="number" aria-label="Filter projects" placeholder="Order">
                 <input wire:model="email" class="focus:rwing-2 focus:ring-blue-500 focus:outline-none appearance-none w-full text-sm leading-6 text-slate-900 placeholder-slate-400 rounded-md py-2 pl-10 ring-1 ring-slate-200 shadow-sm mb-2" type="text" placeholder="Email">

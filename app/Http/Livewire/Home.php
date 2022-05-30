@@ -24,7 +24,7 @@ class Home extends Component
     public $toLocation = '';
     public $services = '';
     public $locAlias = '';
-    public $type = '';
+    public $type = 'oneway';
     
     public function render()
     {

@@ -31,6 +31,17 @@
 
         @if($services->count())
             <div class="bg-white p-4 shadow">
+                <div class="flex justify-center mb-2">
+                    <div wire:loading>
+                        <div class="">
+                            <img class="mx-auto h-5 w-5 animate-spin" src="{{ asset('images/spiner.png') }}" alt="">
+                        </div>
+                        <div class="text-sm text-gray-500">
+                            {{ __('Processing') }}...
+                        </div>
+                    </div>
+                </div>
+
                 <div class="w-custom mx-auto flex justify-center items-end gap-4 px-4">
                     <label class="w-48 ">
                         <div class="bg-white rounded-lg px-4 py-2 border border-gray-200 hover:bg-blue-50 focus:shadow-blue-400 hover:border-blue-600 peer-checked:bg-blue-200 mb-8">
@@ -85,7 +96,7 @@
                             <div class="text-sm text-gray-500 text-center">{{ __('DRIVING TIME') }}</div>
                             {{-- {{formatDrivingTime($item->driving_time)}} --}}
                             <div class="text-xl font-bold text-center">
-                                {{ date('H:i', mktime(0,$item->driving_time_minutes)) }}
+                                {{ date('H \h i \m\i\n', mktime(0,$item->driving_time_minutes)) }}
                             </div>
                         </div>
                         <div ></div>

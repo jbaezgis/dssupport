@@ -1103,10 +1103,6 @@ select{
   grid-column: span 6 / span 6;
 }
 
-.col-span-3{
-  grid-column: span 3 / span 3;
-}
-
 .col-span-2{
   grid-column: span 2 / span 2;
 }
@@ -1692,10 +1688,6 @@ select{
   grid-template-columns: repeat(7, minmax(0, 1fr));
 }
 
-.grid-cols-4{
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
 .grid-cols-2{
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
@@ -1959,12 +1951,12 @@ select{
   border-bottom-width: 1px;
 }
 
-.border-l{
-  border-left-width: 1px;
-}
-
 .border-t-2{
   border-top-width: 2px;
+}
+
+.border-l{
+  border-left-width: 1px;
 }
 
 .border-r{
@@ -2153,11 +2145,6 @@ select{
   background-color: rgb(37 99 235 / var(--tw-bg-opacity));
 }
 
-.bg-yellow-600{
-  --tw-bg-opacity: 1;
-  background-color: rgb(217 119 6 / var(--tw-bg-opacity));
-}
-
 .bg-blue-500{
   --tw-bg-opacity: 1;
   background-color: rgb(59 130 246 / var(--tw-bg-opacity));
@@ -2206,6 +2193,11 @@ select{
 .bg-blue-100{
   --tw-bg-opacity: 1;
   background-color: rgb(219 234 254 / var(--tw-bg-opacity));
+}
+
+.bg-yellow-600{
+  --tw-bg-opacity: 1;
+  background-color: rgb(217 119 6 / var(--tw-bg-opacity));
 }
 
 .bg-transparent{
@@ -2276,6 +2268,16 @@ select{
 .object-cover{
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.object-none{
+  -o-object-fit: none;
+     object-fit: none;
+}
+
+.object-center{
+  -o-object-position: center;
+     object-position: center;
 }
 
 .p-2{
@@ -2504,10 +2506,6 @@ select{
 
 .pl-4{
   padding-left: 1rem;
-}
-
-.pb-6{
-  padding-bottom: 1.5rem;
 }
 
 .pt-0\.5{
@@ -2814,6 +2812,11 @@ select{
   color: rgb(239 68 68 / var(--tw-text-opacity));
 }
 
+.text-blue-600{
+  --tw-text-opacity: 1;
+  color: rgb(37 99 235 / var(--tw-text-opacity));
+}
+
 .text-secondary-900{
   --tw-text-opacity: 1;
   color: rgb(17 24 39 / var(--tw-text-opacity));
@@ -2847,11 +2850,6 @@ select{
 .text-secondary-300{
   --tw-text-opacity: 1;
   color: rgb(209 213 219 / var(--tw-text-opacity));
-}
-
-.text-blue-600{
-  --tw-text-opacity: 1;
-  color: rgb(37 99 235 / var(--tw-text-opacity));
 }
 
 .text-purple-600{

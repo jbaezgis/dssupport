@@ -29,18 +29,19 @@
 
         </div>
 
+        <div class="flex justify-center mb-2">
+            <div wire:loading>
+                <div class="">
+                    <img class="mx-auto h-5 w-5 animate-spin" src="{{ asset('images/spiner.png') }}" alt="">
+                </div>
+                <div class="text-sm text-gray-500">
+                    {{ __('Processing') }}...
+                </div>
+            </div>
+        </div>
+        
         @if($services->count())
             <div class="bg-white p-4 shadow">
-                <div class="flex justify-center mb-2">
-                    <div wire:loading>
-                        <div class="">
-                            <img class="mx-auto h-5 w-5 animate-spin" src="{{ asset('images/spiner.png') }}" alt="">
-                        </div>
-                        <div class="text-sm text-gray-500">
-                            {{ __('Processing') }}...
-                        </div>
-                    </div>
-                </div>
 
                 <div class="w-custom mx-auto flex justify-center items-end gap-4 px-4">
                     <label class="w-48 ">

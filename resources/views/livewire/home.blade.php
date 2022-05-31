@@ -98,7 +98,7 @@
             <div class="px-2">
                 @foreach ($servicePrices as $item)
                     <div class="bg-white shadow-lg mt-4">
-                        <div class="pt-4 flex justify-center">
+                        {{-- <div class="pt-4 flex justify-center">
                             <div class="">
                                 <div class="flex">
                                     <div class="text-blue-600 p-2">
@@ -121,7 +121,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="flex justify-center gap-6 py-4">
                             <div class="text-center">

@@ -98,7 +98,7 @@
                         <div class="flex justify-center gap-6 py-4">
                             <div class="text-center">
                                 <div class="text-sm text-gray-500">{{ __('VEHICLE SIZE') }}</div>
-                                <div class="text-xl">
+                                <div class="">
                                     {{ $item->priceOption->name }}
                                 </div>
                             </div>
@@ -106,7 +106,7 @@
                             <div class="text-center">
                                 <div class="text-sm text-gray-500">{{ __('DRIVING TIME') }}</div>
                                 {{-- {{formatDrivingTime($item->driving_time)}} --}}
-                                <div class="text-xl ">
+                                <div class="">
                                     @if ($service->driving_time_minutes < 60)
                                         {{date('i'.' \m\i\n\s', mktime(0,$service->driving_time_minutes))}}
                                     @elseif ($service->driving_time_minutes < 120)
@@ -132,13 +132,13 @@
                             </div>
                             <div class="flex justify-center gap-4">
                                 <a 
-                                    class="inline-flex items-center px-4 py-2 bg-blue-500 border border-transparent rounded-md font-semibold text-white tracking-widest hover:bg-blue-400 active:bg-blue-600 focus:outline-none focus:border-blue-600 focus:ring focus:ring-blue-300 disabled:opacity-25 transition" 
+                                    class="inline-flex items-center px-4 py-2 bg-blue-500 border border-transparent rounded-md text-xs text-white tracking-widest hover:bg-blue-400 active:bg-blue-600 focus:outline-none focus:border-blue-600 focus:ring focus:ring-blue-300 disabled:opacity-25 transition" 
                                     href="{{url('request-ground-transfer-service?service='.$service->id.'&way=oneway&aFrom='.$fromLocation.'&aTo='.$toLocation)}}">
                                     {{ __('One Way') }} ${{ $item->oneway_price }}
                                 </a>
     
                                 <a 
-                                    class="inline-flex items-center px-4 py-2 bg-green-500 border border-transparent rounded-md font-semibold text-white tracking-widest hover:bg-green-400 active:bg-green-600 focus:outline-none focus:border-green-600 focus:ring focus:ring-green-300 disabled:opacity-25 transition" 
+                                    class="inline-flex items-center px-4 py-2 bg-green-500 border border-transparent rounded-md text-xs text-white tracking-widest hover:bg-green-400 active:bg-green-600 focus:outline-none focus:border-green-600 focus:ring focus:ring-green-300 disabled:opacity-25 transition" 
                                     href="{{url('request-ground-transfer-service?service='.$service->id.'&way=roundtrip&aFrom='.$fromLocation.'&aTo='.$toLocation)}}">
                                     {{ __('Round Trip') }} ${{ $item->roundtrip_price }}
                                 </a>

@@ -17,7 +17,9 @@ class Home extends Component
     protected $queryString = [
         // 'type' => ['except' => ''],
         'fromLocation' => ['except' => ''],
-        'toLocation' => ['except' => '']
+        'toLocation' => ['except' => ''],
+        'arrivalDate' => ['except' => ''],
+        'passengers' => ['except' => '']
     ];
 
     public $title; 
@@ -28,6 +30,8 @@ class Home extends Component
     public $service = '';
     public $sevicePrices = '';
     public $locAlias = '';
+    public $arrivalDate = '';
+    public $passengers = '';
     // public $type = 'oneway';
     
     public function render()
@@ -42,7 +46,9 @@ class Home extends Component
 
         if($this->service)
         {
-            $this->servicePrices = ServicePrice::where('service_id', $this->service->id)->get();
+            $this->servicePrices = ServicePrice::where('service_id', $this->service->id)->where('status', 'Active')->whereHas('priceOption', function ($query) {
+                $query->where('maxpassengers', '>=', $this->passengers);
+            })->get();
         }
         
         return view('livewire.home')->layout('layouts/mobile');

@@ -2,10 +2,11 @@
     <div class="max-w-3xl mx-auto py-4">
         <div class="px-2">
             <div class="mb-4 bg-white p-4 shadow">
-                <div class="mb-4">
+                <div class="">
                     <x-select
                         label="FROM - PICK UP LOCATION"
                         placeholder="Select from location"
+                        icon="location-marker"
                         wire:model="fromLocation"
                     >
                         @foreach ($locAlias as $item)
@@ -15,10 +16,11 @@
                     </x-select>
                 </div>
     
-                <div class="">
+                <div class="mt-4">
                     <x-select
                         label="TO - DROP OFF LOCATION"
                         placeholder="Select to location"
+                        icon="location-marker"
                         wire:model="toLocation"
                     >
                         @foreach ($locAlias as $item)
@@ -26,6 +28,30 @@
                         @endforeach
                        
                     </x-select>
+                </div>
+
+                <div class="grid grid-cols-2 mt-4 gap-2">
+                    <div class="">
+                        <x-datetime-picker
+                            label="{{ __('Arrival Date') }}"
+                            placeholder="{{ __('Arrival Date') }}"
+                            icon="calendar"
+                            wire:model="arrivalDate"
+                            without-time="true"
+                            parse-format="YYYY-MM-DD"
+                        />
+                    </div>
+    
+                    <div class="">
+                        <x-select
+                            label="Passengers"
+                            placeholder="Select passengers"
+                            clearable=false
+                            icon="users"
+                            :options="['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']"
+                            wire:model="passengers"
+                        />
+                    </div>
                 </div>
     
             </div>
@@ -42,7 +68,7 @@
             </div>
         </div>
 
-        @if($service)
+        @if($service and $arrivalDate and $passengers)
 
             {{-- <div class="bg-white py-4 px-2 shadow rounded">
 

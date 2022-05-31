@@ -768,9 +768,7 @@
 	<!-- Select2 -->
     {{-- <script src="{{URL::asset('admin/bower_components/select2/dist/js/select2.full.min.js')}}"></script> --}}
 
-	{{-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfq1phqMYn6hQBhI8VbKuQ5FLaVZOjmPg&libraries=geometry,places">
-	</script>
-	<script src="{{URL::asset('js/locationpicker.jquery.js')}}"></script> --}}
+	{{-- test --}}
 
 	<script>
 		$('.arrival_date').datepicker({

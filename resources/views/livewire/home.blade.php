@@ -174,15 +174,25 @@
                             <div class="flex justify-center gap-2">
                                 <a 
                                     class="inline-flex items-center px-2 py-2 bg-blue-500 border border-transparent rounded-md text-xs text-white tracking-widest hover:bg-blue-400 active:bg-blue-600 focus:outline-none focus:border-blue-600 focus:ring focus:ring-blue-300 disabled:opacity-25 transition" 
-                                    href="{{url('request-ground-transfer-service?service='.$service->id.'&way=oneway&aFrom='.$fromLocation.'&aTo='.$toLocation)}}">
+                                    href="#">
                                     {{ __('One Way') }} ${{ $item->oneway_price }}
                                 </a>
+                                {{-- <a 
+                                    class="inline-flex items-center px-2 py-2 bg-blue-500 border border-transparent rounded-md text-xs text-white tracking-widest hover:bg-blue-400 active:bg-blue-600 focus:outline-none focus:border-blue-600 focus:ring focus:ring-blue-300 disabled:opacity-25 transition" 
+                                    href="{{url('request-ground-transfer-service?service='.$service->id.'&way=oneway&aFrom='.$fromLocation.'&aTo='.$toLocation)}}">
+                                    {{ __('One Way') }} ${{ $item->oneway_price }}
+                                </a> --}}
     
                                 <a 
                                     class="inline-flex items-center px-2 py-2 bg-green-500 border border-transparent rounded-md text-xs text-white tracking-widest hover:bg-green-400 active:bg-green-600 focus:outline-none focus:border-green-600 focus:ring focus:ring-green-300 disabled:opacity-25 transition" 
-                                    href="{{url('request-ground-transfer-service?service='.$service->id.'&way=roundtrip&aFrom='.$fromLocation.'&aTo='.$toLocation)}}">
+                                    href="#">
                                     {{ __('Round Trip') }} ${{ $item->roundtrip_price }}
                                 </a>
+                                {{-- <a 
+                                    class="inline-flex items-center px-2 py-2 bg-green-500 border border-transparent rounded-md text-xs text-white tracking-widest hover:bg-green-400 active:bg-green-600 focus:outline-none focus:border-green-600 focus:ring focus:ring-green-300 disabled:opacity-25 transition" 
+                                    href="{{url('request-ground-transfer-service?service='.$service->id.'&way=roundtrip&aFrom='.$fromLocation.'&aTo='.$toLocation)}}">
+                                    {{ __('Round Trip') }} ${{ $item->roundtrip_price }}
+                                </a> --}}
                             </div>
                         </div>
                     </div>

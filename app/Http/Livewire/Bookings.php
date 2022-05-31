@@ -110,4 +110,68 @@ class Bookings extends Component
        $this->toLocation = '';
     }
 
+    public function create()
+    {
+        $this->cleanFields();
+        $this->openModal();
+    }
+
+    public function openModal()
+    {
+        $this->modal = true;
+    }
+
+    public function closeModal()
+    {
+        $this->modal = false;
+    }
+
+    public function edit($id)
+    {
+        $booking = Booking::findOrFail($id);
+        $this->id_booking = $id;
+        $this->name = $booking->name;
+        $this->start_date = $booking->start_date;
+        $this->estimate_end = $booking->estimate_end;
+        $this->progress = $booking->progress;
+        $this->active = 1;
+        $this->status_id = $booking->status_id;
+        $this->openModal();
+    }
+
+    public function delete($id)
+    {
+        
+        Booking::find($id)->delete();
+        
+
+        $this->notification()->error(
+            $title = __('booking deleted!'),
+            $description = $this->id_booking ? __('booking deleted correcly.') : __('booking added correcly.')
+        );
+
+        // session()->flash('message', __('booking deleted!'));
+    }
+
+    public function save()
+    {
+        Booking::updateOrCreate(['id'=>$this->id_booking],
+        [
+            'name' => $this->name,
+            'start_date' => $this->start_date,
+            'estimate_end' => $this->estimate_end,
+            'progress' => $this->progress,
+            'active' => 1,
+        ]);
+
+        $this->notification()->success(
+            $title = $this->id_booking ? __('booking updated!') : __('booking added!'),
+            $description = $this->id_booking ? __('booking updated correcly.') : __('booking added correcly.')
+        );
+
+        // session()->flash('message', $this->id_booking ? __('booking updated!') : __('booking added!'));
+        $this->closeModal();
+        $this->cleanFields();
+    }
+
 }

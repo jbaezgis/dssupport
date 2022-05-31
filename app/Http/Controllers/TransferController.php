@@ -31,16 +31,16 @@ class TransferController extends Controller
 	public $repoLocation;
     public $repoBooking;
 
-	public function __construct(Request $request, PageRepository $pageRepository, BookingRequestHelper $bookingHelper, LocationRepository $repoLocation, BookingRepository $repoBooking){
-		parent::__construct();
+	// public function __construct(Request $request, PageRepository $pageRepository, BookingRequestHelper $bookingHelper, LocationRepository $repoLocation, BookingRepository $repoBooking){
+	// 	parent::__construct();
 
-		$this->bookingHelper = $bookingHelper;
-		$this->repoLocation = $repoLocation;
+	// 	$this->bookingHelper = $bookingHelper;
+	// 	$this->repoLocation = $repoLocation;
 
-		$this->bookingHelper->init($request, $this->repoLocation);
-		$this->repoBooking = $repoBooking;
-		$this->pageRepo = $pageRepository;
-	}
+	// 	$this->bookingHelper->init($request, $this->repoLocation);
+	// 	$this->repoBooking = $repoBooking;
+	// 	$this->pageRepo = $pageRepository;
+	// }
 
     /**
      * Remove this method in the future, it is not being used
@@ -64,9 +64,9 @@ class TransferController extends Controller
 		     ->where('to', $search->to);
 		}
 
-		if ($this->currentSite->service_instance != 0){
-			$results = 	$results->where('services.site_id', $this->currentSite->service_instance);
-		}
+		// if ($this->currentSite->service_instance != 0){
+		// 	$results = 	$results->where('services.site_id', $this->currentSite->service_instance);
+		// }
 
 		$results = $results->select(
 		DB::raw('services.id, services.from, services.to, services.driving_time, services.mapimage, services.arrival_time,
@@ -75,7 +75,7 @@ class TransferController extends Controller
 		)->get();
 
 		if (count($results) == 0){
-			Log::error("No results found for route {$search->fromStr} to {$search->toStr} on server: {$this->currentSite->domain}");
+			Log::error("No results found for route {$search->fromStr} to {$search->toStr} on server: dominicanshuttles.com");
 			return redirect('/')->with('info-search-engine', 'No service was found for the selected route, please try again or contact <a href="/contact">support</a>');
 		}
 
@@ -110,9 +110,9 @@ class TransferController extends Controller
 
 		$service = Service::with('prices')->where('id', $request->get('service'));
 
-		if ($this->currentSite->service_instance != 0){
-			$service = 	$service->where('services.site_id', $this->currentSite->service_instance);
-		}
+		// if ($this->currentSite->service_instance != 0){
+		// 	$service = 	$service->where('services.site_id', $this->currentSite->service_instance);
+		// }
 
 		$service = $service->select(
 		DB::raw('services.id, services.from, services.to, services.driving_time, services.arrival_time, services.departure_time_return,
@@ -554,9 +554,9 @@ class TransferController extends Controller
 		     ->where('to', $search->to);
 		}
 
-		if ($this->currentSite->service_instance != 0){
-			$results = 	$results->where('services.site_id', $this->currentSite->service_instance);
-		}
+		// if ($this->currentSite->service_instance != 0){
+		// 	$results = 	$results->where('services.site_id', $this->currentSite->service_instance);
+		// }
 
 		$results = $results->select(
 		DB::raw('services.id, services.from, services.to, services.driving_time, services.mapimage, services.arrival_time,
@@ -565,7 +565,7 @@ class TransferController extends Controller
 		)->get();
 
 		if (count($results) == 0){
-			Log::error("No results found for route {$search->fromStr} to {$search->toStr} on server: {$this->currentSite->domain}");
+			Log::error("No results found for route {$search->fromStr} to {$search->toStr} on server: dominicanshuttles.com");
 			return redirect('/')->with('info-search-engine', 'No service was found for the selected route, please try again or contact <a href="/contact">support</a>');
 		}
 

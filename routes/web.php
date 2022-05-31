@@ -3,11 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\User;
+use App\Http\Controllers\TransferController;
 use App\Http\Livewire\Bookings;
 use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\ShowBooking;
 use App\Http\Livewire\Home;
-// use App\Http\Livewire\TrackingTime;
+use App\Http\Livewire\BookingForm;
 // use App\Http\Livewire\ProjectStatuses;
 // use App\Http\Livewire\TaskStatuses;
 
@@ -26,6 +27,21 @@ use App\Http\Livewire\Home;
 // Route::get('/', Home::class);
 Route::get('/home', Home::class);
 
+// Booking process
+Route::get('/booking-form/{id}', BookingForm::class);
+
+// Transfer
+Route::get('ground-transfer-service', [TransferController::class, 'groundTransfer'])->name('transer_service');
+Route::get('ground-transfer-results/{route}', [TransferController::class, 'SearchResults'])->name('transfer_search');
+Route::get('request-ground-transfer-service', [TransferController::class, 'showForm'])->name('transfer_request');
+Route::post('submit-ground-transfer-service', [TransferController::class, 'submitForm'])->name('transfer_submit');
+Route::post('confirm-transfer', [TransferController::class, 'confirm'])->name('confirm_transfer');
+
+// New
+Route::get('transfers', [TransferController::class, 'transfers'])->name('transfers');
+Route::get('transfers-results/{route}', [TransferController::class, 'transfersResults'])->name('t-results');
+
+// Administratio
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/', Dashboard::class);
     Route::get('/bookings', Bookings::class);

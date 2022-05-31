@@ -1,7 +1,7 @@
 <div>
     <div class="max-w-3xl mx-auto py-4">
         <div class="px-2">
-            <div class="mb-4 bg-white p-4 shadow rounded">
+            <div class="mb-4 bg-white p-4 shadow">
                 <div class="mb-4">
                     <x-select
                         label="FROM - PICK UP LOCATION"
@@ -71,7 +71,7 @@
 
             <div class="px-2">
                 @foreach ($servicePrices as $item)
-                    <div class="bg-white shadow-lg mt-4 rounded-lg ">
+                    <div class="bg-white shadow-lg mt-4">
                         <div class="pt-4 flex justify-center">
                             <div class="">
                                 <div class="flex">
@@ -128,7 +128,7 @@
                                 <div class="text-xl font-bold">${{number_format($service->prices->first()['roundtrip_price'],2,'.',',')}}</div>
                             @endif
                         </div> --}}
-                        <div class="p-4 bg-gray-100 rounded-b-lg">
+                        <div class="p-4 bg-gray-100">
                             <div class="text-gray-600 text-center mb-4 text-xs">
                                 {{ __('Please select an option') }}
                             </div>

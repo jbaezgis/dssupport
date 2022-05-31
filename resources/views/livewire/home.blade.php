@@ -110,9 +110,9 @@
                                     @if ($service->driving_time_minutes < 60)
                                         {{date('i'.' \m\i\n\s', mktime(0,$service->driving_time_minutes))}}
                                     @elseif ($service->driving_time_minutes < 120)
-                                        {{date('H'.' \h\o\u\r \a\n\d '. 'i'.' \m\i\n\s', mktime(0,$service->driving_time_minutes))}}
+                                        {{date('H'.' \h\o\u\r '. 'i'.' \m\i\n\s', mktime(0,$service->driving_time_minutes))}}
                                     @else
-                                        {{date('H'.' \h\o\u\r\s \a\n\d '. 'i'.' \m\i\n\s', mktime(0,$service->driving_time_minutes))}}
+                                        {{date('H'.' \h\o\u\r\s '. 'i'.' \m\i\n\s', mktime(0,$service->driving_time_minutes))}}
                                     @endif 
                                 </div>
                             </div>

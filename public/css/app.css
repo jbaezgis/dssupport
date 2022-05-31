@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap);
 /*
-! tailwindcss v3.0.22 | MIT License | https://tailwindcss.com
+! tailwindcss v3.0.24 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -435,6 +435,11 @@ input::placeholder,textarea::placeholder{
 
 ::-webkit-date-and-time-value{
   min-height: 1.5em;
+}
+
+::-webkit-datetime-edit,::-webkit-datetime-edit-year-field,::-webkit-datetime-edit-month-field,::-webkit-datetime-edit-day-field,::-webkit-datetime-edit-hour-field,::-webkit-datetime-edit-minute-field,::-webkit-datetime-edit-second-field,::-webkit-datetime-edit-millisecond-field,::-webkit-datetime-edit-meridiem-field{
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 select{
@@ -1953,11 +1958,6 @@ select{
   border-bottom-left-radius: 0.25rem;
 }
 
-.rounded-b-lg{
-  border-bottom-right-radius: 0.5rem;
-  border-bottom-left-radius: 0.5rem;
-}
-
 .rounded-t{
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
@@ -2039,14 +2039,14 @@ select{
   border-color: rgb(243 244 246 / var(--tw-border-opacity));
 }
 
-.border-secondary-200{
-  --tw-border-opacity: 1;
-  border-color: rgb(229 231 235 / var(--tw-border-opacity));
-}
-
 .border-secondary-300{
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
+}
+
+.border-secondary-200{
+  --tw-border-opacity: 1;
+  border-color: rgb(229 231 235 / var(--tw-border-opacity));
 }
 
 .border-primary-600{
@@ -2482,20 +2482,16 @@ select{
   padding-bottom: 0.25rem;
 }
 
+.pl-2\.5{
+  padding-left: 0.625rem;
+}
+
 .pl-2{
   padding-left: 0.5rem;
 }
 
-.pr-14{
-  padding-right: 3.5rem;
-}
-
-.pr-0\.5{
-  padding-right: 0.125rem;
-}
-
-.pr-0{
-  padding-right: 0px;
+.pl-8{
+  padding-left: 2rem;
 }
 
 .pr-2{
@@ -2510,16 +2506,20 @@ select{
   padding-right: 0.625rem;
 }
 
+.pr-14{
+  padding-right: 3.5rem;
+}
+
+.pr-0\.5{
+  padding-right: 0.125rem;
+}
+
+.pr-0{
+  padding-right: 0px;
+}
+
 .pr-9{
   padding-right: 2.25rem;
-}
-
-.pl-2\.5{
-  padding-left: 0.625rem;
-}
-
-.pl-8{
-  padding-left: 2rem;
 }
 
 .pl-10{
@@ -3303,11 +3303,6 @@ select{
   color: rgb(17 24 39 / var(--tw-text-opacity));
 }
 
-.hover\:text-secondary-500:hover{
-  --tw-text-opacity: 1;
-  color: rgb(107 114 128 / var(--tw-text-opacity));
-}
-
 .hover\:text-negative-400:hover{
   --tw-text-opacity: 1;
   color: rgb(248 113 113 / var(--tw-text-opacity));
@@ -3316,6 +3311,11 @@ select{
 .hover\:text-white:hover{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.hover\:text-secondary-500:hover{
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity));
 }
 
 .hover\:text-negative-500:hover{
@@ -3792,14 +3792,14 @@ select{
     border-color: rgb(185 28 28 / var(--tw-border-opacity));
   }
 
-  .dark\:bg-secondary-700{
-    --tw-bg-opacity: 1;
-    background-color: rgb(55 65 81 / var(--tw-bg-opacity));
-  }
-
   .dark\:bg-secondary-800{
     --tw-bg-opacity: 1;
     background-color: rgb(31 41 55 / var(--tw-bg-opacity));
+  }
+
+  .dark\:bg-secondary-700{
+    --tw-bg-opacity: 1;
+    background-color: rgb(55 65 81 / var(--tw-bg-opacity));
   }
 
   .dark\:bg-primary-700{

@@ -69,7 +69,7 @@
 
             <div class="px-2">
                 @foreach ($servicePrices as $item)
-                    <div class="bg-white shadow-lg mt-4 rounded-t-lg ">
+                    <div class="bg-white shadow-lg mt-4 rounded-lg ">
                         <div class="pt-4 flex justify-center">
                             <div class="">
                                 <div class="flex">
@@ -97,14 +97,14 @@
 
                         <div class="flex justify-center gap-6 py-4">
                             <div class="text-center">
-                                <div class="text-sm text-gray-500">{{ __('VEHICLE SIZE') }}</div>
+                                <div class="text-sm text-gray-500">{{ __('Vehicle Size') }}</div>
                                 <div class="">
                                     {{ $item->priceOption->name }}
                                 </div>
                             </div>
     
                             <div class="text-center">
-                                <div class="text-sm text-gray-500">{{ __('DRIVING TIME') }}</div>
+                                <div class="text-sm text-gray-500">{{ __('Driving Time') }}</div>
                                 {{-- {{formatDrivingTime($item->driving_time)}} --}}
                                 <div class="">
                                     @if ($service->driving_time_minutes < 60)
@@ -126,8 +126,8 @@
                                 <div class="text-xl font-bold">${{number_format($service->prices->first()['roundtrip_price'],2,'.',',')}}</div>
                             @endif
                         </div> --}}
-                        <div class="p-4 bg-gray-100">
-                            <div class="text-gray-600 text-center mb-4">
+                        <div class="p-4 bg-gray-100 rounded-b-lg">
+                            <div class="text-gray-600 text-center mb-4 text-xs">
                                 {{ __('Please select an option') }}
                             </div>
                             <div class="flex justify-center gap-4">

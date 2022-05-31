@@ -24,12 +24,12 @@ use App\Http\Livewire\Home;
 
 // Route::middleware(['auth:sanctum', 'verified'])->get('/', [HomeController::class, 'home'])->name('home');
 // Route::get('/', Home::class);
+Route::get('/home', Home::class);
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/', Dashboard::class);
     Route::get('/bookings', Bookings::class);
     Route::get('/booking/{id}', ShowBooking::class);
-    Route::get('/home', Home::class);
     // Route::get('/project/{id}', ShowProject::class);
     // Route::get('/project-status', ProjectStatuses::class);
     // Route::get('/tasks', Tasks::class);

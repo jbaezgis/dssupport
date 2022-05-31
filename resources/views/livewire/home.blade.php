@@ -39,9 +39,9 @@
                 </div>
             </div>
         </div>
-        
+
         @if($services->count())
-            <div class="bg-white p-4 shadow">
+            <div class="bg-white py-4 px-2 shadow">
 
                 <div class="w-custom mx-auto flex justify-center items-end gap-4 px-4">
                     <label class="w-48 ">

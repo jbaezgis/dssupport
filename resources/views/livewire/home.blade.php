@@ -46,11 +46,10 @@
                         <x-select
                             label="Passengers"
                             placeholder="Passengers"
+                            wire:model="passengers"
                             {{-- clearable --}}
-                            searchable=false
                             icon="users"
                             :options="['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']"
-                            wire:model="passengers"
                         />
                     </div>
                 </div>

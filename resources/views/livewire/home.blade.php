@@ -1,32 +1,34 @@
 <div>
     <div class="max-w-3xl mx-auto py-4">
-        <div class="mb-4 bg-white p-4 shadow rounded">
-            <div class="mb-4">
-                <x-select
-                    label="FROM - PICK UP LOCATION"
-                    placeholder="Select from location"
-                    wire:model="fromLocation"
-                >
-                    @foreach ($locAlias as $item)
-                        <x-select.option label="{{ $item->location_name }}" value="{{ $item->id }}" />
-                    @endforeach
-                   
-                </x-select>
+        <div class="px-2">
+            <div class="mb-4 bg-white p-4 shadow rounded">
+                <div class="mb-4">
+                    <x-select
+                        label="FROM - PICK UP LOCATION"
+                        placeholder="Select from location"
+                        wire:model="fromLocation"
+                    >
+                        @foreach ($locAlias as $item)
+                            <x-select.option label="{{ $item->location_name }}" value="{{ $item->id }}" />
+                        @endforeach
+                       
+                    </x-select>
+                </div>
+    
+                <div class="">
+                    <x-select
+                        label="TO - DROP OFF LOCATION"
+                        placeholder="Select to location"
+                        wire:model="toLocation"
+                    >
+                        @foreach ($locAlias as $item)
+                            <x-select.option label="{{ $item->location_name }}" value="{{ $item->id }}" />
+                        @endforeach
+                       
+                    </x-select>
+                </div>
+    
             </div>
-
-            <div class="">
-                <x-select
-                    label="TO - DROP OFF LOCATION"
-                    placeholder="Select to location"
-                    wire:model="toLocation"
-                >
-                    @foreach ($locAlias as $item)
-                        <x-select.option label="{{ $item->location_name }}" value="{{ $item->id }}" />
-                    @endforeach
-                   
-                </x-select>
-            </div>
-
         </div>
 
         <div class="flex justify-center mb-2">

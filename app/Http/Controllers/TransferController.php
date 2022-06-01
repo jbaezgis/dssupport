@@ -99,7 +99,9 @@ class TransferController extends Controller
         $booking->service_price_id = $request->service_price_id;
         $booking->bookingtype = 'groundtransfer';
 		$booking->from_place = $request->from_place;
+		$booking->alias_location_from = $request->alias_location_from;
 		$booking->to_place = $request->to_place;
+		$booking->alias_location_to = $request->alias_location_to;
 		$booking->type = 'roundtrip';
 		$booking->arrival_date = $request->arrival_date;
 		$booking->arrival_time = '06:00:00';

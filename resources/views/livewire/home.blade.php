@@ -172,22 +172,63 @@
                                 {{ __('Please select an option') }}
                             </div>
                             <div class="flex justify-center gap-2">
-                                <a 
+                                {{-- <a 
                                     class="inline-flex items-center px-2 py-2 bg-blue-500 border border-transparent rounded-md text-xs text-white tracking-widest hover:bg-blue-400 active:bg-blue-600 focus:outline-none focus:border-blue-600 focus:ring focus:ring-blue-300 disabled:opacity-25 transition" 
                                     href="#">
                                     {{ __('One Way') }} ${{ $item->oneway_price }}
-                                </a>
+                                </a> --}}
                                 {{-- <a 
                                     class="inline-flex items-center px-2 py-2 bg-blue-500 border border-transparent rounded-md text-xs text-white tracking-widest hover:bg-blue-400 active:bg-blue-600 focus:outline-none focus:border-blue-600 focus:ring focus:ring-blue-300 disabled:opacity-25 transition" 
                                     href="{{url('request-ground-transfer-service?service='.$service->id.'&way=oneway&aFrom='.$fromLocation.'&aTo='.$toLocation)}}">
                                     {{ __('One Way') }} ${{ $item->oneway_price }}
                                 </a> --}}
     
-                                <a 
+                                {{-- <a 
                                     class="inline-flex items-center px-2 py-2 bg-green-500 border border-transparent rounded-md text-xs text-white tracking-widest hover:bg-green-400 active:bg-green-600 focus:outline-none focus:border-green-600 focus:ring focus:ring-green-300 disabled:opacity-25 transition" 
                                     href="#">
                                     {{ __('Round Trip') }} ${{ $item->roundtrip_price }}
-                                </a>
+                                </a> --}}
+
+                                <div class="">
+                                    {!! Form::open(['method' => 'POST', 'url' => '/booking/oneway'])  !!}
+                    
+                                        {{ Form::hidden('service_id', $service->id) }}
+                                        {{ Form::hidden('service_price_id', $item->id) }}
+                                        {{ Form::hidden('from_place', $service->from) }}
+                                        {{ Form::hidden('alias_location_from', $locAliasFrom->location_name) }}
+                                        {{ Form::hidden('to_place', $service->to) }}
+                                        {{ Form::hidden('alias_location_to', $locAliasTo->location_name) }}
+                                        {{ Form::hidden('arrival_date', $arrivalDate) }}
+                                        {{ Form::hidden('passengers', $passengers) }}
+                                        {{ Form::hidden('oneway_price', $item->oneway_price) }}
+                    
+                                        {!! Form::button(__('One Way') . ' $' . $item->oneway_price, array(
+                                                'type' => 'submit',
+                                                'class' => 'inline-flex items-center px-2 py-2 bg-blue-500 border border-transparent rounded-md text-xs text-white tracking-widest hover:bg-blue-400 active:bg-blue-600 focus:outline-none focus:border-blue-600 focus:ring focus:ring-blue-300 disabled:opacity-25 transition'
+                                        )) !!}
+                                    {!! Form::close() !!}
+                                </div>
+
+                                <div class="">
+                                    {!! Form::open(['method' => 'POST', 'url' => '/booking/roundtrip'])  !!}
+                    
+                                        {{ Form::hidden('service_id', $service->id) }}
+                                        {{ Form::hidden('service_price_id', $item->id) }}
+                                        {{ Form::hidden('from_place', $service->from) }}
+                                        {{ Form::hidden('alias_location_from', $locAliasFrom->location_name) }}
+                                        {{ Form::hidden('to_place', $service->to) }}
+                                        {{ Form::hidden('alias_location_to', $locAliasTo->location_name) }}
+                                        {{ Form::hidden('arrival_date', $arrivalDate) }}
+                                        {{ Form::hidden('passengers', $passengers) }}
+                                        {{ Form::hidden('roundtrip_price', $item->roundtrip_price) }}
+                    
+                                        {!! Form::button(__('Round Trip') . ' $' . $item->roundtrip_price, array(
+                                                'type' => 'submit',
+                                                'class' => 'inline-flex items-center px-2 py-2 bg-green-500 border border-transparent rounded-md text-xs text-white tracking-widest hover:bg-green-400 active:bg-green-600 focus:outline-none focus:border-green-600 focus:ring focus:ring-green-300 disabled:opacity-25 transition'
+                                        )) !!}
+                                    {!! Form::close() !!}
+                                </div>
+
                                 {{-- <a 
                                     class="inline-flex items-center px-2 py-2 bg-green-500 border border-transparent rounded-md text-xs text-white tracking-widest hover:bg-green-400 active:bg-green-600 focus:outline-none focus:border-green-600 focus:ring focus:ring-green-300 disabled:opacity-25 transition" 
                                     href="{{url('request-ground-transfer-service?service='.$service->id.'&way=roundtrip&aFrom='.$fromLocation.'&aTo='.$toLocation)}}">

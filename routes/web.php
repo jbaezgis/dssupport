@@ -29,17 +29,8 @@ Route::get('/home', Home::class);
 
 // Booking process
 Route::get('/booking-form/{id}', BookingForm::class);
-
-// Transfer
-Route::get('ground-transfer-service', [TransferController::class, 'groundTransfer'])->name('transer_service');
-Route::get('ground-transfer-results/{route}', [TransferController::class, 'SearchResults'])->name('transfer_search');
-Route::get('request-ground-transfer-service', [TransferController::class, 'showForm'])->name('transfer_request');
-Route::post('submit-ground-transfer-service', [TransferController::class, 'submitForm'])->name('transfer_submit');
-Route::post('confirm-transfer', [TransferController::class, 'confirm'])->name('confirm_transfer');
-
-// New
-Route::get('transfers', [TransferController::class, 'transfers'])->name('transfers');
-Route::get('transfers-results/{route}', [TransferController::class, 'transfersResults'])->name('t-results');
+Route::post('booking/oneway', [TransferController::class, 'oneway'])->name('transer_oneway');
+Route::post('booking/roundtrip', [TransferController::class, 'roundtrip'])->name('transer_roundtrip');
 
 // Administratio
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {

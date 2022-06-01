@@ -11,6 +11,7 @@ use App\Models\LocationAlias;
 use App\Models\Service;
 use App\Models\ServicePrice;
 use Carbon\Carbon;
+use App\Http\Requests;
 
 class Home extends Component
 {

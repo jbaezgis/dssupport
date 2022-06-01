@@ -28,7 +28,7 @@
                 
             </div>
             <div class="flex gap-6 py-4 justify-center">
-                <div class="">
+                <div class="text-center">
                     <div class="text-sm text-gray-500">
                         @if ($booking->servicePrice->priceOption->id == 3)
                             {{-- <img class="mx-auto w-52" src="{{ asset('images/vehicles/Minivan.png') }}" alt=""> --}}
@@ -47,7 +47,7 @@
                     </div>
                 </div>
 
-                <div class="">
+                <div class="text-center">
                     <div class="text-sm text-gray-500">{{ __('Driving Time') }}</div>
                     {{-- {{formatDrivingTime($item->driving_time)}} --}}
                     <div class="">
@@ -61,7 +61,10 @@
                     </div>
                 </div>
 
-                <div class="">
+            </div>
+            
+            <div class="flex justify-center gap-6 py-4">
+                <div class="text-center">
                     <div class="text-sm text-gray-500">{{ __('Type') }}</div>
                     {{-- {{formatDrivingTime($item->driving_time)}} --}}
                     <div class="">
@@ -72,19 +75,16 @@
                         @endif
                     </div>
                 </div>
-
-                <div class="">
+    
+                <div class="text-center">
                     <div class="text-sm text-gray-500">{{ __('Order Total') }}</div>
                     {{-- {{formatDrivingTime($item->driving_time)}} --}}
                     <div class="">
                         ${{ number_format($booking->order_total, 2, '.', ',') }}
                     </div>
                 </div>
+
             </div>
-
-            {{-- <div class="flex justify-center gap-6 py-4">
-
-            </div> --}}
         </div>{{-- bg-white --}}
 
         {{-- Form --}}

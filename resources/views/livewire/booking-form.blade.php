@@ -119,27 +119,32 @@
                     {{ __('Arrival Information') }}
                 </div>
 
-                <div class="mb-2">
-                    <x-datetime-picker
-                        {{-- label="{{ __('To Date') }}" --}}
-                        placeholder="{{ __('Arrival date') }}"
-                        wire:model="toDate"
-                        without-time="true"
-                        parse-format="YYYY-MM-DD"
-                    />
+                <div class="grid grid-cols-2 gap-2">
+                    <div class="mb-2">
+                        <x-datetime-picker
+                            {{-- label="{{ __('To Date') }}" --}}
+                            placeholder="{{ __('Arrival date') }}"
+                            wire:model="toDate"
+                            without-time="true"
+                            parse-format="YYYY-MM-DD"
+                        />
+                    </div>
+    
+                    <div class="mb-2">
+                        <x-time-picker
+                            placeholder="Arrival time"
+                            wire:model.defer="timePicker"
+                        />
+                    </div>
                 </div>
 
-                <div class="mb-2">
-                    <x-time-picker
-                        placeholder="Arrival time"
-                        wire:model.defer="timePicker"
-                    />
-                </div>
-                <div class="mb-2">
-                    <x-input placeholder="Arrival airline" />
-                </div>
-                <div class="mb-2">
-                    <x-input placeholder="Arrival flight" />
+                <div class="grid grid-cols-2 gap-2">
+                    <div class="mb-2">
+                        <x-input placeholder="Arrival airline" />
+                    </div>
+                    <div class="mb-2">
+                        <x-input placeholder="Arrival flight" />
+                    </div>
                 </div>
 
                 <div class="mb-2">

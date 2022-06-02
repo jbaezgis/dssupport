@@ -100,19 +100,22 @@
                 <div class="mb-2">
                     <x-input placeholder="Email" />
                 </div>
-                <div class="mb-2">
-                    <x-inputs.phone placeholder="Phone"  />
-                </div>
 
-                <div class="mb-2">
-                    <x-select
-                        {{-- label="Select Status" --}}
-                        placeholder="Preferred language"
-                        wire:model="language"
-                    >
-                        <x-select.option label="English" value="en" />
-                        <x-select.option label="Español" value="es" />
-                    </x-select>
+                <div class="grid grid-cols-5 gap-2">
+                    <div class="col-span-3">
+                        <x-inputs.phone placeholder="Phone"  />
+                    </div>
+    
+                    <div class="col-span-2">
+                        <x-select
+                            {{-- label="Select Status" --}}
+                            placeholder="Language"
+                            wire:model="language"
+                        >
+                            <x-select.option label="English" value="en" />
+                            <x-select.option label="Español" value="es" />
+                        </x-select>
+                    </div>
                 </div>
 
                 <div class="text-lg font-bold text-gray-600 my-6 border-b border-gray-200">

@@ -19,7 +19,7 @@
     
         <div class="py-2 overflow-x-auto scrollbar-hidden text-center">
             <div class="px-6 text-sm inline-flex">
-                <a class="px-3 py-2 rounded-md  text-gray-800 whitespace-nowrap mr-3 hover:text-gray-900 hover:bg-blue-200 {{ request()->is('home') ? 'bg-blue-200' : 'bg-gray-50' }}" href="#">Ground Transfer</a>
+                <a class="px-3 py-2 rounded-md  text-gray-800 whitespace-nowrap mr-3 hover:text-gray-900 hover:bg-blue-200 {{ request()->is('home') ? 'bg-blue-200' : 'bg-gray-50' }}" href="{{ url('home') }}">Ground Transfer</a>
                 <a class="px-3 py-2 rounded-md bg-gray-50 text-gray-800 whitespace-nowrap mr-3 hover:text-gray-900 hover:bg-gray-200" href="#">Private Charter Flights</a>
                 <a class="px-3 py-2 rounded-md bg-gray-50 text-gray-800 whitespace-nowrap mr-3 hover:text-gray-900 hover:bg-gray-200" href="#">Ferry &amp; Shuttle Combination</a>
             </div>

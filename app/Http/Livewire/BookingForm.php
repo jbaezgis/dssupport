@@ -13,11 +13,14 @@ use Carbon\Carbon;
 
 class BookingForm extends Component
 {
+    use WithPagination;
+    use Actions;
+    
     protected $queryString = [
         'bookingkey' => ['except' => '']
     ];
 
-    public $booking, $project_name, $id_task, $tasks, $project_id, $user_id, $name, $details, $status_id;
+    public $id_booking, $booking, $fullname, $email, $phone, $language, $arrival_date, $arrival_time, $arrival_airline, $arrival_flight, $more_information;
     public $bookingkey;
     public $type = 'oneway';
     public $showDiv = false;
@@ -37,17 +40,23 @@ class BookingForm extends Component
     {
         Booking::updateOrCreate(['id'=>$this->id_booking],
         [
-            'from_place' => $this->from_place,
-            'to_place' => $this->to_place,
             'fullname' => $this->fullname,
             'email' => $this->email,
             'phone' => $this->phone,
-            'type' => $this->type,
-            'status' => 'pending',
-            'active' => 1,
+            'language' => $this->language,
+            'arrival_date' => $this->arrival_date,
+            'arrival_time' => $this->arrival_time,
+            'arrival_airline' => $this->arrival_airline,
+            'arrival_flight' => $this->arrival_flight,
+            'more_information' => $this->more_information,
         ]);
 
-        return redirect()->to('/booking-details');
+        $this->notification()->success(
+            $title = $this->id_booking ? __('Booking updated!') : __('booking added!'),
+            $description = $this->id_booking ? __('booking updated correcly.') : __('Project added correcly.')
+        );
+
+        // return redirect()->to('/booking-details');
     }
 
     public function openDiv()

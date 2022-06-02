@@ -21,6 +21,7 @@ use Log;
 use Hash;
 use App\Repositories\PageRepository;
 use App\Place;
+use Carbon\Carbon;
 
 class TransferController extends Controller
 {
@@ -194,7 +195,10 @@ class TransferController extends Controller
      */
     public function show($id)
     {
-        //
+        // $booking = Booking::where('bookingkey', $bookingkey)->first();
+        $booking = Booking::findOrFail($id);
+
+        return view('booking/booking-details', compact('booking'));
     }
 
     /**
@@ -217,7 +221,19 @@ class TransferController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $booking = Booking::findOrFail($id);
+        $booking->fullname = $request->fullname;
+        $booking->email = $request->email;
+        $booking->phone = $request->phone;
+        $booking->language = $request->language;
+        $booking->arrival_date = date('Y-m-d H:i:s', strtotime($request->arrival_date));
+        $booking->arrival_time = date('H:i:s', strtotime($request->arrival_time));
+        $booking->arrival_airline = $request->arrival_airline;
+        $booking->flight_number = $request->arrival_flight;
+        $booking->more_information = $request->more_information;
+        $booking->save();
+
+        return redirect('booking-details/'.$booking->id.'?bookingkey='.$booking->bookingkey);
     }
 
     /**

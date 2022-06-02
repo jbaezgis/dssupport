@@ -94,22 +94,22 @@
                     {{ __('Contact Details') }}
                 </div>
                 <div class="mb-2">
-                    <x-input placeholder="Full name" />
+                    <x-input label="Full name" />
                 </div>
                 
                 <div class="mb-2">
-                    <x-input placeholder="Email" />
+                    <x-input label="Email" />
                 </div>
 
                 <div class="grid grid-cols-5 gap-2">
                     <div class="col-span-3">
-                        <x-inputs.phone placeholder="Phone"  />
+                        <x-inputs.phone label="Phone"  />
                     </div>
     
                     <div class="col-span-2">
                         <x-select
-                            {{-- label="Select Status" --}}
-                            placeholder="Language"
+                            label="Language"
+                            {{-- placeholder="Language" --}}
                             wire:model="language"
                         >
                             <x-select.option label="English" value="en" />
@@ -125,8 +125,7 @@
                 <div class="grid grid-cols-2 gap-2">
                     <div class="mb-2">
                         <x-datetime-picker
-                            {{-- label="{{ __('To Date') }}" --}}
-                            placeholder="{{ __('Arrival date') }}"
+                            label="{{ __('Arrival date') }}"
                             wire:model="toDate"
                             without-time="true"
                             parse-format="YYYY-MM-DD"
@@ -135,7 +134,7 @@
     
                     <div class="mb-2">
                         <x-time-picker
-                            placeholder="Arrival time"
+                            label="Arrival time"
                             wire:model.defer="timePicker"
                         />
                     </div>
@@ -143,18 +142,18 @@
 
                 <div class="grid grid-cols-2 gap-2">
                     <div class="mb-2">
-                        <x-input placeholder="Arrival airline" />
+                        <x-input label="Arrival airline" />
                     </div>
                     <div class="mb-2">
-                        <x-input placeholder="Arrival flight" />
+                        <x-input label="Arrival flight" />
                     </div>
                 </div>
 
                 <div class="mb-2">
+                    <x-textarea label="More information" />
                     <div class="text-sm text-gray-600">
                         {{ __('Please enter the name of your hotel or the address of your drop off location, as well as any additional information we should know.') }}
                     </div>
-                    <x-textarea placeholder="More information" />
                 </div>
             </form>
         </div>

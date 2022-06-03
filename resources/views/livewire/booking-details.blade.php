@@ -6,12 +6,10 @@
         {{-- <div class="text-center">
             <span class="text-gray-500">{{__('Booking ID')}}: <strong>{{ $booking->id }}</strong></span>
         </div> --}}
-        <div class="flex gap-4 text-center justify-center">
-            <span class="text-gray-500">{{__('Email')}}: <strong>{{ $booking->email }}</strong></span>
-            <span class="text-gray-500">{{__('Phone')}}: <strong>{{ $booking->phone }}</strong></span>
-        </div>
-        <div class="flex gap-4 text-center justify-center">
-            <span class="text-gray-500">{{__('Preferred language')}}: 
+        <div class="">
+            <div class="text-center text-gray-500">{{__('Email')}}: <strong>{{ $booking->email }}</strong></div>
+            <div class="text-center text-gray-500">{{__('Phone')}}: <strong>{{ $booking->phone }}</strong></div>
+            <div class="text-center text-gray-500">{{__('Preferred language')}}: 
                 <strong>
                     @if ($booking->language == 'es')
                         Español
@@ -19,38 +17,102 @@
                         English
                     @endif
                 </strong>
-            </span>
+            </div>
+        </div>
+        <div class="flex gap-4 text-center justify-center">
         </div>
     </div>
 
     <div class="mb-4 mt-4">
         <div class="px-4 py-2">
+            
             <div class="">
                 {{-- Col 1 --}}
                 <div class="">
                     
                     <div class="bg-white shadow-sm rounded px-4 py-6 mb-4">
-                        <div class="flex gap-4 ">
+                        <div class="pt-4 flex justify-center">
+                            <div class="">
+                                <div class="flex">
+                                    <div class="text-blue-600 p-2">
+                                        <x-icon name="location-marker" class="w-5 h-5" />
+                                    </div>
+                                    <div class="p-2">
+                                        {{ $booking->alias_location_from }}
+                                    </div>
+                                </div>
+                                <div class="text-gray-400 pl-2">
+                                    <x-icon name="arrow-narrow-down" style="solid" class="w-5 h-5" />
+                                </div>
+            
+                                <div class="flex">
+                                    <div class="text-blue-600 p-2">
+                                        <x-icon name="location-marker" style="solid" class="w-5 h-5" />
+                                    </div>
+                                    <div class="p-2">
+                                        {{ $booking->alias_location_to }}
+                                    </div>
+                                </div>
+                            </div>
+            
                             
-                            <div>
-                                <div class="text-xs text-gray-500">{{ __('FROM') }}</div>
-                                <div class="font-bold">
-                                    {{$booking->alias_location_from}}
+                        </div>
+                        <div class="flex gap-6 py-4 justify-center">
+                            <div class="text-center">
+                                <div class="text-sm text-gray-500">
+                                    @if ($booking->servicePrice->priceOption->id == 3)
+                                        {{-- <img class="mx-auto w-52" src="{{ asset('images/vehicles/Minivan.png') }}" alt=""> --}}
+                                        <div class="">
+                                            {{ __('Minivan') }}
+                                        </div>
+                                    @elseif ($booking->servicePrice->priceOption->id == 5)
+                                        {{-- <img class="mx-auto w-52" src="{{ asset('images/vehicles/crafter.png') }}" alt=""> --}}
+                                        <div class="">
+                                            {{ __('Minibus') }}
+                                        </div>
+                                    @endif
+                                </div>
+                                <div class="">
+                                    {{ $booking->servicePrice->priceOption->name }}
                                 </div>
                             </div>
-                            <div>
-                                <div class="text-xs text-gray-500">{{ __('TO') }}</div>
-                                <div class="font-bold">
-                                    {{$booking->alias_location_to}}
+            
+                            <div class="text-center">
+                                <div class="text-sm text-gray-500">{{ __('Driving Time') }}</div>
+                                {{-- {{formatDrivingTime($item->driving_time)}} --}}
+                                <div class="">
+                                    @if ($booking->service->driving_time_minutes < 60)
+                                        {{date('i'.' \m\i\n\s', mktime(0,$service->driving_time_minutes))}}
+                                    @elseif ($booking->service->driving_time_minutes < 120)
+                                        {{date('H'.' \h\o\u\r '. 'i'.' \m\i\n\s', mktime(0,$booking->service->driving_time_minutes))}}
+                                    @else
+                                        {{date('H'.' \h\o\u\r\s '. 'i'.' \m\i\n\s', mktime(0,$booking->service->driving_time_minutes))}}
+                                    @endif 
                                 </div>
                             </div>
-                            <div>
-                                <div class="text-xs text-gray-500">TYPE</div>
-                                <div>
-                                    {{ $booking->type }}
+            
+                        </div>
+                        
+                        <div class="flex justify-center gap-6 py-4">
+                            <div class="text-center">
+                                <div class="text-sm text-gray-500">{{ __('Type') }}</div>
+                                {{-- {{formatDrivingTime($item->driving_time)}} --}}
+                                <div class="">
+                                    @if ($booking->type == 'oneway')
+                                        {{ __('One Way') }}
+                                    @else
+                                        {{ __('Round Trip') }}
+                                    @endif
                                 </div>
                             </div>
-                            
+                
+                            {{-- <div class="text-center">
+                                <div class="text-sm text-gray-500">{{ __('Order Total') }}</div>
+                                <div class="">
+                                    ${{ number_format($booking->order_total, 2, '.', ',') }}
+                                </div>
+                            </div> --}}
+            
                         </div>
                     </div>
 
@@ -79,14 +141,18 @@
                                         {{$booking->arrival_airline}} 
                                     </div>
                                 </div>
+                               
+
+                            </div>
+
+                            <div class="flex gap-4 mb-2 ">
                                 <div>
                                     <div class="text-xs text-gray-500">{{ __('FLIGHT NUMBER') }}</div>
                                     <div>
                                         {{$booking->flight_number}}
                                     </div>
                                 </div>
-
-                            </div>
+                            </div> 
 
                             <div class="flex gap-4 mb-2 ">
                                 <div>
@@ -118,14 +184,17 @@
                                         {{$booking->arrival_airline}} 
                                     </div>
                                 </div>
+
+                            </div>
+
+                            <div class="flex gap-4 mb-2 ">
                                 <div>
                                     <div class="text-xs text-gray-500">{{ __('FLIGHT NUMBER') }}</div>
                                     <div>
                                         {{$booking->flight_number}}
                                     </div>
                                 </div>
-
-                            </div>
+                            </div> 
 
                             <div class="flex gap-4 mb-2 ">
                                 <div>

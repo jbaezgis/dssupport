@@ -7,6 +7,7 @@ use Livewire\WithPagination;
 use WireUi\Traits\Actions;
 use App\Models\Booking;
 use App\Models\Location;
+use App\Models\LocationAlias;
 use Carbon\Carbon;
 
 class Bookings extends Component
@@ -46,11 +47,13 @@ class Bookings extends Component
     public $locations = '';
     public $fromLocation = '';
     public $toLocation = '';
+    public $locationAlias;
 
     public function render()
     {
         $today = Carbon::today();
         $this->locations = Location::get();
+        $this->locationAlias = LocationAlias::orderby('order_number', 'ASC')->get();
 
         if (!empty($this->fromDate and $this->toDate))
         {

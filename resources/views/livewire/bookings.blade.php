@@ -44,7 +44,7 @@
                         placeholder="Select from location"
                         wire:model="fromLocation"
                     >
-                        @foreach ($locations as $item)
+                        @foreach ($locationAlias as $item)
                             <x-select.option label="{{ $item->location_name }}" value="{{ $item->location_name }}" />
                         @endforeach
                        
@@ -57,7 +57,7 @@
                         placeholder="Select to location"
                         wire:model="toLocation"
                     >
-                        @foreach ($locations as $item)
+                        @foreach ($locationAlias as $item)
                             <x-select.option label="{{ $item->location_name }}" value="{{ $item->location_name }}" />
                         @endforeach
                        

@@ -119,9 +119,9 @@
                     <x-input label="Full name" name="fullname" />
                 </div>
                 
-                <div class="mb-2">
+                <div class="mb-2 ">
                     <label class="mb-1 block text-sm font-medium text-secondary-700 dark:text-gray-400" for="arrival_time">{{ __('Email') }}</label>
-                    <input class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm" 
+                    <input class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full" 
                         type="email" 
                         name="email" id="email"
                     >
@@ -159,7 +159,7 @@
     
                     <div class="mb-2">
                        <label class="mb-1 block text-sm font-medium text-secondary-700 dark:text-gray-400" for="arrival_time">{{ __('Arrival time') }}</label>
-                        <input class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm" 
+                        <input class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full" 
                             type="time" 
                             name="arrival_time" id="arrival_time"
                         >
@@ -176,7 +176,13 @@
                 </div>
 
                 <div class="mb-2">
+                    {{-- <label class="mb-1 block text-sm font-medium text-secondary-700 dark:text-gray-400" for="arrival_time">{{ __('More') }}</label> --}}
                     <x-textarea label="More information" name="more_information"/>
+                    {{-- <textarea id="txtid" name="more_information" rows="4" cols="50" maxlength="200">
+                        A nice day is a nice day.
+                        Lao Tseu
+                    </textarea> --}}
+
                     <div class="text-sm text-gray-600">
                         {{ __('Please enter the name of your hotel or the address of your drop off location, as well as any additional information we should know.') }}
                     </div>

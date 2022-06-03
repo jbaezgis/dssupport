@@ -52,7 +52,7 @@
                     {{-- {{formatDrivingTime($item->driving_time)}} --}}
                     <div class="">
                         @if ($booking->service->driving_time_minutes < 60)
-                            {{date('i'.' \m\i\n\s', mktime(0,$service->driving_time_minutes))}}
+                            {{date('i'.' \m\i\n\s', mktime(0,$booking->service->driving_time_minutes))}}
                         @elseif ($booking->service->driving_time_minutes < 120)
                             {{date('H'.' \h\o\u\r '. 'i'.' \m\i\n\s', mktime(0,$booking->service->driving_time_minutes))}}
                         @else

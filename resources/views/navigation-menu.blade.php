@@ -18,10 +18,10 @@
                     </x-jet-nav-link> --}}
                     
                     @auth
-                        <x-jet-nav-link href="{{ url('/') }}" :active="request()->is('/')">
+                        {{-- <x-jet-nav-link href="{{ url('/') }}" :active="request()->is('/')">
                             {{ __('Dashboard') }}
-                        </x-jet-nav-link>
-                        <x-jet-nav-link href="{{ url('bookings') }}" :active="request()->is('bookings')">
+                        </x-jet-nav-link> --}}
+                        <x-jet-nav-link href="{{ url('/') }}" :active="request()->is('/')">
                             {{ __('Bookings') }}
                         </x-jet-nav-link>
                         <x-jet-nav-link href="{{ url('home') }}" :active="request()->is('home')">

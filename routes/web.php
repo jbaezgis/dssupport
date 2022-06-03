@@ -40,8 +40,8 @@ Route::post('booking/roundtrip', [TransferController::class, 'roundtrip'])->name
 
 // Administratio
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-    Route::get('/', Dashboard::class);
-    Route::get('/bookings', Bookings::class);
+    Route::get('/dashboard', Dashboard::class);
+    Route::get('/', Bookings::class);
     Route::get('/booking/{id}', ShowBooking::class);
     // Route::get('/project/{id}', ShowProject::class);
     // Route::get('/project-status', ProjectStatuses::class);

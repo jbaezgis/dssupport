@@ -60,7 +60,7 @@
 
         
     <footer class="max-w-7xl mx-auto ">
-        <div class="container px-6 py-4 mx-auto">
+        <div class="container px-2 py-4 mx-auto">
             <div class="lg:flex">
                 <div class="w-full lg:w-2/5">
                     <div class="">
@@ -106,7 +106,8 @@
                 </div>
             </div>
 
-            <hr class="h-px my-6 bg-gray-300 border-none ">
+            {{-- <hr class="h-px my-6 bg-gray-300 border-none "> --}}
+            <div class="mt-6 mb-6 border-b"></div>
 
             <div>
                 <p class="text-center text-gray-500 ">{{ __('This company belongs to:') }}</p>

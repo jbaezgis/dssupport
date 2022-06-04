@@ -319,13 +319,13 @@
                                     <div>
                                         <div class="text-xs text-gray-500">{{ __('2ND TRIP ARRIVAL AIRLINE') }}</div>
                                         <div>
-                                            {{$booking->arrival_airline}} 
+                                            {{$booking->return_airline}} 
                                         </div>
                                     </div>
                                     <div>
                                         <div class="text-xs text-gray-500">{{ __('2ND TRIP FLIGHT NUMBER') }}</div>
                                         <div>
-                                            {{$booking->flight_number}}
+                                            {{$booking->return_flight_number}}
                                         </div>
                                     </div>
                                 </div>

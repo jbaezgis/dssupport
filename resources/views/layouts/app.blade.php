@@ -58,6 +58,66 @@
             </main>
         </div>
 
+        
+    <footer class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="container px-6 py-4 mx-auto">
+            <div class="lg:flex">
+                <div class="w-full -mx-6 lg:w-2/5">
+                    <div class="px-6">
+                        <div>
+                            <a href="#" class="text-xl font-bold text-gray-800 hover:text-gray-700 ">
+                                <x-jet-application-logo />
+                            </a>
+                        </div>
+                        
+                        <p class="max-w-md mt-2 text-gray-500">{{ now()->year }} - Dominican Shuttles</p>
+                    </div>
+                </div>
+
+                <div class="mt-6 lg:mt-0 lg:flex-1">
+                    <div class="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4">
+                        <div>
+                            <h3 class="text-gray-700 uppercase ">{{ __('About') }}</h3>
+                            <a href="#" class="block mt-2 text-sm text-gray-600 hover:underline">{{ __('Company') }}</a>
+                            <a href="#" class="block mt-2 text-sm text-gray-600 hover:underline">{{ __('Privacy POlicy') }}</a>
+                            {{-- <a href="#" class="block mt-2 text-sm text-gray-600 hover:underline">Careers</a> --}}
+                        </div>
+
+                        {{-- <div>
+                            <h3 class="text-gray-700 uppercase">Blog</h3>
+                            <a href="#" class="block mt-2 text-sm text-gray-600 hover:underline">Tec</a>
+                            <a href="#" class="block mt-2 text-sm text-gray-600 hover:underline">Music</a>
+                            <a href="#" class="block mt-2 text-sm text-gray-600 hover:underline">Videos</a>
+                        </div>
+
+                        <div>
+                            <h3 class="text-gray-700 uppercase">Products</h3>
+                            <a href="#" class="block mt-2 text-sm text-gray-600 hover:underline">Mega cloud</a>
+                            <a href="#" class="block mt-2 text-sm text-gray-600 hover:underline">Aperion UI</a>
+                            <a href="#" class="block mt-2 text-sm text-gray-600 hover:underline">Meraki UI</a>
+                        </div> --}}
+
+                        <div>
+                            <h3 class="text-gray-700 uppercase">{{ __('Contact') }}</h3>
+                            <span class="block mt-2 text-sm text-gray-600 hover:underline">+1 829 820 5200</span>
+                            <span class="block mt-2 text-sm text-gray-600 hover:underline">info@dominicanshuttles.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="h-px my-6 bg-gray-300 border-none ">
+
+            <div>
+                <p class="text-center text-gray-500 ">{{ __('This company belongs to:') }}</p>
+                <div class="flex justify-center">
+                    <div class="text-center"><a class="text-blue-600" href="http://luefty.com" target="_blank"></a><img class="h-12" src="{{ asset('images/luefty-logo.svg') }}" alt="Luefty Logo"></div>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
         @stack('modals')
 
         @livewireScripts

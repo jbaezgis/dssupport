@@ -6,7 +6,20 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="icon" href="{{asset('images/icon.png')}}" type="image/png">
 
-        <title>Dominican Shuttles</title>
+        <title>@yield('title') - Dominican Shuttles</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="@yield('description')">
+        <meta name="keywords" content="@yield('keywords')">
+
+        <meta property="og:description" content="@yield('description')" />
+        <meta property="og:title" content="@yield('title') - Dominican Shuttles" />
+        <meta property="og:url" content="https://admin.dominicanshuttles.com" />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="{{ app()->getLocale() }}" />
+        <meta property="og:locale:alternate" content="es_ES" />
+        <meta property="og:site_name" content="Dominican Shuttles" />
+        <meta property="og:image" content="@yield('og-image')" />
+        <meta property="og:image:url" content="@yield('og-image-url')" />
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
@@ -26,7 +39,7 @@
         <x-notifications />
         <x-dialog />
 
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-screen">
             
             @livewire('navigation-menu')
 

@@ -73,29 +73,15 @@
                         {{-- <p class="max-w-md mt-2 text-gray-500">{{ now()->year }} - Dominican Shuttles</p> --}}
                     </div>
                 </div>
-
+                <div class="mt-6 mb-6 border-b"></div>
                 <div class="mt-6 lg:mt-0 lg:flex-1">
-                    <div class="flex justify-center gap-8">
+                    <div class="flex justify-center gap-6">
                         <div>
                             <h3 class="text-gray-700 uppercase ">{{ __('About') }}</h3>
                             <a href="#" class="block mt-2 text-sm text-gray-600 hover:underline">{{ __('Company') }}</a>
-                            <a href="#" class="block mt-2 text-sm text-gray-600 hover:underline">{{ __('Privacy POlicy') }}</a>
+                            <a href="#" class="block mt-2 text-sm text-gray-600 hover:underline">{{ __('Privacy Policy') }}</a>
                             {{-- <a href="#" class="block mt-2 text-sm text-gray-600 hover:underline">Careers</a> --}}
                         </div>
-
-                        {{-- <div>
-                            <h3 class="text-gray-700 uppercase">Blog</h3>
-                            <a href="#" class="block mt-2 text-sm text-gray-600 hover:underline">Tec</a>
-                            <a href="#" class="block mt-2 text-sm text-gray-600 hover:underline">Music</a>
-                            <a href="#" class="block mt-2 text-sm text-gray-600 hover:underline">Videos</a>
-                        </div>
-
-                        <div>
-                            <h3 class="text-gray-700 uppercase">Products</h3>
-                            <a href="#" class="block mt-2 text-sm text-gray-600 hover:underline">Mega cloud</a>
-                            <a href="#" class="block mt-2 text-sm text-gray-600 hover:underline">Aperion UI</a>
-                            <a href="#" class="block mt-2 text-sm text-gray-600 hover:underline">Meraki UI</a>
-                        </div> --}}
 
                         <div>
                             <h3 class="text-gray-700 uppercase">{{ __('Contact') }}</h3>

@@ -52,7 +52,7 @@ class Home extends Component
             })->get();
         }
         
-        return view('livewire.home')->layout('layouts/mobile');
+        return view('livewire.home');
     }
 
     public function save()

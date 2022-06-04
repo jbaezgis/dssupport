@@ -10,8 +10,6 @@
             @livewire('home')
 
             @livewire('bookings')
-
-            
         </div>
     </div>
 </x-app-layout>

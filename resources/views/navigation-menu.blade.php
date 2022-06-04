@@ -13,15 +13,15 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    {{-- <x-jet-nav-link href="{{ url('/') }}" :active="request()->is('/')">
+                    <x-jet-nav-link href="{{ url('/') }}" :active="request()->is('/')">
                         {{ __('Home') }}
-                    </x-jet-nav-link> --}}
+                    </x-jet-nav-link>
                     
                     @auth
                         {{-- <x-jet-nav-link href="{{ url('/') }}" :active="request()->is('/')">
-                            {{ __('Dashboard') }}
+                            {{ __('Home') }}
                         </x-jet-nav-link> --}}
-                        <x-jet-nav-link href="{{ url('/') }}" :active="request()->is('/')">
+                        <x-jet-nav-link href="{{ url('/bookings') }}" :active="request()->is('bookings')">
                             {{ __('Bookings') }}
                         </x-jet-nav-link>
                         <x-jet-nav-link href="{{ url('home') }}" :active="request()->is('home')">
@@ -164,19 +164,34 @@
 
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-        <div class="pt-2 pb-3 space-y-1">
-            {{-- <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
-            </x-jet-responsive-nav-link> --}}
+        <div class="pt-2 pb-3 px-2 space-y-1 text-center">
+            <x-jet-responsive-nav-link href="{{ url('/') }}" :active="request()->is('/')">
+                {{ __('Home') }}
+            </x-jet-responsive-nav-link>
+            @auth
+                <x-jet-responsive-nav-link href="{{ url('bookings') }}" :active="request()->is('bookings')">
+                    {{ __('Bookings') }}
+                </x-jet-responsive-nav-link>
+            @endauth
+            @guest
+                <x-jet-responsive-nav-link href="{{ route('login') }}" :active="request()->routeIs('login')">
+                    {{ __('Login') }}
+                </x-jet-responsive-nav-link>
+            @endguest
         </div>
 
+        <div class="py-4 border-t">
+            <div class="text-xs text-center text-gray-600 mb-2">
+                {{ __('Select language:') }}
+            </div>
+
+            <div class="flex justify-center gap-2">
+                <a class="inline-flex items-center px-4 py-2 bg-blue-100 border border-blue-400 rounded-md font-semibold text-xs text-blue-400 tracking-widest hover:bg-blue-200 active:bg-blue-300 focus:outline-none focus:border-blue-400 focus:ring focus:ring-blue-300 disabled:opacity-25 transition" href="#">English</a>
+                <a class="inline-flex items-center px-4 py-2 bg-gray-50 border rounded-md font-semibold text-xs text-gran-600 tracking-widest hover:bg-gray-200 active:bg-gray-300 focus:outline-none focus:border-gray-300 focus:ring focus:ring-gray-300 disabled:opacity-25 transition" href="#">Español</a>
+            </div>
+        </div>
         <!-- Responsive Settings Options -->
 
-        @guest
-            <x-jet-responsive-nav-link href="{{ route('login') }}" :active="request()->routeIs('login')">
-                {{ __('Login') }}
-            </x-jet-responsive-nav-link>
-        @endguest
 
         @auth
             

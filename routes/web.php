@@ -26,7 +26,7 @@ use App\Http\Livewire\BookingDetails;
 
 // Route::middleware(['auth:sanctum', 'verified'])->get('/', [HomeController::class, 'home'])->name('home');
 // Route::get('/', Home::class);
-Route::get('/home', Home::class);
+Route::get('/', Home::class);
 
 // Booking process
 Route::get('/booking-form/{id}', BookingForm::class);
@@ -41,7 +41,7 @@ Route::post('booking/roundtrip', [TransferController::class, 'roundtrip'])->name
 // Administratio
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/dashboard', Dashboard::class);
-    Route::get('/', Bookings::class);
+    Route::get('/bookings', Bookings::class);
     Route::get('/booking/{id}', ShowBooking::class);
     // Route::get('/project/{id}', ShowProject::class);
     // Route::get('/project-status', ProjectStatuses::class);

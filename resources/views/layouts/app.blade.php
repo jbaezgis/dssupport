@@ -59,11 +59,11 @@
         </div>
 
         
-    <footer class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <footer class="max-w-7xl mx-auto ">
         <div class="container px-6 py-4 mx-auto">
             <div class="lg:flex">
-                <div class="w-full -mx-6 lg:w-2/5">
-                    <div class="px-6">
+                <div class="w-full lg:w-2/5">
+                    <div class="">
                         <div>
                             <a href="#" class="text-xl font-bold text-gray-800 hover:text-gray-700 ">
                                 <x-jet-application-logo />
@@ -75,7 +75,7 @@
                 </div>
 
                 <div class="mt-6 lg:mt-0 lg:flex-1">
-                    <div class="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4">
+                    <div class="grid grid-cols-2 gap-4">
                         <div>
                             <h3 class="text-gray-700 uppercase ">{{ __('About') }}</h3>
                             <a href="#" class="block mt-2 text-sm text-gray-600 hover:underline">{{ __('Company') }}</a>

@@ -61,8 +61,8 @@
         
     <footer class="max-w-7xl mx-auto ">
         <div class="container px-2 py-4 mx-auto">
-            <div class="lg:flex">
-                <div class="w-full lg:w-2/5">
+            <div class="">
+                <div class="w-full">
                     <div class="">
                         <div class="flex justify-center">
                             <a href="#" class="text-xl font-bold text-gray-800 hover:text-gray-700 ">
@@ -99,7 +99,6 @@
                 <p class="text-center text-gray-500 ">{{ __('This company belongs to:') }}</p>
                 <div class="flex justify-center">
                     <div class="text-center"><a class="text-blue-600" href="http://luefty.com" target="_blank"></a><img class="h-12" src="{{ asset('images/luefty-logo.svg') }}" alt="Luefty Logo"></div>
-
                 </div>
             </div>
         </div>

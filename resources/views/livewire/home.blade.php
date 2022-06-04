@@ -13,7 +13,7 @@
                         <div class="mb-4 bg-white p-4 shadow">
                             <div class="">
                                 <x-select
-                                    label="FROM - PICK UP LOCATION"
+                                    label="{{ __('FROM - PICK UP LOCATION') }}"
                                     placeholder="Select from location"
                                     icon="location-marker"
                                     wire:model="fromLocation"

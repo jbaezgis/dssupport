@@ -186,8 +186,8 @@
             </div>
 
             <div class="flex justify-center gap-2">
-                <a class="inline-flex items-center px-4 py-2 bg-blue-100 border border-blue-400 rounded-md font-semibold text-xs text-blue-400 tracking-widest hover:bg-blue-200 active:bg-blue-300 focus:outline-none focus:border-blue-400 focus:ring focus:ring-blue-300 disabled:opacity-25 transition" href="#">English</a>
-                <a class="inline-flex items-center px-4 py-2 bg-gray-50 border rounded-md font-semibold text-xs text-gran-600 tracking-widest hover:bg-gray-200 active:bg-gray-300 focus:outline-none focus:border-gray-300 focus:ring focus:ring-gray-300 disabled:opacity-25 transition" href="#">Español</a>
+                <a class="inline-flex items-center px-4 py-2 {{ App::isLocale('en') ? 'bg-blue-100 border border-blue-400 text-blue-400 tracking-widest hover:bg-blue-200 active:bg-blue-300 focus:border-blue-400 focus:ring focus:ring-blue-300' : 'bg-gray-50 hover:bg-gray-200 active:bg-gray-300 focus:border-gray-300 focus:ring focus:ring-gray-300' }}  rounded-md font-semibold text-xs  focus:outline-none disabled:opacity-25 transition" href="{{ url('locale/en') }}">English</a>
+                <a class="inline-flex items-center px-4 py-2 {{ App::isLocale('es') ? 'bg-blue-100 border border-blue-400 text-blue-400 tracking-widest hover:bg-blue-200 active:bg-blue-300 focus:border-blue-400 focus:ring focus:ring-blue-300' : 'bg-gray-50 hover:bg-gray-200 active:bg-gray-300 focus:border-gray-300 focus:ring focus:ring-gray-300' }} border rounded-md font-semibold text-xs tracking-widest focus:outline-none focus:ring disabled:opacity-25 transition" href="{{ url('locale/es') }}">Español</a>
             </div>
         </div>
         <!-- Responsive Settings Options -->

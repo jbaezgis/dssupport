@@ -1,16 +1,12 @@
 @section('title', 'Home')
 @section('description', 'Best Transfers in the DR!')
-@section('keywords', 'Tourism Service, Transportation, Private Shuttle, Transfer Service')
+@section('keywords', 'Airport, Transportation, Private Shuttle, Transfer Service')
 @section('og-image', asset('images/image-cover.png'))
 @section('og-image-url', asset('images/image-cover.png'))
 <div>
     <div class="bg-gray-50 py-6">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="grid grid-cols-2 sm:grid-cols-1">
-                <div>
-
-                </div>
-                
+            <div class="">
                 <div>
                     {{-- Form --}}
                     <div class="px-2">

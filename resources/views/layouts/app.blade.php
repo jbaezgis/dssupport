@@ -64,18 +64,18 @@
             <div class="lg:flex">
                 <div class="w-full lg:w-2/5">
                     <div class="">
-                        <div>
+                        <div class="flex justify-center">
                             <a href="#" class="text-xl font-bold text-gray-800 hover:text-gray-700 ">
                                 <x-jet-application-logo />
                             </a>
                         </div>
                         
-                        <p class="max-w-md mt-2 text-gray-500">{{ now()->year }} - Dominican Shuttles</p>
+                        {{-- <p class="max-w-md mt-2 text-gray-500">{{ now()->year }} - Dominican Shuttles</p> --}}
                     </div>
                 </div>
 
                 <div class="mt-6 lg:mt-0 lg:flex-1">
-                    <div class="grid grid-cols-2 gap-4">
+                    <div class="flex justify-center gap-8">
                         <div>
                             <h3 class="text-gray-700 uppercase ">{{ __('About') }}</h3>
                             <a href="#" class="block mt-2 text-sm text-gray-600 hover:underline">{{ __('Company') }}</a>

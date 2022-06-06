@@ -226,7 +226,7 @@ class TransferController extends Controller
         $booking->email = $request->email;
         $booking->phone = $request->phone;
         $booking->language = $request->language;
-        $booking->arrival_date = date('Y-m-d H:i:s', strtotime($request->arrival_date));
+        // $booking->arrival_date = date('Y-m-d H:i:s', strtotime($request->arrival_date));
         $booking->arrival_time = date('H:i:s', strtotime($request->arrival_time));
         $booking->arrival_airline = $request->arrival_airline;
         $booking->flight_number = $request->arrival_flight;

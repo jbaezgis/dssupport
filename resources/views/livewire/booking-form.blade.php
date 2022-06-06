@@ -116,7 +116,7 @@
                     {{ __('Contact Details') }}
                 </div>
                 <div class="mb-2">
-                    <x-input label="Full name" name="fullname" />
+                    <x-input label="Full name" name="fullname"/>
                 </div>
                 
                 <div class="mb-2 ">
@@ -124,12 +124,13 @@
                     <input class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full" 
                         type="email" 
                         name="email" id="email"
+                        value="{{ old('email', $booking->email) }}"
                     >
                 </div>
 
                 <div class="grid grid-cols-5 gap-2">
                     <div class="col-span-3">
-                        <x-inputs.phone label="Phone"  name="phone"/>
+                        <x-inputs.phone label="Phone"  name="phone" value="{{ old('phone', $booking->phone) }}"/>
                     </div>
     
                     <div class="col-span-2">
@@ -137,8 +138,8 @@
                             label="Language"
                             name="language"
                         >
-                            <x-select.option label="English" value="en" />
-                            <x-select.option label="Español" value="es" />
+                            <x-select.option label="English" value="en" {{ $booking->language == 'en' ? 'selected' : '' }}/>
+                            <x-select.option label="Español" value="es" {{ $booking->language == 'es' ? 'selected' : '' }}/>
                         </x-select>
                     </div>
                 </div>
@@ -149,12 +150,25 @@
 
                 <div class="grid grid-cols-2 gap-2">
                     <div class="mb-2">
-                        <x-datetime-picker
+                        <div class="block text-sm font-medium text-secondary-700 dark:text-gray-400 mb-1" for="arrival_time">
+                            {{ __('Arrival date') }}
+                        </div>
+                        <div class="border border-gray-300 bg-white p-2 rounded-md shadow-sm w-full">
+                            {{ date('j F Y', strtotime($booking->arrival_date)) }}
+                        </div>
+                        {{-- <label class="mb-1 block text-sm font-medium text-secondary-700 dark:text-gray-400" for="arrival_date">{{ __('Arrival date') }}</label> --}}
+                        {{-- <input class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full" 
+                            type="date" 
+                            name="arrival_date" id="arrival_date"
+                            value="{{ old('arrival_date', $booking->arrival_date) }}"
+                        > --}}
+                        {{-- <x-datetime-picker
                             label="{{ __('Arrival date') }}"
                             name="arrival_date"
                             without-time="true"
                             parse-format="YYYY-MM-DD"
-                        />
+                            value="{{ old('arrival_date', $booking->arrival_date) }}"
+                        /> --}}
                     </div>
     
                     <div class="mb-2">

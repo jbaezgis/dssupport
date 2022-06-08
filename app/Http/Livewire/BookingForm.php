@@ -24,6 +24,12 @@ class BookingForm extends Component
     public $bookingkey;
     public $type = 'oneway';
     public $showDiv = false;
+    public $willArriveData;
+
+    // protected $rules = [
+    //     'name' => 'required|min:6',
+    //     'email' => 'required|email',
+    // ];
 
     public function mount($id)
     {
@@ -33,6 +39,14 @@ class BookingForm extends Component
 
     public function render()
     {
+
+        $this->willArriveData = [
+			'90' => '1 hour 30 min',
+			'120' => '2 hours 00 min',
+			'150' => '2 hours 30 min',
+			'180' => '3 hours 00 min',
+			'210' => '3 hours 30 min'
+		];
         return view('livewire.booking-form')->layout('layouts/mobile');
     }
 

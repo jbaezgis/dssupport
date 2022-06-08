@@ -79,7 +79,7 @@ class TransferController extends Controller
         $booking->fair = 0.00;
         $booking->extra_payment = 0.00;
         $booking->email_sent = 0;
-        $booking->fullname = 'New Client';
+        $booking->fullname = ' ';
         $booking->payment_method = 'N/A';
 
         $booking->save();
@@ -115,7 +115,7 @@ class TransferController extends Controller
         $booking->fair = 0.00;
         $booking->extra_payment = 0.00;
         $booking->email_sent = 0;
-        $booking->fullname = 'New Client';
+        $booking->fullname = ' ';
         $booking->payment_method = 'N/A';
 
         $booking->save();
@@ -164,9 +164,10 @@ class TransferController extends Controller
 			$booking->pickup_time = date('H:i',strtotime("-15 minutes",strtotime($pickup_time_oneway_2)));
 		}
 
-		if ($request->type == 'roundtrip'){
+		if ($booking->type == 'roundtrip'){
 			
 			// Cambios realizados por Yoel
+			$booking->return_date = $request->return_date;
 			$booking->return_airline = $request->return_airline;
 			$booking->return_flight_number = $request->return_flight_number;
 			$booking->return_want_to_arrive_2 = $request->return_want_to_arrive_2;
@@ -226,11 +227,49 @@ class TransferController extends Controller
         $booking->email = $request->email;
         $booking->phone = $request->phone;
         $booking->language = $request->language;
-        // $booking->arrival_date = date('Y-m-d H:i:s', strtotime($request->arrival_date));
-        $booking->arrival_time = date('H:i:s', strtotime($request->arrival_time));
-        $booking->arrival_airline = $request->arrival_airline;
-        $booking->flight_number = $request->arrival_flight;
         $booking->more_information = $request->more_information;
+
+        $booking->arrival_time = date('H:i:s', strtotime($request->arrival_time));
+		// if ($request->has('arrival_time')){
+		// }
+
+		if ($request->has('arrival_airline'))
+		{
+			$booking->arrival_airline = $request->arrival_airline;
+			$booking->flight_number = $request->flight_number;
+		}
+		
+		if ($request->has('want_to_arrive'))
+		{
+			$booking->want_to_arrive = $request->want_to_arrive;
+	
+			// Calculo de pick up time One way
+			$s_time_a = $service->driving_time_minutes;
+			$pickup_time_oneway_1 = date('H:i',strtotime("-$s_time_a minutes",strtotime($request->arrival_time)));
+			$pickup_time_oneway_2 = date('H:i',strtotime("-$request->want_to_arrive minutes",strtotime($pickup_time_oneway_1)));
+			$booking->pickup_time = date('H:i',strtotime("-15 minutes",strtotime($pickup_time_oneway_2)));
+		}
+
+		if ($booking->type == 'roundtrip'){
+			
+			// Cambios realizados por Yoel
+			$booking->return_airline = $request->return_airline;
+			$booking->return_flight_number = $request->return_flight_number;
+			$booking->return_want_to_arrive_2 = $request->return_want_to_arrive_2;
+
+			if ($request->has('return_time_2'))
+			{
+				$booking->return_time_2 = date('H:i:s', strtotime($request->return_time_2));
+				$s_time = $booking->service->driving_time_minutes;
+				$pickup_time1 = date('H:i',strtotime("-$s_time minutes",strtotime($request->return_time_2)));
+				$pickup_time2 = date('H:i',strtotime("-$request->return_want_to_arrive_2 minutes",strtotime($pickup_time1)));
+				$booking->return_pickup_time_2 = date('H:i',strtotime("-15 minutes",strtotime($pickup_time2)));
+			}
+			// end Yoel
+
+			$booking->return_more_information = $request->return_more_information;
+		}
+
         $booking->save();
 
         return redirect('booking-details/'.$booking->id.'?bookingkey='.$booking->bookingkey);

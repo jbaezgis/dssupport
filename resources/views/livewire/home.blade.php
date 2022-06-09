@@ -52,14 +52,27 @@
                                 </div>
                 
                                 <div class="">
-                                    <x-select
+                                    {{-- <x-select
                                         label="Passengers"
                                         placeholder="Passengers"
                                         wire:model="passengers"
-                                        {{-- clearable --}}
                                         icon="users"
                                         :options="['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']"
-                                    />
+                                    /> --}}
+
+                                    <label class="mb-1 block text-sm font-medium text-secondary-700 dark:text-gray-400">{{ __('Passengers')}}</label>
+                                    <select class="py-1.5 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full" name="passengers" id="passengers" wire:model="passengers">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                    </select> 
                                 </div>
                             </div>
                 

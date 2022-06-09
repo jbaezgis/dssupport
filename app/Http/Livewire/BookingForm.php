@@ -47,7 +47,7 @@ class BookingForm extends Component
 			'180' => '3 hours 00 min',
 			'210' => '3 hours 30 min'
 		];
-        return view('livewire.booking-form')->layout('layouts/mobile');
+        return view('livewire.booking-form');
     }
 
     public function save()

@@ -27,6 +27,6 @@ class BookingDetails extends Component
 
     public function render()
     {
-        return view('livewire.booking-details')->layout('layouts/mobile');
+        return view('livewire.booking-details');
     }
 }

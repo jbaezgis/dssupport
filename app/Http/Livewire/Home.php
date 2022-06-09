@@ -32,7 +32,7 @@ class Home extends Component
     public $sevicePrices = '';
     public $locAlias = '';
     public $arrivalDate = '';
-    public $passengers = '';
+    public $passengers = 1;
     // public $type = 'oneway';
     
     public function render()

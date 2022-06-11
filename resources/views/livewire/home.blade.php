@@ -88,7 +88,7 @@
         <div class="flex justify-center mb-2">
             <div wire:loading>
                 <div class="">
-                    <img class="mx-auto h-5 w-5 animate-spin" src="{{ asset('images/spiner.png') }}" alt="">
+                    <img class="mx-auto h-5 w-5 animate-spin" src="{{ asset('images/spiner.png') }}" alt="Spiner">
                 </div>
                 <div class="text-sm text-gray-500">
                     {{ __('Processing') }}...
@@ -104,12 +104,12 @@
 
                         <div class="py-4">
                             @if ($item->price_option_id == 3)
-                                <img class="mx-auto w-52" src="{{ asset('images/vehicles/Minivan.png') }}" alt="">
+                                <img class="mx-auto w-52" src="{{ asset('images/vehicles/Minivan.png') }}" alt="Minivan">
                                 <div class="text-xl font-bold text-center">
                                     {{ __('Minivan') }}
                                 </div>
                             @elseif ($item->price_option_id == 5)
-                                <img class="mx-auto w-52" src="{{ asset('images/vehicles/crafter.png') }}" alt="">
+                                <img class="mx-auto w-52" src="{{ asset('images/vehicles/crafter.png') }}" alt="Crafter">
                                 <div class="text-xl font-bold text-center">
                                     {{ __('Minibus') }}
                                 </div>

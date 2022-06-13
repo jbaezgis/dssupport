@@ -21,7 +21,7 @@
                                 <x-select
                                     label="{{ __('FROM - PICK UP LOCATION') }}"
                                     placeholder="Select from location"
-                                    icon="location-marker"
+                                    {{-- icon="location-marker" --}}
                                     wire:model="fromLocation"
                                 >
                                     @foreach ($locAlias as $item)
@@ -35,7 +35,7 @@
                                 <x-select
                                     label="TO - DROP OFF LOCATION"
                                     placeholder="Select to location"
-                                    icon="location-marker"
+                                    {{-- icon="location-marker" --}}
                                     wire:model="toLocation"
                                 >
                                     @foreach ($locAlias as $item)
@@ -47,14 +47,16 @@
                 
                             <div class="grid grid-cols-2 mt-4 gap-2">
                                 <div class="">
-                                    <x-datetime-picker
+                                    {{-- <x-datetime-picker
                                         label="{{ __('Arrival Date') }}"
                                         placeholder="{{ __('Arrival Date') }}"
                                         icon="calendar"
                                         wire:model="arrivalDate"
                                         without-time="true"
                                         parse-format="YYYY-MM-DD"
-                                    />
+                                    /> --}}
+                                    <label class="mb-1 block text-sm font-medium text-secondary-700 dark:text-gray-400">{{ __('Arrival Date')}}</label>
+                                    <input class="py-2 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full sm:py-1.5" type="date" name="arrivalDate">
                                 </div>
                 
                                 <div class="">

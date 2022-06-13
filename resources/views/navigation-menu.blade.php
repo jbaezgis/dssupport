@@ -168,6 +168,15 @@
             <x-jet-responsive-nav-link href="{{ url('/') }}" :active="request()->is('/')">
                 {{ __('Home') }}
             </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ url('about-us') }}" :active="request()->is('about-us')">
+                {{ __('About Us') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ url('contact-us') }}" :active="request()->is('contact-us')">
+                {{ __('Contact Us') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ url('privacy') }}" :active="request()->is('privacy')">
+                {{ __('Privacy Policy') }}
+            </x-jet-responsive-nav-link>
             @auth
                 <x-jet-responsive-nav-link href="{{ url('bookings') }}" :active="request()->is('bookings')">
                     {{ __('Bookings') }}

@@ -60,13 +60,7 @@
                                 </div>
                 
                                 <div class="">
-                                    {{-- <x-select
-                                        label="Passengers"
-                                        placeholder="Passengers"
-                                        wire:model="passengers"
-                                        icon="users"
-                                        :options="['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']"
-                                    /> --}}
+
 
                                     <label class="mb-1 block text-sm font-medium text-secondary-700 dark:text-gray-400">{{ __('Passengers')}}</label>
                                     <select class="py-2 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full sm:py-1.5" name="passengers" id="passengers" wire:model="passengers">
@@ -261,14 +255,20 @@
                     <span class="font-bold">{{ __('Contact us') }}</span>
                     <span>{{ __('for special prices') }}</span>
                 </div>
-                <div class="flex justify-center gap-4">
-                    <div>
-                        <div class="text-sm text-gray-400">{{ __('Phone') }}</div>
-                        <div class="text-gray-600">+1 829 820 5200</div>
+                <div class="">
+                    <div class="flex gap-4 mb-4">
+                        <div class="pt-2 pr-2"><img class="h-6" src="{{ asset('images/icons/telephone.png') }}" alt="Telephone"></div>
+                        <div>
+                            <div class="text-sm text-gray-400">{{ __('Phone') }}</div>
+                            <div class="text-gray-600">+1 829 820 5200</div>
+                        </div>
                     </div>
-                    <div>
-                        <div class="text-sm text-gray-400">{{ __('Email') }}</div>
-                        <div class="text-gray-600">info@dominicanshuttles.com</div>
+                    <div class="flex gap-6">
+                        <div class="pt-2"><img class="h-6" src="{{ asset('images/icons/email.png') }}" alt=""></div>
+                        <div>
+                            <div class="text-sm text-gray-400">{{ __('Email') }}</div>
+                            <div class="text-gray-600">info@dominicanshuttles.com</div>
+                        </div>
                     </div>
                 </div>
 

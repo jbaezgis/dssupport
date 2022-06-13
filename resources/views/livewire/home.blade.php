@@ -56,7 +56,7 @@
                                         parse-format="YYYY-MM-DD"
                                     /> --}}
                                     <label class="mb-1 block text-sm font-medium text-secondary-700 dark:text-gray-400">{{ __('Arrival Date')}}</label>
-                                    <input class="py-2 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full sm:py-1.5" type="date" name="arrivalDate">
+                                    <input wire:model="arrivalDate" class="py-2 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full sm:py-1.5" type="date" name="arrivalDate" >
                                 </div>
                 
                                 <div class="">
@@ -249,6 +249,32 @@
                 </div>
                 <div class="text-xl font-bold text-center py-2 text-gray-600">{{ __('From Home to Beach') }}</div>
                 <div class="text-center text-gray-600">{{ __('Need to escape the city? Dominican Shuttles offers transportation within the city and to your get away locations.') }}</div>
+            </div>
+        </div>
+
+        <div class="py-10 px-6">
+            <div class="bg-white shadow p-4">
+                {{-- <div class="flex justify-center py-2">
+                    <div class="text-center"><img class="h-16" src="{{ asset('images/icons/palmera.png') }}" alt="Palmera"></div>
+                </div> --}}
+                <div class="text-xl text-center py-2 mb-4 text-white bg-red-400 rounded-lg">
+                    <span class="font-bold">{{ __('Contact us') }}</span>
+                    <span>{{ __('for special prices') }}</span>
+                </div>
+                <div class="flex justify-center gap-4">
+                    <div>
+                        <div class="text-sm text-gray-400">{{ __('Phone') }}</div>
+                        <div class="text-gray-600">+1 829 820 5200</div>
+                    </div>
+                    <div>
+                        <div class="text-sm text-gray-400">{{ __('Email') }}</div>
+                        <div class="text-gray-600">info@dominicanshuttles.com</div>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+
+                </div>
             </div>
         </div>
     </div>

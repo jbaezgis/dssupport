@@ -64,11 +64,11 @@
             <div class="">
                 <div class="w-full">
                     <div class="">
-                        <div class="flex justify-center">
+                        {{-- <div class="flex justify-center">
                             <a href="#" class="text-xl font-bold text-gray-800 hover:text-gray-700 ">
                                 <x-jet-application-logo />
                             </a>
-                        </div>
+                        </div> --}}
                         
                         {{-- <p class="max-w-md mt-2 text-gray-500">{{ now()->year }} - Dominican Shuttles</p> --}}
                     </div>

@@ -91,16 +91,18 @@
         </div>
     </div>
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <div class="flex justify-center mb-2">
-            <div wire:loading>
-                <div class="">
-                    <img class="mx-auto h-5 w-5 animate-spin" src="{{ asset('images/spiner.png') }}" alt="Spiner">
-                </div>
-                <div class="text-sm text-gray-500">
-                    {{ __('Processing') }}...
+        @if ($service)
+            <div class="flex justify-center mb-2">
+                <div wire:loading>
+                    <div class="">
+                        <img class="mx-auto h-5 w-5 animate-spin" src="{{ asset('images/spiner.png') }}" alt="Spiner">
+                    </div>
+                    <div class="text-sm text-gray-500">
+                        {{ __('Processing') }}...
+                    </div>
                 </div>
             </div>
-        </div>
+        @endif
         
         @if($service and $arrivalDate and $passengers)
 
@@ -199,8 +201,8 @@
         @endif
     </div>
 
-    {{-- <h1>Testing</h1> --}}
-    <div class="p-4 bg-blue-500">
+    
+    <div class="p-4 mt-8 bg-blue-500">
         <div>
             <h1 class="text-xl text-white">{{ __('PRIVATE TRANSFER SERVICES') }}</h1>
         </div>
@@ -213,13 +215,17 @@
         </div>
     </div>
 
+    <div class="text-center px-4 py-6 text-lg font-semibold text-gray-700">
+        {{ __('Dominican Shuttles has been serving the tourist industry in the Dominican Republic since 2010. We are proud of our exceptional safety record and our highly acclaimed services.') }}
+    </div>
+
     <div class="py-10 bg-gray-100">
         <div class="px-6">
             <div class="flex justify-center py-2">
                 <div class="text-center"><img class="h-16" src="{{ asset('images/icons/plane.png') }}" alt="Airplane"></div>
             </div>
-            <div class="text-xl font-bold text-center py-2">{{ __('Airport Pickup/Drop Off') }}</div>
-            <div class="text-center">{{ __('Dominican Shuttles will pick you up, drop you off, or set up a round trip airport transfer.') }}</div>
+            <div class="text-xl font-bold text-center py-2 text-gray-600">{{ __('Airport Pickup/Drop Off') }}</div>
+            <div class="text-center text-gray-600">{{ __('Dominican Shuttles will pick you up, drop you off, or set up a round trip airport transfer.') }}</div>
         </div>
     </div>
 
@@ -228,8 +234,8 @@
             <div class="flex justify-center py-2">
                 <div class="text-center"><img class="h-16" src="{{ asset('images/icons/route.png') }}" alt="Route"></div>
             </div>
-            <div class="text-xl font-bold text-center py-2">{{ __('From A to B') }}</div>
-            <div class="text-center">{{ __('Need to get from your hotel to the office? Dominican Shuttles will support all of your transportation needs.') }}</div>
+            <div class="text-xl font-bold text-center py-2 text-gray-600">{{ __('From A to B') }}</div>
+            <div class="text-center text-gray-600">{{ __('Need to get from your hotel to the office? Dominican Shuttles will support all of your transportation needs.') }}</div>
         </div>
     </div>
 
@@ -238,8 +244,8 @@
             <div class="flex justify-center py-2">
                 <div class="text-center"><img class="h-16" src="{{ asset('images/icons/palmera.png') }}" alt="Palmera"></div>
             </div>
-            <div class="text-xl font-bold text-center py-2">{{ __('From Home to Beach') }}</div>
-            <div class="text-center">{{ __('Need to escape the city? Dominican Shuttles offers transportation within the city and to your get away locations.') }}</div>
+            <div class="text-xl font-bold text-center py-2 text-gray-600">{{ __('From Home to Beach') }}</div>
+            <div class="text-center text-gray-600">{{ __('Need to escape the city? Dominican Shuttles offers transportation within the city and to your get away locations.') }}</div>
         </div>
     </div>
 </div>

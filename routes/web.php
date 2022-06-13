@@ -10,6 +10,8 @@ use App\Http\Livewire\ShowBooking;
 use App\Http\Livewire\Home;
 use App\Http\Livewire\BookingForm;
 use App\Http\Livewire\BookingDetails;
+use App\Http\Livewire\ContactForm;
+
 
 // Lang
 Route::get('locale/{locale}', function($locale){
@@ -23,6 +25,9 @@ Route::prefix('{language}')->group(function () {
 // Route::middleware(['auth:sanctum', 'verified'])->get('/', [HomeController::class, 'home'])->name('home');
 // Route::get('/', Home::class);
 Route::get('/', Home::class);
+
+// Contact Form
+Route::get('/contact', ContactForm::class);
 
 // Booking process
 Route::get('/booking-form/{id}', BookingForm::class);

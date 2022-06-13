@@ -248,33 +248,8 @@
 
         <div class="py-10 px-6">
             <div class="bg-white shadow p-4">
-                {{-- <div class="flex justify-center py-2">
-                    <div class="text-center"><img class="h-16" src="{{ asset('images/icons/palmera.png') }}" alt="Palmera"></div>
-                </div> --}}
-                <div class="text-xl text-center py-2 mb-4 text-white bg-red-400 rounded-lg">
-                    <span class="font-bold">{{ __('Contact us') }}</span>
-                    <span>{{ __('for special prices') }}</span>
-                </div>
-                <div class="">
-                    <div class="flex gap-4 mb-4">
-                        <div class="pt-2 pr-2"><img class="h-6" src="{{ asset('images/icons/telephone.png') }}" alt="Telephone"></div>
-                        <div>
-                            <div class="text-sm text-gray-400">{{ __('Phone') }}</div>
-                            <div class="text-gray-600">+1 829 820 5200</div>
-                        </div>
-                    </div>
-                    <div class="flex gap-6">
-                        <div class="pt-2"><img class="h-6" src="{{ asset('images/icons/email.png') }}" alt=""></div>
-                        <div>
-                            <div class="text-sm text-gray-400">{{ __('Email') }}</div>
-                            <div class="text-gray-600">info@dominicanshuttles.com</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mt-4">
-
-                </div>
+               
+                @livewire('contact-form')
             </div>
         </div>
     </div>

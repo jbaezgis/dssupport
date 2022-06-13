@@ -19,13 +19,18 @@ class ContactForm extends Component
     protected $rules = [
         'fullname' => 'required',
         'email' => 'required|email',
-        'phone' => 'required',
+        'phone' => 'required|min:10',
         'message' => 'required|min:12'
     ]; 
 
     public function render()
     {
         return view('livewire.contact-form');
+    }
+
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName);
     }
 
     public function submitForm()

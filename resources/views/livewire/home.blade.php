@@ -6,6 +6,12 @@
 <div>
     <div class="bg-gray-50 py-6">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="py-4">
+                <div class="flex justify-end gap-2 pr-2">
+                    <a class="inline-flex items-center px-4 py-2 {{ Config::get('app.locale') == 'en' ? 'bg-blue-100 border border-blue-400 text-blue-400 tracking-widest hover:bg-blue-200 active:bg-blue-300 focus:border-blue-400 focus:ring focus:ring-blue-300' : 'bg-gray-50 hover:bg-gray-200 active:bg-gray-300 focus:border-gray-300 focus:ring focus:ring-gray-300' }} border rounded-md font-semibold text-xs tracking-widest focus:outline-none focus:ring disabled:opacity-25 transition" href="{{ url('locale/en') }}" title="English"><img class="h-4 mr-2" src="{{ asset('images/flags/um.svg') }}" alt="English"> EN</a>
+                    <a class="inline-flex items-center px-4 py-2 {{ Config::get('app.locale') == 'es' ? 'bg-blue-100 border border-blue-400 text-blue-400 tracking-widest hover:bg-blue-200 active:bg-blue-300 focus:border-blue-400 focus:ring focus:ring-blue-300' : 'bg-gray-50 hover:bg-gray-200 active:bg-gray-300 focus:border-gray-300 focus:ring focus:ring-gray-300' }} border rounded-md font-semibold text-xs tracking-widest focus:outline-none focus:ring disabled:opacity-25 transition" href="{{ url('locale/es') }}" title="Spanish"><img class="h-4 mr-2" src="{{ asset('images/flags/es.svg') }}" alt="English"> ES</a>
+                </div>
+            </div>
             <div class="">
                 <div>
                     {{-- Form --}}
@@ -61,7 +67,7 @@
                                     /> --}}
 
                                     <label class="mb-1 block text-sm font-medium text-secondary-700 dark:text-gray-400">{{ __('Passengers')}}</label>
-                                    <select class="py-1.5 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full" name="passengers" id="passengers" wire:model="passengers">
+                                    <select class="py-2 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full sm:py-1.5" name="passengers" id="passengers" wire:model="passengers">
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -194,4 +200,46 @@
     </div>
 
     {{-- <h1>Testing</h1> --}}
+    <div class="p-4 bg-blue-500">
+        <div>
+            <h1 class="text-xl text-white">{{ __('PRIVATE TRANSFER SERVICES') }}</h1>
+        </div>
+        <div class="text-3xl font-bold text-white">
+            {{ __('CERTIFIED EXCELLENT!') }}
+        </div>
+        <div>
+            <div class="text-5xl text-yellow-300 font-extrabold">20 {{ __('YEARS') }}</div>
+            <div class="text-white">{{ __('serving tourist, 100% price guarantee') }}</div>
+        </div>
+    </div>
+
+    <div class="py-10 bg-gray-100">
+        <div class="px-6">
+            <div class="flex justify-center py-2">
+                <div class="text-center"><img class="h-16" src="{{ asset('images/icons/plane.png') }}" alt="Airplane"></div>
+            </div>
+            <div class="text-xl font-bold text-center py-2">{{ __('Airport Pickup/Drop Off') }}</div>
+            <div class="text-center">{{ __('Dominican Shuttles will pick you up, drop you off, or set up a round trip airport transfer.') }}</div>
+        </div>
+    </div>
+
+    <div class="py-10 bg-blue-50">
+        <div class="px-6">
+            <div class="flex justify-center py-2">
+                <div class="text-center"><img class="h-16" src="{{ asset('images/icons/route.png') }}" alt="Route"></div>
+            </div>
+            <div class="text-xl font-bold text-center py-2">{{ __('From A to B') }}</div>
+            <div class="text-center">{{ __('Need to get from your hotel to the office? Dominican Shuttles will support all of your transportation needs.') }}</div>
+        </div>
+    </div>
+
+    <div class="py-10 bg-yellow-50">
+        <div class="px-6">
+            <div class="flex justify-center py-2">
+                <div class="text-center"><img class="h-16" src="{{ asset('images/icons/palmera.png') }}" alt="Palmera"></div>
+            </div>
+            <div class="text-xl font-bold text-center py-2">{{ __('From Home to Beach') }}</div>
+            <div class="text-center">{{ __('Need to escape the city? Dominican Shuttles offers transportation within the city and to your get away locations.') }}</div>
+        </div>
+    </div>
 </div>

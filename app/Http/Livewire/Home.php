@@ -55,6 +55,13 @@ class Home extends Component
         return view('livewire.home');
     }
 
+    public function cleanFields()
+    {
+        $this->fromLocation = '';
+        $this->toLocation = '';
+        $this->arrivalDate = '';
+    }
+
     public function save()
     {
         Booking::updateOrCreate(['id'=>$this->id_booking],

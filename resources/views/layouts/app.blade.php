@@ -106,6 +106,6 @@
 
         @stack('modals')
 
-        @livewireScripts
+        @livewireScripts(['nonce' => csp_nonce()])
     </body>
 </html>

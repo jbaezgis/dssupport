@@ -58,7 +58,12 @@
             </div>
         
             <div class="flex w-full mt-4 rounded-md shadow-sm sm:w-auto">
-                <button wire:loading.attr="disabled" type="submit" class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-red-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-red-800 focus:outline-none focus:border-re-700 focus:shadow-outline-red transition ease-in-out duration-150 sm:text-sm sm:leading-5">{{__('Quick Contact')}}</button>
+                <button 
+                    wire:loading.attr="disabled" 
+                    type="submit" class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-red-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-red-800 focus:outline-none focus:border-re-700 focus:shadow-outline-red transition ease-in-out duration-150 sm:text-sm sm:leading-5"
+                    >
+                        {{__('Quick Contact')}}
+                </button>
                 {{-- <div wire:loading>
                     <button type="submit" class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-red-300 text-base leading-6 font-medium text-red-800 shadow-sm" disabled><img class="mx-auto h-4 w-4 animate-spin" src="{{ asset('images/spiner.png') }}" alt="Spiner"> &nbsp; {{__('Sending...')}}</button>
                 </div> --}}

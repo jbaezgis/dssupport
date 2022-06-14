@@ -253,6 +253,7 @@ class TransferController extends Controller
 		if ($booking->type == 'roundtrip'){
 			
 			// Cambios realizados por Yoel
+			$booking->return_date = $request->return_date;
 			$booking->return_airline = $request->return_airline;
 			$booking->return_flight_number = $request->return_flight_number;
 			$booking->return_want_to_arrive_2 = $request->return_want_to_arrive_2;

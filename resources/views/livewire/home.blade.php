@@ -20,7 +20,7 @@
                             <div class="">
                                 <x-select
                                     label="{{ __('FROM - PICK UP LOCATION') }}"
-                                    placeholder="Select from location"
+                                    placeholder="{{ __('Select location') }}"
                                     {{-- icon="location-marker" --}}
                                     wire:model="fromLocation"
                                 >
@@ -33,8 +33,8 @@
                 
                             <div class="mt-4">
                                 <x-select
-                                    label="TO - DROP OFF LOCATION"
-                                    placeholder="Select to location"
+                                    label="{{ __('TO - DROP OFF LOCATION') }}"
+                                    placeholder="{{ __('Select location') }}"
                                     {{-- icon="location-marker" --}}
                                     wire:model="toLocation"
                                 >

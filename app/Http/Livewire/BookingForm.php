@@ -26,15 +26,23 @@ class BookingForm extends Component
     public $showDiv = false;
     public $willArriveData;
 
-    // protected $rules = [
-    //     'name' => 'required|min:6',
-    //     'email' => 'required|email',
-    // ];
+    protected $rules = [
+        'fullname' => 'required',
+        'email' => 'required|email',
+        'phone' => 'required|min:10',
+        'language' => 'required',
+        'arrival_date' => 'required',
+    ]; 
 
     public function mount($id)
     {
         // $this->booking = Booking::find($id);
         $this->booking = Booking::where('id', $id)->where('bookingkey', $this->bookingkey)->firstOrFail();
+    }
+
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName);
     }
 
     public function render()

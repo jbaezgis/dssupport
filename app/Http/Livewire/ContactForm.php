@@ -4,7 +4,8 @@ namespace App\Http\Livewire;
 
 use App\Mail\ContactFormMailable;
 use Livewire\Component;
-use Illuminate\Support\Facades\Mail; 
+use Illuminate\Support\Facades\Mail;
+use PhpParser\Node\Expr\FuncCall;
 use WireUi\Traits\Actions;
 
 class ContactForm extends Component
@@ -44,6 +45,11 @@ class ContactForm extends Component
             'icon'        => 'success'
         ]);
 
+        $this->resetForm();
+    }
+    
+    public function resetForm()
+    {
         $this->fullname = '';
         $this->email = '';
         $this->phone = '';

@@ -491,6 +491,11 @@
                             <div class="text-right">{{ date('j F Y', strtotime($booking->created_at)) }}</div>
                         </div>
 
+                        <div class="grid grid-cols-2 py-2 text-gray-600">
+                            <div>{{ __('Passengers') }}</div>
+                            <div class="text-right">{{ $booking->passengers }}</div>
+                        </div>
+
                         <div class="grid grid-cols-2 py-1 text-gray-600">
                             <div>{{ __('Vehicle size') }}</div>
                             <div class="text-right">{{ $booking->servicePrice->priceOption->name }}</div>

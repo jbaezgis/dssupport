@@ -1,3 +1,8 @@
+@section('title', __('Booking form') . ' - #'. $booking->id )
+@section('description', 'Best Private Transfers in the DR!')
+@section('keywords', 'Dominican Shuttles, Private Transfers, Airport Pickup, Tourist, Transfers, Airport, Dominican, Tourism, Beach, Hotel, Private, Shuttle', 'Safety')
+@section('og-image', asset('images/image-cover.png'))
+@section('og-image-url', asset('images/image-cover.png'))
 <div>
     <div class="max-w-3xl mx-auto p-4">
         <div class="bg-white rounded">
@@ -95,28 +100,18 @@
         {{-- Form --}}
         {!! Form::model($booking, ['method' => 'PATCH', 'url' => ['/booking', $booking->id], 'class' => '']) !!}
     
-
-            {{-- @if ($auction->fromcity->is_airport == 1 && $auction->tocity->is_airport == 1)
-                @include ('bookings.forms.airport_to_airport')
-            
-            
-            @elseif ($auction->fromcity->is_airport == 1 && $auction->tocity->is_airport == NULL)
-                @include ('bookings.forms.airport_to_location')
-            
-            
-            @elseif ($auction->fromcity->is_airport == NULL && $auction->tocity->is_airport == NULL)
-                @include ('bookings.forms.location_to_location')
-            
-            @elseif ($auction->fromcity->is_airport == NULL && $auction->tocity->is_airport == 1)
-                @include ('bookings.forms.location_to_airport')
-
-            @endif --}}
-
             <div class="text-lg font-bold text-gray-600 my-6 border-b border-gray-200">
                     {{ __('Contact Details') }}
                 </div>
                 <div class="mb-2">
-                    <x-input wire:model="fullname" label="Full name" name="fullname" value="{{ old('fullname', $booking->fullname) }}"/>
+                    {{-- <x-input wire:model="fullname" label="Full name" name="fullname" value="{{ old('fullname', $booking->fullname) }}"/> --}}
+                    <label class="mb-1 block text-sm font-medium {{ $errors->has('fullname') ? 'text-negative-600' : 'text-secondary-700' }} dark:text-gray-400" for="arrival_time">{{ __('Full name') }}</label>
+                    <input class="{{ $errors->has('fullname') ? 'border-red-600' : 'border-gray-300' }} focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full" 
+                        type="text" 
+                        name="fullname" id="fullname"
+                        wire:model="fullname"
+                        value="{{ old('fullname', $booking->fullname) }}"
+                    >
                 </div>
                 
                 <div class="mb-2 ">

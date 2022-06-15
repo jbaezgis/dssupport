@@ -13,14 +13,28 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ url('/') }}" :active="request()->is('/')">
-                        {{ __('Home') }}
-                    </x-jet-nav-link>
+                    @guest
+                        <x-jet-nav-link href="{{ url('/') }}" :active="request()->is('/')">
+                            {{ __('Home') }}
+                        </x-jet-nav-link>
+
+                        <x-jet-nav-link href="{{ url('/') }}" :active="request()->is('/')">
+                            {{ __('About Us') }}
+                        </x-jet-nav-link>
+
+                        <x-jet-nav-link href="{{ url('/') }}" :active="request()->is('/')">
+                            {{ __('Contact Us') }}
+                        </x-jet-nav-link>
+
+                        <x-jet-nav-link href="{{ url('/') }}" :active="request()->is('/')">
+                            {{ __('Privacy Policy') }}
+                        </x-jet-nav-link>
+                    @endguest
                     
                     @auth
-                        {{-- <x-jet-nav-link href="{{ url('/') }}" :active="request()->is('/')">
-                            {{ __('Home') }}
-                        </x-jet-nav-link> --}}
+                        <x-jet-nav-link href="{{ url('dashboard') }}" :active="request()->is('dashboard')">
+                            {{ __('Dashboard') }}
+                        </x-jet-nav-link>
                         <x-jet-nav-link href="{{ url('/bookings') }}" :active="request()->is('bookings')">
                             {{ __('Bookings') }}
                         </x-jet-nav-link>

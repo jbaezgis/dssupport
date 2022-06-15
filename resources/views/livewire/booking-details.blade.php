@@ -363,6 +363,10 @@
                                             {{$booking->return_airline}} 
                                         </div>
                                     </div>
+                                    
+
+                                </div>
+                                <div class="flex gap-4 mb-2 ">
                                     <div>
                                         <div class="text-xs text-gray-500">{{ __('FLIGHT NUMBER') }}</div>
                                         <div>
@@ -393,9 +397,7 @@
                                             {{ date('g:i A', strtotime($booking->pickup_time)) }}
                                         </div>
                                     </div>
-
                                 </div>
-
                                 <div class="flex gap-4 mb-2 ">
                                     <div>
                                         <div class="text-xs text-gray-500">{{ __('ADITIONAL INFORMATION') }}</div>

@@ -357,22 +357,26 @@
                                             {{ date('g:i A', strtotime($booking->return_time_2)) }} 
                                         </div>
                                     </div>
+                                    
+                                    
+                                </div>
+                                
+                                <div class="flex gap-4 mb-2 ">
                                     <div>
                                         <div class="text-xs text-gray-500">{{ __('DEPARTURE AIRLINE') }}</div>
                                         <div>
                                             {{$booking->return_airline}} 
                                         </div>
                                     </div>
-                                    
-
-                                </div>
-                                <div class="flex gap-4 mb-2 ">
                                     <div>
                                         <div class="text-xs text-gray-500">{{ __('FLIGHT NUMBER') }}</div>
                                         <div>
                                             {{$booking->return_flight_number}}
                                         </div>
                                     </div>
+                                </div>
+
+                                <div class="flex gap-4 mb-2 ">
 
                                     <div>
                                         <div class="text-xs text-gray-500">{{ __('I (WE) WANT TO ARRIVE') }}</div>

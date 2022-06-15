@@ -4,7 +4,7 @@
 @section('og-image', asset('images/image-cover.png'))
 @section('og-image-url', asset('images/image-cover.png'))
 <div>
-    <div class="py-4 max-w-7xl mx-auto sm:px-6 lg:px-8 ">
+    <div class="py-4 max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 ">
     <div class="flex gap-2 text-xs text-gray-500 mb-2">
         <span>{{ __('Dominican Shuttles') }} </span>
         <span class="pt-0.5">

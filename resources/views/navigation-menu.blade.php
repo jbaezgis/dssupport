@@ -18,15 +18,15 @@
                             {{ __('Home') }}
                         </x-jet-nav-link>
 
-                        <x-jet-nav-link href="{{ url('/') }}" :active="request()->is('/')">
+                        <x-jet-nav-link href="{{ url('about-us') }}" :active="request()->is('about-us')">
                             {{ __('About Us') }}
                         </x-jet-nav-link>
 
-                        <x-jet-nav-link href="{{ url('/') }}" :active="request()->is('/')">
+                        <x-jet-nav-link href="{{ url('contact-us') }}" :active="request()->is('contact-us')">
                             {{ __('Contact Us') }}
                         </x-jet-nav-link>
 
-                        <x-jet-nav-link href="{{ url('/') }}" :active="request()->is('/')">
+                        <x-jet-nav-link href="{{ url('privacy-policy') }}" :active="request()->is('privacy-policy')">
                             {{ __('Privacy Policy') }}
                         </x-jet-nav-link>
                     @endguest
@@ -188,7 +188,7 @@
             <x-jet-responsive-nav-link href="{{ url('contact-us') }}" :active="request()->is('contact-us')">
                 {{ __('Contact Us') }}
             </x-jet-responsive-nav-link>
-            <x-jet-responsive-nav-link href="{{ url('privacy') }}" :active="request()->is('privacy')">
+            <x-jet-responsive-nav-link href="{{ url('privacy-policy') }}" :active="request()->is('privacy-policy')">
                 {{ __('Privacy Policy') }}
             </x-jet-responsive-nav-link>
             @auth

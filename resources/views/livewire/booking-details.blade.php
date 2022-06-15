@@ -377,15 +377,15 @@
                                     <div>
                                         <div class="text-xs text-gray-500">{{ __('I (WE) WANT TO ARRIVE') }}</div>
                                         <div>
-                                            @if ($booking->want_to_arrive == 90)
+                                            @if ($booking->return_want_to_arrive_2 == 90)
                                                 1 hour 30 min
-                                            @elseif ($booking->want_to_arrive == 120)
+                                            @elseif ($booking->return_want_to_arrive_2 == 120)
                                                 2 hours 00 min
-                                            @elseif ($booking->want_to_arrive == 150)
+                                            @elseif ($booking->return_want_to_arrive_2 == 150)
                                                 2 hours 30 min
-                                            @elseif ($booking->want_to_arrive == 180)
+                                            @elseif ($booking->return_want_to_arrive_2 == 180)
                                                 3 hours 00 min
-                                            @elseif ($booking->want_to_arrive == 210)
+                                            @elseif ($booking->return_want_to_arrive_2 == 210)
                                                 3 hours 30 min
                                             @endif
                                         </div>
@@ -394,7 +394,7 @@
                                     <div>
                                         <div class="text-xs text-gray-500">{{ __('PICK UP TIME') }}</div>
                                         <div>
-                                            {{ date('g:i A', strtotime($booking->pickup_time)) }}
+                                            {{ date('g:i A', strtotime($booking->return_pickup_time_2)) }}
                                         </div>
                                     </div>
                                 </div>

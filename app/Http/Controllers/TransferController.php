@@ -22,6 +22,7 @@ use Hash;
 use App\Repositories\PageRepository;
 use App\Place;
 use Carbon\Carbon;
+use Twilio\Rest\Client;
 
 class TransferController extends Controller
 {
@@ -272,6 +273,24 @@ class TransferController extends Controller
 		}
 
         $booking->save();
+
+        $bookingUrl = url('booking/'.$booking->id);
+        $bookingID = $booking->id;
+        $bookingName = $booking->fullname;
+        $bookingEmail = $booking->email;
+        $bookingPhone = $booking->phone;
+
+        $sid = env("TWILIO_AUTH_SID");
+        $token = env("TWILIO_AUTH_TOKEN");
+        $twilio = new Client($sid, $token);
+        $twilio->messages
+        ->create("whatsapp:18298205200", // to
+        [   
+            "from" => "whatsapp:+14155238886",
+            "body" => "New booking request.\nBooking ID: *$bookingID* \nName: *$bookingName* \nEmail: *$bookingEmail* \nPhone: *$bookingPhone*",
+            // "body" => $body,
+            ]
+        );
 
         return redirect('booking-details/'.$booking->id.'?bookingkey='.$booking->bookingkey);
     }

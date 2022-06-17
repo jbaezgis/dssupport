@@ -110,7 +110,7 @@
                         type="text" 
                         name="fullname" id="fullname"
                         wire:model="fullname"
-                        value="{{ old('fullname', $booking->fullname) }}"
+                        value="{{ old($booking->fullname) }}"
                     >
                 </div>
                 

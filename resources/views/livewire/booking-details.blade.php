@@ -582,7 +582,7 @@
                     {{ __('If you need support or have any question, please click on the WhatsApp icon to send us a message.') }}
                 </div>
                 <div class="flex justify-center py-4">
-                    <a href="https://wa.me/18493412723?text=Hi%20my%20name%20is%20*{{ $booking->fullname }}*,%20my%20booking:%20*{{ $booking->id }}*,%20email:%20*{{ $booking->email }}*.%20I%20need%20support."> 
+                    <a href="https://wa.me/18298205200?text=Hi%20my%20name%20is%20*{{ $booking->fullname }}*,%20my%20booking:%20*{{ $booking->id }}*,%20email:%20*{{ $booking->email }}*.%20I%20need%20support."> 
                         <img class="h-12" src="{{ asset('images/icons/whatsapp.png') }}" alt="WhatsApp Icon">
                     </a> 
                 </div>

@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'fa50edb2a352528d082252dd7d2051301c5f5247',
+        'reference' => '75e42803af33904d85cbf468d4beab02f6f599c6',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -490,7 +490,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'fa50edb2a352528d082252dd7d2051301c5f5247',
+            'reference' => '75e42803af33904d85cbf468d4beab02f6f599c6',
             'dev_requirement' => false,
         ),
         'laravel/sail' => array(
@@ -1395,6 +1395,15 @@
             'install_path' => __DIR__ . '/../tijsverkoyen/css-to-inline-styles',
             'aliases' => array(),
             'reference' => 'da444caae6aca7a19c0c140f68c6182e337d5b1c',
+            'dev_requirement' => false,
+        ),
+        'twilio/sdk' => array(
+            'pretty_version' => '6.37.3',
+            'version' => '6.37.3.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../twilio/sdk',
+            'aliases' => array(),
+            'reference' => '91f1d939596ba8976b4be09ea634a1bab3a4cb7f',
             'dev_requirement' => false,
         ),
         'vlucas/phpdotenv' => array(

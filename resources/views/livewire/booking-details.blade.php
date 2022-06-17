@@ -4,6 +4,32 @@
 @section('og-image', asset('images/image-cover.png'))
 @section('og-image-url', asset('images/image-cover.png'))
 <div>
+    {{-- Important note --}}
+    <div class="bg-blue-600">
+        <div class="max-w-7xl mx-auto py-3 px-3 sm:px-6 lg:px-8">
+          <div class="flex items-center justify-between flex-wrap">
+            <div class="w-0 flex-1 flex items-center">
+              <span class="flex p-2 rounded-lg bg-blue-800">
+                <!-- Heroicon name: outline/speakerphone -->
+                <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
+                </svg>
+              </span>
+              <p class="ml-3 font-medium text-white ">
+                <span class="font-bold">{{ __('Important!') }} </span><br>
+                <span>{{ __('You will receive a secure payment link in your email.') }}</span>
+{{-- 
+                <span class="md:hidden"> Important! </span>
+                <span class="hidden md:inline"> You will receive a secure payment link. </span> --}}
+              </p>
+            </div>
+           
+            
+          </div>
+        </div>
+    </div>    
+
+
     <div class="mt-4">
         <div>
             <h1 class="text-gray-900 text-center text-3xl">{{$booking->fullname}}</h1>
@@ -550,6 +576,17 @@
                 </div>
             </div> --}}
 
+            {{-- WhatsApp icon --}}
+            <div class="py-4 px-2">
+                <div class="text-center tex-sm text-gray-600">
+                    {{ __('If you need support or have any question, please click on the WhatsApp icon to send us a message.') }}
+                </div>
+                <div class="flex justify-center py-4">
+                    <a href="https://wa.me/18493412723?text=Hi%20my%20name%20is%20*{{ $booking->fullname }}*,%20my%20booking:%20*{{ $booking->id }}*,%20email:%20*{{ $booking->email }}*.%20I%20need%20support."> 
+                        <img class="h-12" src="{{ asset('images/icons/whatsapp.png') }}" alt="WhatsApp Icon">
+                    </a> 
+                </div>
+            </div>
         </div>
         
     </div>

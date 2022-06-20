@@ -50,7 +50,7 @@ class ContactForm extends Component
         $token = env("TWILIO_AUTH_TOKEN");
         $twilio = new Client($sid, $token);
         $twilio->messages
-        ->create("whatsapp:18298205200", // to
+        ->create("whatsapp:18493412723", // to
         [   
             "from" => "whatsapp:+14155238886",
             "body" => "Case, has recibido una nueva solicitud de información en Dominican Shuttles. \n \nName: *$bodyName* \n \nEmail: *$bodyEmail* \n \nPhone: *$bodyPhone* \n \nMessage: \n*$bodyMessage*",

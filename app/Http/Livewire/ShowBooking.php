@@ -11,6 +11,7 @@ class ShowBooking extends Component
     public $booking, $booking_name, $id_task, $tasks, $booking_id, $user_id, $name, $details, $status_id;
     public $modal = false;
     public $priceCalculation = '';
+    public $spanishEmailContent = false;
 
     public function mount($id)
     {
@@ -24,7 +25,7 @@ class ShowBooking extends Component
 
     public function createTask()
     {
-        $this->cleanFields();
+        // $this->cleanFields();
         $this->openModal();
     }
 
@@ -74,5 +75,15 @@ class ShowBooking extends Component
         session()->flash('message', $this->id_task ? __('Task updated!') : __('Booking added!'));
         $this->closeModal();
         $this->cleanFields();
+    }
+
+    public function openSnapnishEmailContent()
+    {
+        $this->spanishEmailContent = true;
+    }
+
+    public function closeSnapnishEmailContent()
+    {
+        $this->spanishEmailContent = false;
     }
 }

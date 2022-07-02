@@ -1,4 +1,11 @@
+@section('title', __('Dashboard'))
+@section('description', 'Best Private Transfers in the DR!')
+@section('keywords', 'Dominican Shuttles, Private Transfers, Airport Pickup, Tourist, Transfers, Airport, Dominican, Tourism, Beach, Hotel, Private, Shuttle', 'Safety')
+@section('og-image', asset('images/image-cover.png'))
+@section('og-image-url', asset('images/image-cover.png'))
 <div>
+    {{-- @include('livewire.admin-menu') --}}
+
     <div class="py-4 sm:px-6 lg:px-8 ">
         <div class="flex gap-2 text-xs text-gray-500 mb-2">
             <span>{{ __('System') }} </span>

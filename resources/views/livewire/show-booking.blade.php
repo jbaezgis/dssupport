@@ -10,6 +10,69 @@
             <x-button icon="information-circle" label="Button 2" />
         </div> --}}
 
+        <div class="flex gap-2 text-xs text-gray-500 mb-2">
+            <span>{{ __('Bookings') }} </span>
+            <span class="pt-0.5">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+            </span>
+            <span>{{ __('Show Booking') }}</span>
+        </div>
+
+        <div class="flex justify-between border-b pb-2">
+            <div>
+                <a wire:click="openSnapnishEmailContent()" class="cursor-pointer inline-flex items-center px-4 py-2 bg-gray-100 border border-transparent rounded-md font-semibold text-xs text-gray-700 uppercase tracking-widest hover:bg-gray-200 active:bg-gray-300 focus:outline-none focus:border-gray-300 focus:ring focus:ring-gray-300 disabled:opacity-25 transition">
+                    {{ __('Email template') }}
+                </a>
+                <a wire:click="openSnapnishEmailContent()" class="cursor-pointer  inline-flex items-center px-4 py-2 bg-gray-100 border border-transparent rounded-md font-semibold text-xs text-gray-700 uppercase tracking-widest hover:bg-gray-200 active:bg-gray-300 focus:outline-none focus:border-gray-300 focus:ring focus:ring-gray-300 disabled:opacity-25 transition">
+                    {{ __('Spanish email template') }}
+                </a>
+                
+                {{-- <x-buttons.primary wire:click="openSnapnishEmailContent()">{{ __('Spanish email template') }}</x-buttons.primary> --}}
+            </div>
+
+            {{-- Modals --}}
+            @if($spanishEmailContent)
+                <div class="fixed z-10 inset-0 overflow-y-auto ease-out duration-300">
+                    <div class="flex justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+                        <div class="fixed inset-0 transition-opacity">
+                            <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+                        </div>
+                
+                        <span class="hidden sm:inline-block sm:align-middle sm:h-screen"></span>
+                
+                        <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-4xl sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+                                <div>
+                                    <div class="flex justify-end border-b">
+                                        <a wire:click="closeSnapnishEmailContent()" class="p-4 cursor-pointer text-gray-400 hover:text-gray-600">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                                    <div class="mb-4">
+                                        @include('emails_templates.airport-to-location-oneway')
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
+
+            {{-- Actions buttons --}}
+            <div>
+                <a href="{{ url('bookings/edit/'.$booking->id.'?bookingkey='.$booking->bookingkey) }}" class="inline-flex items-center px-4 py-2 bg-blue-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-400 active:bg-blue-600 focus:outline-none focus:border-blue-600 focus:ring focus:ring-blue-300 disabled:opacity-25 transition">
+                    {{-- <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                    </svg> --}}
+                    {{ __('Edit') }}
+                </a>
+            </div>
+        </div>
+
         <div class="mt-4">
             <div>
                 <h1 class="text-gray-900 text-center text-3xl">{{$booking->fullname}}</h1>
@@ -430,15 +493,20 @@
                             
                             <div class="grid grid-cols-2 mt-4 py-2 text-gray-600">
                                 <div>{{ __('Booking date') }}</div>
-                                <div class="text-right">{{ date('j F Y', strtotime($booking->created_at)) }}</div>
+                                <div class="text-right font-semibold">{{ date('j F Y', strtotime($booking->created_at)) }}</div>
                             </div>
 
                             <div class="grid grid-cols-2 py-1 text-gray-600">
                                 <div>{{ __('Vehicle size') }}</div>
-                                <div class="text-right">{{ $booking->servicePrice->priceOption->name }}</div>
+                                <div class="text-right font-semibold">{{ $booking->servicePrice->priceOption->name }}</div>
                             </div>
 
-                            <div class="border-b border-gray-200"></div>
+                            <div class="grid grid-cols-2 py-1 text-gray-600">
+                                <div>{{ __('Passengers') }}</div>
+                                <div class="text-right font-semibold">{{ $booking->passengers }}</div>
+                            </div>
+
+                            {{-- <div class="border-b border-gray-200"></div> --}}
 
                         </div>
                         <div class="bg-gray-200 p-4 shadow-sm rounded font-bold">

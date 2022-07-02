@@ -35,7 +35,7 @@
                         <x-jet-nav-link href="{{ url('dashboard') }}" :active="request()->is('dashboard')">
                             {{ __('Dashboard') }}
                         </x-jet-nav-link>
-                        <x-jet-nav-link href="{{ url('/bookings') }}" :active="request()->is('bookings')">
+                        <x-jet-nav-link href="{{ url('/bookings') }}" :active="request()->is('bookings*')">
                             {{ __('Bookings') }}
                         </x-jet-nav-link>
                         {{-- <x-jet-nav-link href="{{ url('home') }}" :active="request()->is('home')">

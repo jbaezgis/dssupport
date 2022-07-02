@@ -1,3 +1,8 @@
+@section('title', __('Bookings'))
+@section('description', 'Best Private Transfers in the DR!')
+@section('keywords', 'Dominican Shuttles, Private Transfers, Airport Pickup, Tourist, Transfers, Airport, Dominican, Tourism, Beach, Hotel, Private, Shuttle', 'Safety')
+@section('og-image', asset('images/image-cover.png'))
+@section('og-image-url', asset('images/image-cover.png'))
 <div class="bg-gray-50">
 
     <div class="py-4 sm:px-6 lg:px-8 ">
@@ -37,7 +42,7 @@
 
             {{-- Actions buttons --}}
             <div>
-                <a class="inline-flex items-center px-4 py-2 bg-blue-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-400 active:bg-blue-600 focus:outline-none focus:border-blue-600 focus:ring focus:ring-blue-300 disabled:opacity-25 transition" href="#">
+                <a href="{{ url('bookings/create') }}" class="inline-flex items-center px-4 py-2 bg-blue-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-400 active:bg-blue-600 focus:outline-none focus:border-blue-600 focus:ring focus:ring-blue-300 disabled:opacity-25 transition">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
                     </svg>

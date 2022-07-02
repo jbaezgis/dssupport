@@ -14,6 +14,8 @@ use App\Http\Livewire\ContactForm;
 use App\Http\Livewire\AboutUs;
 use App\Http\Livewire\ContactUs;
 use App\Http\Livewire\PrivacyPolicy;
+use App\Http\Livewire\CreateManualBooking;
+use App\Http\Livewire\EditManualBooking;
 
 
 // Lang
@@ -44,9 +46,17 @@ Route::patch('/booking/{id}', [TransferController::class, 'update'])->name('book
 Route::post('booking/oneway', [TransferController::class, 'oneway'])->name('transer_oneway');
 Route::post('booking/roundtrip', [TransferController::class, 'roundtrip'])->name('transer_roundtrip');
 
-// Administratio
+
+// Administration
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/dashboard', Dashboard::class);
     Route::get('/bookings', Bookings::class);
     Route::get('/booking/{id}', ShowBooking::class);
+    
+    // Manual booking create
+    Route::get('/bookings/create', CreateManualBooking::class);
+    Route::get('/bookings/edit/{id}', EditManualBooking::class);
+    Route::post('booking/oneway-manual', [TransferController::class, 'storeOneWayManualBooking'])->name('oneway_manual');
+    Route::post('booking/roundtrip-manual', [TransferController::class, 'storeRoundTripManualBooking'])->name('roundtrip_manual');
+    Route::patch('/bookings/save/{id}', [TransferController::class, 'manualUpdate'])->name('manual_update');
 });

@@ -300,7 +300,7 @@ class TransferController extends Controller
         $booking->language = $request->language;
         $booking->more_information = $request->more_information;
 
-        $booking->arrival_date = $request->arrival_date;
+        // $booking->arrival_date = $request->arrival_date;
         $booking->arrival_time = date('H:i:s', strtotime($request->arrival_time));
 
 		if ($request->has('arrival_airline'))

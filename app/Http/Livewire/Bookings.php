@@ -49,6 +49,8 @@ class Bookings extends Component
     public $sortField = 'id';
     public $sortDirection = 'desc';
     public $status = '';
+    public $modalConfirmPaid = false;
+    public $modelId;
 
     public function render()
     {
@@ -187,5 +189,28 @@ class Bookings extends Component
         $this->closeModal();
         $this->cleanFields();
     }
+    
+    public function paidShowModal($id)
+    {
+        $this->modelId = $id;
+        $this->modalConfirmPaid = true;
+    }
 
+    public function paid()
+    {
+        Booking::where('id', $this->modelId)
+            ->update(['status' => 'paid']);
+
+        // $this->reset();
+        $this->modalConfirmPaid = false;
+    }
+
+
+    // public function unpaid($id)
+    // {
+    //     Booking::where('id', $id)
+    //         ->update(['status' => 'pending']);
+
+    //     $this->reset();
+    // }
 }

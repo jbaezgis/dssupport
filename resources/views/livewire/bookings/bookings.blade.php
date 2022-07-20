@@ -214,6 +214,17 @@
                                         {{$booking->alias_location_to}}
                                     </div>
                                 </div>
+
+                                <div>
+                                    <div class="text-xs text-gray-500">{{ __('Status') }}</div>
+                                    <div class="">
+                                        @if ($booking->status == 'paid')
+                                            <div class="cursor-pointer font-semibold text-green-600">{{ __('Paid') }}</div>
+                                        @else
+                                        <div class="cursor-pointer font-semibold">{{ __('Pending') }}</div>
+                                        @endif
+                                    </div>
+                                </div>
                                 
                             </div>
                         
@@ -250,13 +261,16 @@
                                 <div>
                                     @if ($booking->status == 'paid')
                                         <a class="inline-flex items-center px-4 py-2 bg-green-700 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-green-600 active:bg-green-800 focus:outline-none focus:border-green-800 focus:ring focus:ring-green-300 disabled:opacity-25 transition" href="{{ url('booking/'.$booking->id) }}">Open</a>
+                                        {{-- <a wire:click="unpaid({{ $item->id }})" class="cursor-pointer py-1 px-2 font-semibold text-green-600 bg-green-200 text-center rounded shadow">Activo</a> --}}
                                     @else
                                         <a class="inline-flex items-center px-4 py-2 bg-gray-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-400 active:bg-gray-600 focus:outline-none focus:border-gray-600 focus:ring focus:ring-gray-300 disabled:opacity-25 transition" href="{{ url('booking/'.$booking->id) }}">Open</a>
+                                        <a wire:click="paidShowModal({{ $booking->id }})" class="cursor-pointer py-2 px-2 font-semibold text-green-600 bg-green-200 text-center rounded shadow">{{ __('Mark as paid') }}</a>
                                     @endif
                                 </div>
                                 
                                 <div class="text-gray-600 align-middle py-1">
-                                    <span>{{ __('Booking date') }}:</span> <span class="font-bold">{{ date('j F Y', strtotime($booking->created_at)) }}</span> ({{ $booking->created_at->diffForHumans() }})
+                                    <span>{{ __('Booking date') }}:</span> 
+                                    <span class="font-bold">{{ date('j F Y', strtotime($booking->created_at)) }}</span> ({{ $booking->created_at->diffForHumans() }})
                                 </div>
                             </div>
                         </div>
@@ -267,6 +281,25 @@
             </div>
         </div>
 
-        
+        {{-- Mark as paid --}}
+        <x-jet-dialog-modal wire:model="modalConfirmPaid">
+            <x-slot name="title">
+                {{ __('Mark as Paid') }}
+            </x-slot>
+
+            <x-slot name="content">
+                {{ __('are you sure you want to mark this Booking as paid.') }}
+            </x-slot>
+
+            <x-slot name="footer">
+                <x-jet-secondary-button wire:click="$toggle('modalConfirmPaid')" wire:loading.attr="disabled">
+                    {{ __('Cancelar') }}
+                </x-jet-secondary-button>
+
+                <x-jet-button class="ml-3" wire:click="paid" wire:loading.attr="disabled">
+                    {{ __('Yes') }}
+                </x-jet-button>
+            </x-slot>
+        </x-jet-dialog-modal>
        
     </div>

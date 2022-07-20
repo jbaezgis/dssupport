@@ -186,7 +186,7 @@
 
                     <div class="mb-2">
                         {{-- <label class="mb-1 block text-sm font-medium text-secondary-700 dark:text-gray-400" for="arrival_time">{{ __('More') }}</label> --}}
-                        <x-textarea label="More information" name="more_information"/>
+                        <x-textarea label="More information" name="more_information" wire:model="more_information"/>
                         {{-- <textarea id="txtid" name="more_information" rows="4" cols="50" maxlength="200">
                             A nice day is a nice day.
                             Lao Tseu
@@ -234,7 +234,7 @@
 
                     <div class="mb-2">
                         {{-- <label class="mb-1 block text-sm font-medium text-secondary-700 dark:text-gray-400" for="arrival_time">{{ __('More') }}</label> --}}
-                        <x-textarea label="More information" name="more_information"/>
+                        <x-textarea label="More information" name="more_information" wire:model="more_information"/>
                         {{-- <textarea id="txtid" name="more_information" rows="4" cols="50" maxlength="200">
                             A nice day is a nice day.
                             Lao Tseu
@@ -299,7 +299,7 @@
 
                     <div class="mb-2">
                         {{-- <label class="mb-1 block text-sm font-medium text-secondary-700 dark:text-gray-400" for="arrival_time">{{ __('More') }}</label> --}}
-                        <x-textarea label="More information" name="more_information"/>
+                        <x-textarea label="More information" name="more_information" wire:model="more_information"/>
                         {{-- <textarea id="txtid" name="more_information" rows="4" cols="50" maxlength="200">
                             A nice day is a nice day.
                             Lao Tseu
@@ -313,12 +313,12 @@
 				{{-- End if tolocation is airport --}}
 				@else
                     <div class="text-lg font-bold text-gray-600 my-6 border-b border-gray-200">
-                        {{$booking->type == 'roundtrip' ? __('1st') : ''}} {{ __('Trip out pick-up information') }}
+                        {{$booking->type == 'roundtrip' ? __('1st Trip pick-up information') : __('Pick-up information')}}
                     </div>
                     <div class="grid grid-cols-2 gap-2">
                         <div class="mb-2">
                             <div class="block text-sm font-medium text-secondary-700 dark:text-gray-400 mb-1" for="arrival_time">
-                                {{$booking->type == 'roundtrip' ? __('1st') : ''}} {{ __('Trip out pick-up date') }}
+                                {{$booking->type == 'roundtrip' ? __('1st Trip pick-up date') : __('Pick-up date')}}
                             </div>
                             <div class="border border-gray-300 bg-white p-2 rounded-md shadow-sm w-full">
                                 {{ date('j F Y', strtotime($booking->arrival_date)) }}
@@ -326,7 +326,7 @@
                         </div>
         
                         <div class="mb-2">
-                            <label class="mb-1 block text-sm font-medium text-secondary-700 dark:text-gray-400" for="arrival_time">{{$booking->type == 'roundtrip' ? __('1st') : ''}} {{ __('Trip out pick-up time') }}</label>
+                            <label class="mb-1 block text-sm font-medium text-secondary-700 dark:text-gray-400" for="arrival_time">{{$booking->type == 'roundtrip' ? __('1st Trip pick-up time') : __('Pick-up time')}}</label>
                             <input class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full" 
                                 type="time" 
                                 name="arrival_time" id="arrival_time"
@@ -336,7 +336,7 @@
 
                     <div class="mb-2">
                         {{-- <label class="mb-1 block text-sm font-medium text-secondary-700 dark:text-gray-400" for="arrival_time">{{ __('More') }}</label> --}}
-                        <x-textarea label="More information" name="more_information"/>
+                        <x-textarea label="More information" name="more_information" wire:model="more_information"/>
                         {{-- <textarea id="txtid" name="more_information" rows="4" cols="50" maxlength="200">
                             A nice day is a nice day.
                             Lao Tseu
@@ -352,7 +352,7 @@
                 @if ($booking->type == 'roundtrip')
                     @if ($booking->service->fromlocation->is_airport and $booking->service->tolocation->is_airport)
                         <div class="text-lg font-bold text-gray-600 my-6 border-b border-gray-200">
-                            {{ __('2nd Trip Pick-up Information') }}
+                            {{ __('2nd Trip pick-up Information') }}
                         </div>
                         <div class="grid grid-cols-2 gap-2">
                             <div class="mb-2">
@@ -386,7 +386,7 @@
 
                         <div class="mb-2">
                             <label class="mb-1 block text-sm font-medium text-secondary-700 dark:text-gray-400" for="arrival_time">{{ __('Additional information') }}</label>
-                            <textarea class="border border-gray-300 bg-white p-2 rounded-md shadow-sm w-full" name="return_more_information" rows="4" cols="50" ></textarea>
+                            <textarea class="border border-gray-300 bg-white p-2 rounded-md shadow-sm w-full" name="return_more_information" rows="4" cols="50" wire:model="return_more_information"></textarea>
         
                             {{-- <div class="text-sm text-gray-600">
                                 {{ __('Please enter the name of your hotel or the address of your drop off location, as well as any additional information we should know.') }}
@@ -446,7 +446,7 @@
 
                             <div class="mb-2">
                                 <label class="mb-1 block text-sm font-medium text-secondary-700 dark:text-gray-400" for="arrival_time">{{ __('Additional information') }}</label>
-                                <textarea class="border border-gray-300 bg-white p-2 rounded-md shadow-sm w-full" name="return_more_information" rows="4" cols="50" ></textarea>
+                                <textarea class="border border-gray-300 bg-white p-2 rounded-md shadow-sm w-full" name="return_more_information" rows="4" cols="50" wire:model="return_more_information"></textarea>
             
                                 <div class="text-sm text-gray-600">
                                     {{ __('Enter Hotel or Address and other additional Information if different from arrival drop-off information.') }}
@@ -489,7 +489,7 @@
 
                         <div class="mb-2">
                             <label class="mb-1 block text-sm font-medium text-secondary-700 dark:text-gray-400" for="arrival_time">{{ __('Additional information') }}</label>
-                            <textarea class="border border-gray-300 bg-white p-2 rounded-md shadow-sm w-full" name="return_more_information" rows="4" cols="50" ></textarea>
+                            <textarea class="border border-gray-300 bg-white p-2 rounded-md shadow-sm w-full" name="return_more_information" rows="4" cols="50" wire:model="return_more_information"></textarea>
         
                             <div class="text-sm text-gray-600">
                                 {{ __('Enter Hotel or Address and other additional information if different from first trip pick-up information.') }}
@@ -499,13 +499,13 @@
 					{{-- End if tolocation is airport --}}
 					@else
                         <div class="text-lg font-bold text-gray-600 my-6 border-b border-gray-200">
-                            {{ __('2nd Trip Pick-up Information') }}
+                            {{ __('2nd Trip pick-up Information') }}
                         </div>
 
                         <div class="grid grid-cols-2 gap-2">
                             <div class="mb-2">
                                 
-                                <label class="mb-1 block text-sm font-medium text-secondary-700 dark:text-gray-400" for="return_date">{{ __('2nd Trip back pick-up date') }}</label>
+                                <label class="mb-1 block text-sm font-medium text-secondary-700 dark:text-gray-400" for="return_date">{{ __('2nd Trip pick-up date') }}</label>
                                 <input class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full" 
                                     type="date" 
                                     name="return_date" id="return_date"
@@ -514,7 +514,7 @@
                             </div>
             
                             <div class="mb-2">
-                            <label class="mb-1 block text-sm font-medium text-secondary-700 dark:text-gray-400" for="return_time_2">{{__('2nd Trip back pick-up time')}}</label>
+                            <label class="mb-1 block text-sm font-medium text-secondary-700 dark:text-gray-400" for="return_time_2">{{__('2nd Trip pick-up time')}}</label>
                                 <input class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full" 
                                     type="time" 
                                     name="return_time_2" id="return_time_2"
@@ -525,7 +525,7 @@
 
                         <div class="mb-2">
                             <label class="mb-1 block text-sm font-medium text-secondary-700 dark:text-gray-400" for="arrival_time">{{ __('Additional information') }}</label>
-                            <textarea class="border border-gray-300 bg-white p-2 rounded-md shadow-sm w-full" name="return_more_information" rows="4" cols="50" ></textarea>
+                            <textarea class="border border-gray-300 bg-white p-2 rounded-md shadow-sm w-full" name="return_more_information" rows="4" cols="50" wire:model="return_more_information" ></textarea>
         
                             <div class="text-sm text-gray-600">
                                 {{ __('Enter Hotel or Address and other additional Information if different from trip out drop-off information.') }}

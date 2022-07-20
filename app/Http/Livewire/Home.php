@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use Illuminate\Http\Request;
 use Livewire\WithPagination;
 use WireUi\Traits\Actions;
 use App\Models\Booking;
@@ -12,6 +13,7 @@ use App\Models\Service;
 use App\Models\ServicePrice;
 use Carbon\Carbon;
 use App\Http\Requests;
+use App\Models\ActivityLog;
 
 class Home extends Component
 {
@@ -40,9 +42,21 @@ class Home extends Component
         $this->locAlias = LocationAlias::orderBy('order_number', 'ASC')->get();
         $this->locAliasFrom = LocationAlias::where('id', $this->fromLocation)->first();
         $this->locAliasTo = LocationAlias::where('id', $this->toLocation)->first();
+
+        
         if (!empty($this->fromLocation and $this->toLocation))
         {
             $this->service = Service::where('from', $this->locAliasFrom->location_id)->where('to', $this->locAliasTo->location_id)->first();
+            // Set log 
+            ActivityLog::create([
+                'user_id' => 0,
+                'type' => 'Ground Transfer',
+                'module' => 'Transfer',
+                'action' => 'View From',
+                'message' => "{$this->locAliasFrom->location_name} and {$this->locAliasTo->location_name}",
+                'user_agent' => request()->server('HTTP_USER_AGENT'),
+                'ip' => request()->ip()
+            ]);
         }
 
         if($this->service)

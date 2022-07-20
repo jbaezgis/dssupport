@@ -1,53 +1,145 @@
 @section('title', __('Dashboard'))
-@section('description', 'Best Private Transfers in the DR!')
-@section('keywords', 'Dominican Shuttles, Private Transfers, Airport Pickup, Tourist, Transfers, Airport, Dominican, Tourism, Beach, Hotel, Private, Shuttle', 'Safety')
-@section('og-image', asset('images/image-cover.png'))
-@section('og-image-url', asset('images/image-cover.png'))
 <div>
-    {{-- @include('livewire.admin-menu') --}}
-
-    <div class="py-4 sm:px-6 lg:px-8 ">
-        <div class="flex gap-2 text-xs text-gray-500 mb-2">
-            <span>{{ __('System') }} </span>
-            <span class="pt-0.5">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
-            </span>
-            <span>{{ __('Dashboard') }}</span>
+    <div class="max-w-7xl mx-auto px-2 py-6">
+        <div class="flex justify-end">
+            <div>{{ __('Today') }}: <strong>{{ $today }}</strong></div>
         </div>
-        {{-- Date Filters --}}
-        {{-- <div class="flex gap-4 justify-end">
-            <x-datetime-picker
-                label="{{ __('From Date') }}"
-                placeholder="{{ __('From Date') }}"
-                wire:model="fromDate"
-                without-time="true"
-            />
-            <x-datetime-picker
-                label="{{ __('To Date') }}"
-                placeholder="{{ __('To Date') }}"
-                wire:model="toDate"
-                without-time="true"
-            />
-        </div> --}}
+        <div class="">
+            <div>
+                <div class="grid grid-cols-4 gap-4 py-2 rounded-b mb-2 text-gray-600 text-sm">
+                    <div class="shadow rounded p-2">
+                        <div>
+                            <strong>{{ __('Totay') }}</strong> {{ $bookingsTodayCount }} {{ __('bookings') }}
+                        </div>
+                        <div class="flex gap-2">
+                            <div>
+                                {{ __('Pendig') }}: <span class="font-bold">US${{ number_format($bookingsTodaySum, 2, '.', ',') }}</span>
+                            </div>
+                            <div>
+                                |
+                            </div>
+                            <div class="text-green-600">
+                                {{ __('Paid') }}: <span class="font-bold">US${{ number_format($bookingsTodayPaidSum, 2, '.', ',') }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="shadow rounded p-2">
+                        <div>
+                            <strong>{{ __('This week') }}</strong> {{ $bookingsThisWeekCount }} {{ __('bookings') }}
+                        </div>
+                        <div class="flex gap-2">
+                            <div>
+                                {{ __('Pendig') }}: <span class="font-bold">US${{ number_format($bookingsThisWeekSum, 2, '.', ',') }}</span>
+                            </div>
+                            <div>
+                                |
+                            </div>
+                            <div class="text-green-600">
+                                {{ __('Paid') }}: <span class="font-bold">US${{ number_format($bookingsThisWeekPaidSum, 2, '.', ',') }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="shadow rounded p-2">
+                        <div>
+                            <strong>{{ __('This month') }}</strong> {{ $bookingsThisMonthCount }} {{ __('bookings') }}
+                        </div>
+                        <div class="flex gap-2">
+                            <div>
+                                {{ __('Pendig') }}: <span class="font-bold">US${{ number_format($bookingsThisMonthSum, 2, '.', ',') }}</span>
+                            </div>
+                            <div>
+                                |
+                            </div>
+                            <div class="text-green-600">
+                                {{ __('Paid') }}: <span class="font-bold">US${{ number_format($bookingsThisMonthPaidSum, 2, '.', ',') }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="shadow rounded p-2">
+                        <div>
+                            <strong>{{ __('This year') }}</strong> {{ $bookingsThisYearCount }} {{ __('bookings') }}
+                        </div>
+                        <div class="flex gap-2">
+                            <div>
+                                {{ __('Pendig') }}: <span class="font-bold">US${{ number_format($bookingsThisYearSum, 2, '.', ',') }}</span>
+                            </div>
+                            <div>
+                                |
+                            </div>
+                            <div class="text-green-600">
+                                {{ __('Paid') }}: <span class="font-bold">US${{ number_format($bookingsThisYearPaidSum, 2, '.', ',') }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div wire:poll class="grid grid-cols-5 gap-4">
+                <div class="col-span-3 shadow-lg rounded">
+                    <div class="text-lg font-semibold bg-gray-200 p-2 rounded-t">{{ __('Today Bookings') }}</div>
+                    <div class="">
+                        <table class="border-collapse table-auto w-full text-sm">
+                            <thead class="bg-gray-100 text-gray-600">
+                              <tr>
+                                  <th class="border-b font-medium p-4 pt-0 pb-3 text-gray-400 text-left">#</th>
+                                  <th class="border-b font-medium p-4 pb-3 text-left">{{ __('Service') }}</th>
+                                  <th class="border-b font-medium p-4 pb-3 text-left">{{ __('Order total') }}</th>
+                                  <th class="border-b font-medium p-4 pb-3 text-left">{{ __('Status') }}</th>
+                                  <th class="border-b font-medium p-4 pb-3 text-left"></th>
+                              </tr>
+                            </thead>
+                              <tbody class="bg-white">
+                                  @foreach ($bookings as $item)
+                                      <tr>
+                                          <td class="border-b border-gray-100 p-4 text-gray-500">{{ $item->id }}</td>
+                                          <td class="border-b border-gray-100 p-4 text-gray-900">
+                                              <div>
+                                                <div>
+                                                    {{ __('From') }}: <strong>{{ $item->alias_location_from }}</strong>
+                                                </div>
+                                                <div>
+                                                    {{ __('To') }}: <strong>{{ $item->alias_location_to }}</strong>
+                                                </div>
+                                              </div>
+                                              <div class="text-xs">
+                                                  {{ $item->descripcion }}
+                                              </div>
+                                          </td>
+                                          <td class="border-b border-gray-100 p-4 text-gray-500">${{ number_format($item->order_total, 2, '.', ',') }}</td>
+                                          <td class="border-b border-gray-100 p-4 text-gray-500">
+                                                @if ($item->status == 'paid')
+                                                    <div class="cursor-pointer font-semibold text-green-600 bg-green-200 rounded px-2 py-1">{{ __('Paid') }}</div>
+                                                @else
+                                                    <div class="cursor-pointer font-semibold bg-gray-200 rounded px-2 py-1">{{ __('Pending') }}</div>
+                                                @endif
+                                            </td>
+                                          {{-- <td class="border-b border-gray-100 p-4 text-gray-500">{{ $item->user->name }}</td> --}}
+                                          <td class="border-b border-gray-100 p-4 text-gray-500">
+                                            <a class="inline-flex items-center px-4 py-2 bg-gray-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-400 active:bg-gray-600 focus:outline-none focus:border-gray-600 focus:ring focus:ring-gray-300 disabled:opacity-25 transition" href="{{ url('booking/'.$item->id) }}">{{ __('Open') }}</a>
+                                          </td>
+                                      </tr>
+                                  @endforeach
+                              </tbody>
+                          </table>
+                    </div>
+                </div>
+                <div class="shadow-lg rounded col-span-2 p-2">
+                    <div class="text-lg font-semibold">{{ __('Booking Analytics') }}</div>
 
-        {{-- Counts --}}
-        {{-- <div class="flex gap-4 justify-end py-4">
-            <x-card>
-                <p>{{ __('All Bookings') }}</p>
-                <h2 class="text-xl font-bold">{{ $bookingsCount }}</h2>
-            </x-card>
-            <x-card>
-                <p>{{ __('Peding') }}</p>
-                <h2 class="text-xl font-bold">{{ $pendingCount }}</h2>
-            </x-card>
-            <x-card>
-                <p>{{ __('Paid') }}</p>
-                <h2 class="text-xl font-bold">{{ $paidCount }}</h2>
-            </x-card>
-        </div> --}}
+                    {{-- <div class="p-2">
+                        <div>
+                            <strong>{{ __('Totay') }}</strong> {{ $logsFromAndroid }} {{ __('from Android') }}
+                        </div>
+                        <div>
+                            <strong>{{ __('Totay') }}</strong> {{ $logsFromIphone }} {{ __('from iPhone') }}
+                        </div>
+                        <div>
+                            <strong>{{ __('Totay') }}</strong> {{ $logsFromPC }} {{ __('from PC') }}
+                        </div>
+                    </div> --}}
+                </div>
+            </div>
 
+        </div>
     </div>
-   
 </div>

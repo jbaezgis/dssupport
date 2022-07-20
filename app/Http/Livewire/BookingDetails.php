@@ -10,6 +10,7 @@ use App\Models\Location;
 use App\Models\LocationAlias;
 use App\Models\Service;
 use Carbon\Carbon;
+use App\Models\ActivityLog;
 
 class BookingDetails extends Component
 {
@@ -27,6 +28,16 @@ class BookingDetails extends Component
 
     public function render()
     {
+        ActivityLog::create([
+            'user_id' => 0,
+            'type' => 'info',
+            'module' => 'Transfer',
+            'action' => 'Request sent',
+            'message' => "Booking id: {$this->booking->id}, From: {$this->booking->alias_location_from} To: {$this->booking->alias_location_to}, Name: {$this->booking->fullname}",
+            'user_agent' => request()->server('HTTP_USER_AGENT'),
+            'ip' => request()->ip()
+        ]);
+
         return view('livewire.booking-details');
     }
 }

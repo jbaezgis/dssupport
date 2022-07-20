@@ -1719,8 +1719,16 @@ select{
   flex-grow: 1;
 }
 
+.table-auto{
+  table-layout: auto;
+}
+
 .table-fixed{
   table-layout: fixed;
+}
+
+.border-collapse{
+  border-collapse: collapse;
 }
 
 .origin-top-left{
@@ -1856,6 +1864,10 @@ select{
 
 .grid-cols-5{
   grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.grid-cols-4{
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .flex-row{
@@ -2410,6 +2422,11 @@ select{
 .bg-green-700{
   --tw-bg-opacity: 1;
   background-color: rgb(4 120 87 / var(--tw-bg-opacity));
+}
+
+.bg-green-200{
+  --tw-bg-opacity: 1;
+  background-color: rgb(167 243 208 / var(--tw-bg-opacity));
 }
 
 .bg-transparent{

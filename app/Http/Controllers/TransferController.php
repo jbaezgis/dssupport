@@ -13,9 +13,12 @@ use App\Libraries\BookingRequestHelper;
 use App\Repositories\LocationRepository;
 use App\Repositories\BookingRepository;
 use App\Events\TransferRequestedEvent;
+use App\Mail\RequestConfirmation;
+use App\Mail\RequestConfirmationForDS;
 use App\Services\PriceCalculator;
 use App\Mail\TransferConfirmation;
-use Mail;
+// use Mail;
+use Illuminate\Support\Facades\Mail;
 use DB;
 use Log;
 use Hash;
@@ -342,6 +345,9 @@ class TransferController extends Controller
 		}
 
         $booking->save();
+
+        Mail::to($booking->email)->send(new RequestConfirmation($booking));
+        // Mail::to('info@dominicanshuttles.com')->send(new RequestConfirmationForDS($booking));
 
         $bookingUrl = url('booking/'.$booking->id);
         $bookingID = $booking->id;

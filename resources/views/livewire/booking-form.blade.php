@@ -177,10 +177,10 @@
 
                     <div class="grid grid-cols-2 gap-2">
                         <div class="mb-2">
-                            <x-input label="{{$booking->type == 'roundtrip' ? __('1st Trip arrival airline') : 'Arrival airline'}}"  name="arrival_airline"  value="{{ old('arrival_airline', $booking->arrival_airline) }}"/>
+                            <x-input label="{{$booking->type == 'roundtrip' ? __('1st Trip arrival airline') : 'Arrival airline'}}"  name="arrival_airline"  wire:model='arrival_airline'/>
                         </div>
                         <div class="mb-2">
-                            <x-input label="Flight flight"  name="flight_number" value="{{ old('flight_number', $booking->flight_number) }}"/>
+                            <x-input label="Flight flight"  name="flight_number" wire:model='flight_number'/>
                         </div>
                     </div>
 
@@ -225,10 +225,10 @@
 
                     <div class="grid grid-cols-2 gap-2">
                         <div class="mb-2">
-                            <x-input label="{{ $booking->service->fromlocation->is_airport ? __('Arrival Airline') : __('Departure Airline') }}"  name="arrival_airline"/>
+                            <x-input label="{{ $booking->service->fromlocation->is_airport ? __('Arrival Airline') : __('Departure Airline') }}"  name="arrival_airline" wire:model='arrival_airline'/>
                         </div>
                         <div class="mb-2">
-                            <x-input label="Flight flight"  name="flight_number"/>
+                            <x-input label="Flight flight"  name="flight_number" wire:model='flight_number'/>
                         </div>
                     </div>
 
@@ -273,10 +273,10 @@
 
                     <div class="grid grid-cols-2 gap-2">
                         <div class="mb-2">
-                            <x-input label="Departure airline"  name="arrival_airline"/>
+                            <x-input label="Departure airline"  name="arrival_airline" wire:model='arrival_airline'/>
                         </div>
                         <div class="mb-2">
-                            <x-input label="Flight number"  name="flight_number"/>
+                            <x-input label="Flight number"  name="flight_number" wire:model='flight_number'/>
                         </div>
                     </div>
 
@@ -380,7 +380,7 @@
                                 <x-input label="{{ __('2nd Trip arrival airline') }}"  name="return_airline" value="{{ old('return_airline', $booking->return_airline) }}"/>
                             </div>
                             <div class="mb-2">
-                                <x-input label="Flight flight"  name="return_flight_number" value="{{ old('return_flight_number', $booking->return_flight_number) }}"/>
+                                <x-input label="Flight flight"  name="return_flight_number" wire:model='return_flight_number'/>
                             </div>
                         </div>
 
@@ -424,7 +424,7 @@
                                     <x-input label="{{ __('Departure airline') }}"  name="return_airline" value="{{ old('return_airline', $booking->return_airline) }}"/>
                                 </div>
                                 <div class="mb-2">
-                                    <x-input label="Flight number"  name="return_flight_number" value="{{ old('return_flight_number', $booking->return_flight_number) }}"/>
+                                    <x-input label="Flight number"  name="return_flight_number" wire:model='return_flight_number'/>
                                 </div>
                             </div>
 
@@ -480,10 +480,10 @@
 
                         <div class="grid grid-cols-2 gap-2">
                             <div class="mb-2">
-                                <x-input label="{{ __('Arrival Airline') }}"  name="return_airline" value="{{ old('return_airline', $booking->return_airline) }}"/>
+                                <x-input label="{{ __('Arrival Airline') }}"  name="return_airline" wire:model='return_airline'/>
                             </div>
                             <div class="mb-2">
-                                <x-input label="Flight Number"  name="return_flight_number" value="{{ old('return_flight_number', $booking->return_flight_number) }}"/>
+                                <x-input label="Flight Number"  name="return_flight_number" wire:model='return_flight_number'/>
                             </div>
                         </div>
 
@@ -536,10 +536,12 @@
 					
 				@endif
 				{{-- end roundtrip information --}}
+                
 
             <div class="flex justify-center mt-4">
                 <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
                     <button 
+                        {{-- wire:loading.remove --}}
                         type="submit" 
                         class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-blue-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-blue-800 focus:outline-none focus:border-green-700 focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5"
                         {{ (!empty($fullname) && !empty($email) && !empty($phone) ? '' : 'disabled') }}

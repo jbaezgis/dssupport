@@ -81,7 +81,7 @@
                         <table class="border-collapse table-auto w-full text-sm">
                             <thead class="bg-gray-100 text-gray-600">
                               <tr>
-                                  <th class="border-b font-medium p-4 pt-0 pb-3 text-gray-400 text-left">#</th>
+                                  <th class="border-b font-medium p-4 pb-3 text-gray-400 text-left">#</th>
                                   <th class="border-b font-medium p-4 pb-3 text-left">{{ __('Service') }}</th>
                                   <th class="border-b font-medium p-4 pb-3 text-left">{{ __('Order total') }}</th>
                                   <th class="border-b font-medium p-4 pb-3 text-left">{{ __('Status') }}</th>

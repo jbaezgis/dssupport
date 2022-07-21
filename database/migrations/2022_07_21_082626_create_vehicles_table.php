@@ -19,7 +19,7 @@ class CreateVehiclesTable extends Migration
             $table->string('brand')->nullable();
             $table->string('model')->nullable();
             $table->integer('year')->nullable();
-            $table->ingeter('max_passengers')->nullable();
+            $table->integer('max_passengers')->nullable();
             $table->timestamps();
         });
     }

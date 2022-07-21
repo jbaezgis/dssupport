@@ -16,6 +16,8 @@ use App\Http\Livewire\ContactUs;
 use App\Http\Livewire\PrivacyPolicy;
 use App\Http\Livewire\CreateManualBooking;
 use App\Http\Livewire\EditManualBooking;
+use App\Http\Livewire\Users;
+use App\Http\Livewire\Logs;
 
 
 // Lang
@@ -59,4 +61,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::post('booking/oneway-manual', [TransferController::class, 'storeOneWayManualBooking'])->name('oneway_manual');
     Route::post('booking/roundtrip-manual', [TransferController::class, 'storeRoundTripManualBooking'])->name('roundtrip_manual');
     Route::patch('/bookings/save/{id}', [TransferController::class, 'manualUpdate'])->name('manual_update');
+    Route::get('users', Users::class)->name('users');
+    Route::get('logs', Logs::class)->name('logs');
 });

@@ -17,9 +17,6 @@ class CreateBookingUsersTable extends Migration
             $table->id();
             $table->unsignedBigInteger('booking_id');
             $table->unsignedBigInteger('user_id');
-
-            $table->foreign('booking_id')->references('id')->on('bookings');
-            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

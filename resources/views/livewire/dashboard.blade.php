@@ -9,7 +9,7 @@
                 <div class="grid grid-cols-4 gap-4 py-2 rounded-b mb-2 text-gray-600 text-sm">
                     <div class="shadow rounded p-2">
                         <div>
-                            <strong>{{ __('Totay') }}</strong> {{ $bookingsTodayCount }} {{ __('bookings') }}
+                            <strong>{{ __('Totay') }}:</strong> {{ $bookingsTodayCount }} {{ __('bookings') }}
                         </div>
                         <div class="flex gap-2">
                             <div>
@@ -25,7 +25,7 @@
                     </div>
                     <div class="shadow rounded p-2">
                         <div>
-                            <strong>{{ __('This week') }}</strong> {{ $bookingsThisWeekCount }} {{ __('bookings') }}
+                            <strong>{{ __('This week') }}:</strong> {{ $bookingsThisWeekCount }} {{ __('bookings') }}
                         </div>
                         <div class="flex gap-2">
                             <div>
@@ -41,7 +41,7 @@
                     </div>
                     <div class="shadow rounded p-2">
                         <div>
-                            <strong>{{ __('This month') }}</strong> {{ $bookingsThisMonthCount }} {{ __('bookings') }}
+                            <strong>{{ __('This month') }}:</strong> {{ $bookingsThisMonthCount }} {{ __('bookings') }}
                         </div>
                         <div class="flex gap-2">
                             <div>
@@ -57,7 +57,7 @@
                     </div>
                     <div class="shadow rounded p-2">
                         <div>
-                            <strong>{{ __('This year') }}</strong> {{ $bookingsThisYearCount }} {{ __('bookings') }}
+                            <strong>{{ __('This year') }}:</strong> {{ $bookingsThisYearCount }} {{ __('bookings') }}
                         </div>
                         <div class="flex gap-2">
                             <div>
@@ -76,7 +76,7 @@
             
             <div wire:poll class="grid grid-cols-5 gap-4">
                 <div class="col-span-3 shadow-lg rounded">
-                    <div class="text-lg font-semibold bg-gray-200 p-2 rounded-t">{{ __('Today Bookings') }}</div>
+                    <div class="text-lg font-semibold bg-gray-200 p-2 rounded-t">{{ __('Bookings Today') }}</div>
                     <div class="">
                         <table class="border-collapse table-auto w-full text-sm">
                             <thead class="bg-gray-100 text-gray-600">

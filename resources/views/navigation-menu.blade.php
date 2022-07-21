@@ -108,6 +108,70 @@
                     </x-jet-responsive-nav-link>
                 @endguest
                 @auth
+                <div class="">
+                    <x-jet-dropdown align="right" width="60">
+                        <x-slot name="trigger">
+                            <span class="inline-flex rounded-md">
+                                <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent leading-4 font-medium rounded-md text-gray-500 bg-white hover:bg-gray-50 hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition">
+                                {{ __('Administration') }}
+    
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 -mr-0.5 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </button>
+                            </span>
+                        </x-slot>
+    
+                        <x-slot name="content">
+                            <div class="w-60">
+                                <!-- Team Management -->
+                                {{-- <div class="block px-4 py-2 text-xs text-gray-400">
+                                    {{ __('Manage') }}
+                                </div> --}}
+                                {{-- <x-jet-dropdown-link href="{{ route('users') }}" class="{{ request()->routeIs('users') ? 'text-gray-700 bg-gray-200' : '' }}">
+                                    {{ __('Drivers') }}
+                                </x-jet-dropdown-link> --}}
+                                <x-jet-dropdown-link href="#" class="">
+                                    {{ __('Services') }}
+                                </x-jet-dropdown-link>
+                                <x-jet-dropdown-link href="#" class="">
+                                    {{ __('Locations') }}
+                                </x-jet-dropdown-link>
+                                <x-jet-dropdown-link href="#" class="">
+                                    {{ __('Aircrafts') }}
+                                </x-jet-dropdown-link>
+                                <x-jet-dropdown-link href="#" class="">
+                                    {{ __('Tours') }}
+                                </x-jet-dropdown-link>
+                                <x-jet-dropdown-link href="#" class="">
+                                    {{ __('Coupons') }}
+                                </x-jet-dropdown-link>
+                                
+    
+                                <div class="border-t border-gray-100"></div>
+                                <div class="block px-4 py-2 text-xs text-gray-400">
+                                    {{ __('Security') }}
+                                </div>
+                                <x-jet-dropdown-link href="{{ route('users') }}" class="{{ request()->routeIs('users*') ? 'text-gray-700 bg-gray-200' : '' }}">
+                                    {{ __('Users') }}
+                                </x-jet-dropdown-link>
+                                {{-- <x-jet-dropdown-link href="">
+                                    {{ __('Roles and Permisions') }}
+                                </x-jet-dropdown-link> --}}
+    
+                                <div class="block px-4 py-2 text-xs text-gray-400">
+                                    {{ __('System') }}
+                                </div>
+                                <x-jet-dropdown-link href="">
+                                    {{ __('Bulk Actions') }}
+                                </x-jet-dropdown-link>
+                                <x-jet-dropdown-link href="{{ route('logs') }}" class="{{ request()->routeIs('logs') ? 'text-gray-700 bg-gray-200' : '' }}">
+                                    {{ __('Logs') }}
+                                </x-jet-dropdown-link>
+                            </div>
+                        </x-slot>
+                    </x-jet-dropdown>
+                </div>
                     <div class="ml-3 relative">
                         <x-jet-dropdown align="right" width="48">
                             <x-slot name="trigger">
@@ -217,6 +281,7 @@
 
 
         @auth
+            
             
             <div class="pt-4 pb-1 border-t border-gray-200">
                 <div class="flex items-center px-4">

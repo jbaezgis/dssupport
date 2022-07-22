@@ -60,6 +60,32 @@ class BookingForm extends Component
         $this->return_more_information = $this->booking->return_more_information;
     }
 
+    public function modelData()
+    {
+        return [
+            'fullname' => $this->booking->fullname,
+            'email' => $this->booking->email,
+            'phone' => $this->booking->phone,
+            'passengers' => $this->booking->passengers,
+            'arrival_date' => $this->booking->arrival_date,
+            'arrival_time' => $this->booking->arrival_time,
+            'language' => $this->booking->language,
+            'more_information' => $this->booking->more_information,
+            'arrival_airline' => $this->booking->arrival_airline,
+            'flight_number' => $this->booking->flight_number,
+
+            'want_to_arrive' => $this->booking->want_to_arrive,
+            'pickup_time' => $this->booking->pickup_time,
+            'return_date' => $this->booking->return_date,
+            'return_airline' => $this->booking->return_airline,
+            'return_flight_number' => $this->booking->return_flight_number,
+            'return_want_to_arrive_2' => $this->booking->return_want_to_arrive_2,
+            'return_time_2' => $this->booking->return_time_2,
+            'return_pickup_time_2' => $this->booking->return_pickup_time_2,
+            'return_more_information' => $this->booking->return_more_information,
+        ];
+    }
+
     public function updated($propertyName)
     {
         $this->validateOnly($propertyName);
@@ -67,7 +93,6 @@ class BookingForm extends Component
 
     public function render()
     {
-
         $this->willArriveData = [
 			'90' => '1 hour 30 min',
 			'120' => '2 hours 00 min',

@@ -2,6 +2,9 @@
 <div>
     <div class="max-w-7xl mx-auto pt-6 px-2">
         <h1 class="text-3xl font-bold text-gray-600 mb-4">Users</h1>
+
+       
+
         <div class="flex justify-between p-2 bg-white rounded-t shadow">
             <div>
                 <x-jet-input id="search" class="block mt-1 w-full" type="text" name="search" wire:model.debounce.500ms="search" placeholder="ID o Descripcion"/>

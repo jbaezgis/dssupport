@@ -4,7 +4,7 @@
 @section('og-image', asset('images/image-cover.png'))
 @section('og-image-url', asset('images/image-cover.png'))
 <div>
-    <div class="max-w-3xl mx-auto p-4">
+    <div class="max-w-xl mx-auto p-4">
         <div class="bg-white rounded">
             <div class="pt-4 flex justify-center">
                 <div class="">

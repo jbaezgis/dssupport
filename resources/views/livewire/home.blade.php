@@ -5,7 +5,7 @@
 @section('og-image-url', asset('images/image-cover.png'))
 <div>
     <div class="bg-gray-50 py-6">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-xl mx-auto sm:px-6 lg:px-8">
             <div class="py-4">
                 <div class="flex justify-end gap-2 pr-2">
                     <a class="inline-flex items-center px-4 py-2 {{ app()->getLocale() == 'en' ? 'bg-blue-100 border border-blue-400 text-blue-400 tracking-widest hover:bg-blue-200 active:bg-blue-300 focus:border-blue-400 focus:ring focus:ring-blue-300' : 'bg-gray-50 hover:bg-gray-200 active:bg-gray-300 focus:border-gray-300 focus:ring focus:ring-gray-300' }} border rounded-md font-semibold text-xs tracking-widest focus:outline-none focus:ring disabled:opacity-25 transition" href="{{ url('locale/en') }}" title="English"><img class="h-4 mr-2" src="{{ asset('images/flags/um.svg') }}" alt="English"> EN</a>
@@ -87,7 +87,7 @@
         </div>
     </div>
     
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <div class="max-w-xl mx-auto sm:px-6 lg:px-8">
         @if ($service)
             <div class="flex justify-center mb-2">
                 <div wire:loading>
@@ -201,7 +201,7 @@
         @endif
     </div>
 
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <div class="max-w-xl mx-auto sm:px-6 lg:px-8">
         <div class="p-4 mt-8 bg-blue-500">
             <div>
                 <h1 class="text-xl text-white">{{ __('PRIVATE TRANSFER SERVICES') }}</h1>

@@ -74,8 +74,8 @@
             </tr>
         </tbody>
     </table>
-    <!-- <h2>Requested Private Shuttle Service</h2> -->
-    <h2>Booking Confirmation</h2>
+    <h2>Requested Private Shuttle Service</h2> 
+    <!-- <h2>Booking Confirmation</h2> -->
     <div style="border-bottom: 1px solid #ccc; margin-bottom: 10px;"></div>
     <table class="table">
         <tbody>

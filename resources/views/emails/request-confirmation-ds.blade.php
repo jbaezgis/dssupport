@@ -39,11 +39,7 @@
     </style>
 </head>
 <body style="margin: auto; width: 80%">
-    <p>Dear {{ $booking->fullname }},</p> 
-    <p>Thank you for booking with Dominican Shuttles! We are pleased to confirm your Transfer.</p> 
-    <p>All our rides adhere to our Health and Safety Standards, The vehicle will be sanitized before your pickup and
-    your chauffeur will greet you with a bow instead of a handshake.</p> 
-    <p>Below is the summary of your upcoming Transfer,</p> 
+    <p>New booking request,</p> 
     <!-- <p style="text-align: center;"><img src="https://dominicanshuttles.com/logos/1465152109logo.png" alt="Dominican Shuttles" /></p> -->
     <div style="border-bottom: 1px solid #ccc;"></div>
     <h2>Order #{{ $booking->id }}</h2>
@@ -116,7 +112,7 @@
     
     {{-- <a href="{{ url('make-payment-transfer?bookingkey='.$booking->bookingkey) }} " class="btn"></a> --}}
     {{-- <a href="{{ url('make-payment-transfer?bookingkey='.$booking->bookingkey.'&viewby=admin') }} " class="btn">View Booking</a> --}}
-    <a href="{{ url('booking-details/'.$booking->id.'?bookingkey='.$booking->bookingkey) }} " class="btn">View Booking</a>
+    <a href="{{ url('bookings/'.$booking->id)}} " class="btn">View Booking</a>
 
 
     <p>Check all your information above and let us know if there is a mistake.</p>

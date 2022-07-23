@@ -70,7 +70,7 @@ class Users extends Component
             'name' => $this->name,
             'email' => $this->email,
             'role' => $this->role,
-            'password' => bcrypt($this->password),
+            'password' => bcrypt('12345678'),
         ];
     }
 
@@ -85,9 +85,8 @@ class Users extends Component
 
     public function create()
     {
-        $this->formMode = 'create';
         $this->validate();
-        User::create($this->modelData());
+        User::create($this->createModelData());
         $this->notification()->success(
             $title = __('User added!'),
             $description = __('User added correcly.')

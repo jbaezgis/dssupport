@@ -347,7 +347,7 @@ class TransferController extends Controller
         $booking->save();
 
         Mail::to($booking->email)->send(new RequestConfirmation($booking));
-        // Mail::to('info@dominicanshuttles.com')->send(new RequestConfirmationForDS($booking));
+        Mail::to('info@dominicanshuttles.com')->send(new RequestConfirmationForDS($booking));
 
         $bookingUrl = url('booking/'.$booking->id);
         $bookingID = $booking->id;

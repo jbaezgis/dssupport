@@ -10,6 +10,8 @@ class ShowBooking extends Component
 {
     public $booking, $booking_name, $id_task, $tasks, $booking_id, $user_id, $name, $details, $status_id;
     public $modal = false;
+    public $spanishEmailModal = false;
+    public $englishEmailModal = false;
     public $priceCalculation = '';
     public $spanishEmailContent = false;
 
@@ -32,6 +34,12 @@ class ShowBooking extends Component
     public function openModal()
     {
         $this->modal = true;
+    }
+
+    public function spanishEmailModal()
+    {
+        $this->spanishEmailModal = true;
+
     }
 
     public function closeModal()

@@ -112,7 +112,7 @@
     
     {{-- <a href="{{ url('make-payment-transfer?bookingkey='.$booking->bookingkey) }} " class="btn"></a> --}}
     {{-- <a href="{{ url('make-payment-transfer?bookingkey='.$booking->bookingkey.'&viewby=admin') }} " class="btn">View Booking</a> --}}
-    <a href="{{ url('bookings/'.$booking->id)}} " class="btn">View Booking</a>
+    <a href="{{ url('booking/'.$booking->id)}} " class="btn">View Booking</a>
 
 
     <p>Check all your information above and let us know if there is a mistake.</p>

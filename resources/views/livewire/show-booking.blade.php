@@ -22,10 +22,10 @@
 
         <div class="flex justify-between border-b pb-2">
             <div>
-                <a wire:click="openSnapnishEmailContent()" class="cursor-pointer inline-flex items-center px-4 py-2 bg-gray-100 border border-transparent rounded-md font-semibold text-xs text-gray-700 uppercase tracking-widest hover:bg-gray-200 active:bg-gray-300 focus:outline-none focus:border-gray-300 focus:ring focus:ring-gray-300 disabled:opacity-25 transition">
+                <a wire:click="spanishEmailModal()" class="cursor-pointer inline-flex items-center px-4 py-2 bg-gray-100 border border-transparent rounded-md font-semibold text-xs text-gray-700 uppercase tracking-widest hover:bg-gray-200 active:bg-gray-300 focus:outline-none focus:border-gray-300 focus:ring focus:ring-gray-300 disabled:opacity-25 transition">
                     {{ __('Email template') }}
                 </a>
-                <a wire:click="openSnapnishEmailContent()" class="cursor-pointer  inline-flex items-center px-4 py-2 bg-gray-100 border border-transparent rounded-md font-semibold text-xs text-gray-700 uppercase tracking-widest hover:bg-gray-200 active:bg-gray-300 focus:outline-none focus:border-gray-300 focus:ring focus:ring-gray-300 disabled:opacity-25 transition">
+                <a wire:click="spanishEmailModal()" class="cursor-pointer  inline-flex items-center px-4 py-2 bg-gray-100 border border-transparent rounded-md font-semibold text-xs text-gray-700 uppercase tracking-widest hover:bg-gray-200 active:bg-gray-300 focus:outline-none focus:border-gray-300 focus:ring focus:ring-gray-300 disabled:opacity-25 transition">
                     {{ __('Spanish email template') }}
                 </a>
                 
@@ -548,4 +548,410 @@
             
         </div>
     </div>
+
+    {{-- Reset Password Modal --}}
+    <x-jet-dialog-modal wire:model="spanishEmailModal">
+        <x-slot name="title">
+            {{ __('Plantilla para correo') }}
+        </x-slot>
+
+        <x-slot name="content">
+            <p>Texto de prueba</p>
+            <p>Texto de prueba</p>
+            <p>Texto de prueba</p>
+            <div class="col-span-2 ">
+                        
+                <div class="bg-white shadow-sm rounded px-4 py-6 mb-4">
+                    <div class="flex gap-4 ">
+                        
+                        <div>
+                            <div class="text-xs text-gray-500">{{ __('FROM') }}</div>
+                            <div class="font-bold">
+                                {{$booking->alias_location_from}}
+                            </div>
+                        </div>
+                        <div>
+                            <div class="text-xs text-gray-500">{{ __('TO') }}</div>
+                            <div class="font-bold">
+                                {{$booking->alias_location_to}}
+                            </div>
+                        </div>
+                        <div>
+                            <div class="text-xs text-gray-500">TYPE</div>
+                            <div>
+                                {{ $booking->type }}
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div class="bg-white shadow-sm rounded px-4 py-6">
+                    
+                    {{-- Conditions --}}
+                    @if ($booking->service->fromlocation->is_airport and $booking->service->tolocation->is_airport) 
+                        <h2 class="text-xl font-weight-bold text-gray-700 font-bold">{{ $booking->type == 'roundtrip' ? __('1st Trip Arrival Information') : __('Arrival Information') }}</h2>
+                        <div class="pt-2 mb-2 border-b border-gray-200"></div>
+                        <div class="flex gap-4 mb-2 ">
+                            <div>
+                                <div class="text-xs text-gray-500">{{ __('ARRIVAL DATE') }}</div>
+                                <div>
+                                    {{ date('j F Y', strtotime($booking->arrival_date)) }}
+                                </div>
+                            </div>
+                            <div>
+                                <div class="text-xs text-gray-500">{{ __('ARRIVAL TIME') }}</div>
+                                <div>
+                                    {{ date('g:i A', strtotime($booking->arrival_time)) }} 
+                                </div>
+                            </div>
+                            <div>
+                                <div class="text-xs text-gray-500">{{ __('ARRIVAL AIRLINE') }}</div>
+                                <div>
+                                    {{$booking->arrival_airline}} 
+                                </div>
+                            </div>
+                            <div>
+                                <div class="text-xs text-gray-500">{{ __('FLIGHT NUMBER') }}</div>
+                                <div>
+                                    {{$booking->flight_number}}
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="flex gap-4 mb-2 ">
+                            <div>
+                                <div class="text-xs text-gray-500">{{ __('ADITIONAL INFORMATION') }}</div>
+                                <div>
+                                    {{$booking->more_information}}
+                                </div>
+                            </div>
+                        </div> 
+                    @elseif ($booking->service->fromlocation->is_airport)
+                        <h2 class="text-xl font-weight-bold text-gray-700 font-bold">{{ __('Arrival Information') }}</h2>
+                        <div class="pt-2 mb-2 border-b border-gray-200"></div>
+                        <div class="flex gap-4 mb-2 ">
+                            <div>
+                                <div class="text-xs text-gray-500">{{ __('ARRIVAL DATE') }}</div>
+                                <div>
+                                    {{ date('j F Y', strtotime($booking->arrival_date)) }}
+                                </div>
+                            </div>
+                            <div>
+                                <div class="text-xs text-gray-500">{{ __('ARRIVAL TIME') }}</div>
+                                <div>
+                                    {{ date('g:i A', strtotime($booking->arrival_time)) }} 
+                                </div>
+                            </div>
+                            <div>
+                                <div class="text-xs text-gray-500">{{ __('ARRIVAL AIRLINE') }}</div>
+                                <div>
+                                    {{$booking->arrival_airline}} 
+                                </div>
+                            </div>
+                            <div>
+                                <div class="text-xs text-gray-500">{{ __('FLIGHT NUMBER') }}</div>
+                                <div>
+                                    {{$booking->flight_number}}
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="flex gap-4 mb-2 ">
+                            <div>
+                                <div class="text-xs text-gray-500">{{ __('ADITIONAL INFORMATION') }}</div>
+                                <div>
+                                    {{$booking->more_information}}
+                                </div>
+                            </div>
+                        </div> 
+                    @elseif ($booking->service->tolocation->is_airport)
+                        <h2 class="text-xl font-weight-bold text-gray-700 font-bold">{{ __('Departure Information') }}</h2>
+                        <div class="pt-2 mb-2 border-b border-gray-200"></div>
+                        <div class="flex gap-4 mb-2 ">
+                            <div>
+                                <div class="text-xs text-gray-500">{{ __('DEPARTURE DATE') }}</div>
+                                <div>
+                                    {{ date('j F Y', strtotime($booking->arrival_date)) }}
+                                </div>
+                            </div>
+                            <div>
+                                <div class="text-xs text-gray-500">{{ __('DEPARTURE TIME') }}</div>
+                                <div>
+                                    {{ date('g:i A', strtotime($booking->arrival_time)) }} 
+                                </div>
+                            </div>
+                            <div>
+                                <div class="text-xs text-gray-500">{{ __('DEPARTURE AIRLINE') }}</div>
+                                <div>
+                                    {{$booking->arrival_airline}} 
+                                </div>
+                            </div>
+                            <div>
+                                <div class="text-xs text-gray-500">{{ __('FLIGHT NUMBER') }}</div>
+                                <div>
+                                    {{$booking->flight_number}}
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="text-xs text-gray-500">{{ __('I (WE) WANT TO ARRIVE') }}</div>
+                                <div>
+                                    @if ($booking->want_to_arrive == 90)
+                                        1 hour 30 min
+                                    @elseif ($booking->want_to_arrive == 120)
+                                        2 hours 00 min
+                                    @elseif ($booking->want_to_arrive == 150)
+                                        2 hours 30 min
+                                    @elseif ($booking->want_to_arrive == 180)
+                                        3 hours 00 min
+                                    @elseif ($booking->want_to_arrive == 210)
+                                        3 hours 30 min
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="text-xs text-gray-500">{{ __('PICK UP TIME') }}</div>
+                                <div>
+                                    {{ date('g:i A', strtotime($booking->pickup_time)) }}
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="flex gap-4 mb-2 ">
+                            <div>
+                                <div class="text-xs text-gray-500">{{ __('ADITIONAL INFORMATION') }}</div>
+                                <div>
+                                    {{$booking->more_information}}
+                                </div>
+                            </div>
+                        </div> 
+                    @else
+                        <h2 class="text-xl font-weight-bold text-gray-700 font-bold">{{ $booking->type == 'roundtrip' ? __('1st Trip') : '' }} {{ __('Pick-up Information') }}</h2>
+                        <div class="pt-2 mb-2 border-b border-gray-200"></div>
+                        <div class="flex gap-4 mb-2 ">
+                            <div>
+                                <div class="text-xs text-gray-500">{{ __('PICK UP DATE') }}</div>
+                                <div>
+                                    {{ date('j F Y', strtotime($booking->arrival_date)) }}
+                                </div>
+                            </div>
+                            <div>
+                                <div class="text-xs text-gray-500">{{ __('PICK UP TIME') }}</div>
+                                <div>
+                                    {{ date('g:i A', strtotime($booking->arrival_time)) }} 
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 mb-2 ">
+                            <div>
+                                <div class="text-xs text-gray-500">{{ __('ADITIONAL INFORMATION') }}</div>
+                                <div>
+                                    {{$booking->more_information}}
+                                </div>
+                            </div>
+                        </div> 
+                    @endif
+                    {{-- End Arribal information --}}
+
+                    {{-- Deaperture information --}}
+                    @if ($booking->type == 'roundtrip')
+
+                        @if ($booking->service->fromlocation->is_airport and $booking->service->tolocation->is_airport)
+                            <h2 class="text-xl font-weight-bold text-gray-700 mt-6 font-bold">{{ __('2nd Trip Arrival Information') }}</h2>
+                            <div class="pt-2 mb-2 border-b border-gray-200"></div>
+
+                            <div class="flex gap-4 mb-2 ">
+                                <div>
+                                    <div class="text-xs text-gray-500">{{ __('2ND TRIP ARRIVAL DATE') }}</div>
+                                    <div>
+                                        {{ date('j F Y', strtotime($booking->return_date)) }}
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-gray-500">{{ __('2ND TRIP ARRIVAL TIME') }}</div>
+                                    <div>
+                                        {{ date('g:i A', strtotime($booking->return_time_2)) }} 
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-gray-500">{{ __('2ND TRIP ARRIVAL AIRLINE') }}</div>
+                                    <div>
+                                        {{$booking->arrival_airline}} 
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-gray-500">{{ __('2ND TRIP FLIGHT NUMBER') }}</div>
+                                    <div>
+                                        {{$booking->flight_number}}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-4 mb-2 ">
+                                <div>
+                                    <div class="text-xs text-gray-500">{{ __('ADITIONAL INFORMATION') }}</div>
+                                    <div>
+                                        {{$booking->return_more_information}}
+                                    </div>
+                                </div>
+                            </div> 
+
+                        
+                        @elseif ($booking->service->fromlocation->is_airport)
+                        <h2 class="text-xl font-weight-bold text-gray-700 mt-6 font-bold">{{ __('Departure Information') }}</h2>
+                            <div class="pt-2 mb-2 border-b border-gray-200"></div>
+
+                            <div class="flex gap-4 mb-2 ">
+                                <div>
+                                    <div class="text-xs text-gray-500">{{ __('DEPARTURE DATE') }}</div>
+                                    <div>
+                                        {{ date('j F Y', strtotime($booking->return_date)) }}
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-gray-500">{{ __('DEPARTURE TIME') }}</div>
+                                    <div>
+                                        {{ date('g:i A', strtotime($booking->return_time_2)) }} 
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-gray-500">{{ __('DEPARTURE AIRLINE') }}</div>
+                                    <div>
+                                        {{$booking->return_airline}} 
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-gray-500">{{ __('FLIGHT NUMBER') }}</div>
+                                    <div>
+                                        {{$booking->return_flight_number}}
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div class="text-xs text-gray-500">{{ __('I (WE) WANT TO ARRIVE') }}</div>
+                                    <div>
+                                        @if ($booking->want_to_arrive == 90)
+                                            1 hour 30 min
+                                        @elseif ($booking->want_to_arrive == 120)
+                                            2 hours 00 min
+                                        @elseif ($booking->want_to_arrive == 150)
+                                            2 hours 30 min
+                                        @elseif ($booking->want_to_arrive == 180)
+                                            3 hours 00 min
+                                        @elseif ($booking->want_to_arrive == 210)
+                                            3 hours 30 min
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div class="text-xs text-gray-500">{{ __('PICK UP TIME') }}</div>
+                                    <div>
+                                        {{ date('g:i A', strtotime($booking->pickup_time)) }}
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="flex gap-4 mb-2 ">
+                                <div>
+                                    <div class="text-xs text-gray-500">{{ __('ADITIONAL INFORMATION') }}</div>
+                                    <div>
+                                        {{$booking->return_more_information}}
+                                    </div>
+                                </div>
+                            </div> 
+
+                            
+                        @elseif ($booking->service->tolocation->is_airport)
+                            
+                            <h2 class="text-xl font-weight-bold text-gray-700 font-bold mt-6">{{ __('Arrival Information') }}</h2>
+                            <div class="pt-2 mb-2 border-b border-gray-200"></div>
+                            <div class="flex gap-4 mb-2 ">
+                                <div>
+                                    <div class="text-xs text-gray-500">{{ __('ARRIVAL DATE') }}</div>
+                                    <div>
+                                        {{ date('j F Y', strtotime($booking->return_date)) }}
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-gray-500">{{ __('ARRIVAL TIME') }}</div>
+                                    <div>
+                                        {{ date('g:i A', strtotime($booking->return_time_2)) }} 
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-gray-500">{{ __('ARRIVAL AIRLINE') }}</div>
+                                    <div>
+                                        {{$booking->return_airline}} 
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-gray-500">{{ __('FLIGHT NUMBER') }}</div>
+                                    <div>
+                                        {{$booking->return_flight_number}}
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="flex gap-4 mb-2 ">
+                                <div>
+                                    <div class="text-xs text-gray-500">{{ __('ADITIONAL INFORMATION') }}</div>
+                                    <div>
+                                        {{$booking->return_more_information}}
+                                    </div>
+                                </div>
+                            </div> 
+                        @else
+                            <h2 class="text-xl font-weight-bold text-gray-700 font-bold mt-6">{{ __('2nd Trip Pick-up Information') }}</h2>
+                            <div class="pt-2 mb-2 border-b border-gray-200"></div>
+                            <div class="flex gap-4 mb-2 ">
+                                <div>
+                                    <div class="text-xs text-gray-500">{{ __('RETURN DATE') }}</div>
+                                    <div>
+                                        {{ date('j F Y', strtotime($booking->return_date)) }}
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-gray-500">{{ __('RETURN TIME') }}</div>
+                                    <div>
+                                        {{ date('g:i A', strtotime($booking->return_time_2)) }} 
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-4 mb-2 ">
+                                <div>
+                                    <div class="text-xs text-gray-500">{{ __('ADITIONAL INFORMATION') }}</div>
+                                    <div>
+                                        {{$booking->return_more_information}}
+                                    </div>
+                                </div>
+                            </div> 
+                        @endif
+                        {{-- endif conditions --}}
+                    @endif 
+                    {{-- endif rountrip --}}
+                </div>
+                
+            </div>
+        </x-slot>
+
+        <x-slot name="footer">
+            <x-jet-secondary-button wire:click="$toggle('spanishEmailModal')" wire:loading.attr="disabled">
+                {{ __('Close') }}
+            </x-jet-secondary-button>
+
+            {{-- <x-jet-button class="ml-3" wire:click="resetPassword" wire:loading.attr="disabled">
+                {{ __('Reset Password') }}
+            </x-jet-button> --}}
+        </x-slot>
+    </x-jet-dialog-modal>
 </div>
